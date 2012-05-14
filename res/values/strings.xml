@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+ 
+    <string name="exception_location_aware_search">"something wrong:\nlocation not found or not valid\n"</string>
+    <string name="exception_location_not_newer_state">location is the same:\nlist will be the same\n</string>
+    <string name="exception_no_network">network not available\nusing cache\n</string>
+
+</resources>
