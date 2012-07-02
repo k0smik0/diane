@@ -8,9 +8,5 @@
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/epicurus"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/roboguice"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/kusor"/>
-	<classpathentry kind="lib" path="/data/fucina/develop/home/k0smik0/workspace/enhancedsafeasynctask/jars/roboenhancedsafeasynctask.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/enhancedasynctask"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/enhancedasynctask_roboguiced"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
