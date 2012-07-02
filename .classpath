@@ -3,12 +3,14 @@
 	<classpathentry excluding="net/iubris/diane/PlaceHunter.java" kind="src" path="src/core"/>
 	<classpathentry kind="src" path="src/base"/>
 	<classpathentry excluding="net/iubris/diane/loader/DianeLoader.java" kind="src" path="src/roboguice"/>
-	<classpathentry kind="src" path="src/vanilla"/>
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/epicurus"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/android-compatibilty-v4"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/roboguice"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/kusor"/>
+	<classpathentry kind="lib" path="/data/fucina/develop/home/k0smik0/workspace/enhancedsafeasynctask/jars/roboenhancedsafeasynctask.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/enhancedasynctask"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/enhancedasynctask_roboguiced"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
