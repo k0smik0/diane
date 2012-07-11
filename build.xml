@@ -101,7 +101,6 @@
 		<javac destdir="${build.dir}/classes/task/roboguiced" includeantruntime="false">
 			<src path="${src.dir}/task/roboguiced" />
 			<include name="**/*.java"/>
-			<exclude name="**/DianeLoader.java"/>
 			<classpath refid="classpath-main"/>
 			<classpath refid="classpath-roboguiced"/>			
 		</javac>
