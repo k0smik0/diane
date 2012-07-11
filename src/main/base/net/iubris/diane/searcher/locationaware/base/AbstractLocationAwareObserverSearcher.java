@@ -21,10 +21,11 @@ package net.iubris.diane.searcher.locationaware.base;
 
 import net.iubris.diane.searcher.locationaware.LocationAwareSearcher;
 import net.iubris.diane.searcher.locationaware.exceptions.location.LocationNotNewerStateException;
+import net.iubris.diane.searcher.locationaware.locator.LocationUpdater;
+import net.iubris.diane.searcher.locationaware.locator.Locator;
+import net.iubris.diane.searcher.locationaware.observatory.observer.LocationObserver;
 import net.iubris.diane.searcher.locationaware.utils.LocationUtils;
-import net.iubris.kusor.locator.KLocator;
-import net.iubris.kusor.observatory.observer.LocationObserver;
-import net.iubris.kusor.updater.LocationUpdater;
+
 
 
 import android.location.Location;
@@ -35,7 +36,7 @@ implements LocationAwareSearcher<State,Result,Boolean>, LocationObserver, Locati
 	
 	private static String TAG = "AbstractLocationAwareObserverSearcher";
 
-	private  KLocator kLocator;
+	private  Locator locator;
 	private final Integer distanceMinimumThreshold;
 	//private final Integer distanceFactorThreshold;
 	private final long timeMinimumThreshold;
@@ -44,13 +45,14 @@ implements LocationAwareSearcher<State,Result,Boolean>, LocationObserver, Locati
 	protected Location freshLocation;
 	
 	
-	public AbstractLocationAwareObserverSearcher(KLocator kLocator,
+	public AbstractLocationAwareObserverSearcher(/*KLocator kLocator,*/
+			Locator iLocator,
 			Integer distanceMinimumThreshold, 
 			//Integer distanceFactorThreshold,
 			long timeMinimumThreshold) {		
 		//if (distanceFactorThreshold*distanceMinimumThreshold <=0) throw new NumberFormatException("Only positive value");
 		if (distanceMinimumThreshold <=0) throw new NumberFormatException("Only positive value");
-		this.kLocator = kLocator;
+		this.locator = iLocator;
 		this.distanceMinimumThreshold = distanceMinimumThreshold;
 		//this.distanceFactorThreshold = distanceFactorThreshold;
 		this.timeMinimumThreshold = timeMinimumThreshold;
@@ -126,7 +128,7 @@ Log.d(TAG,"first freshLocation");
 	}
 	
 	private Location updateFreshLocation() {
-		return kLocator.getLocation();
+		return locator.getLocation();
 	}
 	
 	private boolean isFreshLocationOlder() {
@@ -135,23 +137,26 @@ Log.d(TAG,"first freshLocation");
 	
 	
 	
-	public Boolean setNewLocation(Location newLocation) {
+	private Boolean setNewLocation(Location newLocation) {
 		this.location = newLocation;
 Log.d(TAG,""+location);
 		return true;
-	}	
-
-	@Override
-	public void startLocationUpdates() {	
-		LocationObserver locationObserver = this;
-Log.d(TAG,""+locationObserver);
-		kLocator.attachObserver(locationObserver);
-		kLocator.startLocationUpdates();		
 	}
 
 	@Override
-	public void stopLocationUpdates() {
-		kLocator.detachObserver(this);
-		kLocator.stopLocationUpdates();
+	public void startLocationUpdates() {
+		/*
+		LocationObserver locationObserver = this;
+Log.d(TAG,""+locationObserver);
+		kLocator.attachObserver(locationObserver);
+		*/
+		locator.attachObserver(this);
+		locator.startLocationUpdates();		
+	}
+
+	@Override
+	public void stopLocationUpdates() {		
+		locator.detachObserver(this);
+		locator.stopLocationUpdates();
 	}
 }
