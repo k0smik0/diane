@@ -5,7 +5,7 @@
 	<property name="user" value="k0smik0"/>
 	<property name="vendor" value="Massimiliano Leone - k0smik0"/>
 	<property name="version" value="0.1"/>
-	<property name="copyright" value="Copyleft 2012 Massimiliano Leone - massimiliano.leone@iubris.net"/>
+	<property name="copyright" value="Copyleft 2012 Massimiliano Leone - iubris.net@gmail.com"/>
 	<property name="license.file" value="COPYING.txt"/>
 	<property name="license.url" value="http://www.gnu.org/licenses/lgpl.txt"/>
 	<property name="docurl" value="https://github.com/k0smik0/diane"/>
@@ -77,7 +77,7 @@
 	
 	<target name="clean" depends="clean-main, clean-task, clean-task-roboguiced"/>	
 	
-		
+	
 	<target name="compile-main">
 		<mkdir dir="${build.dir}/classes/main"/>
 		<javac destdir="${build.dir}/classes/main" includeantruntime="false">
@@ -101,7 +101,7 @@
 		<javac destdir="${build.dir}/classes/task/roboguiced" includeantruntime="false">
 			<src path="${src.dir}/task/roboguiced" />
 			<include name="**/*.java"/>
-			<classpath refid="classpath-main"/>
+			<!--classpath refid="classpath-main"/-->
 			<classpath refid="classpath-roboguiced"/>			
 		</javac>
 	</target>
@@ -140,7 +140,7 @@
 	
 	<target name="jar-task-roboguiced" depends="clean-task-roboguiced, compile-task-roboguiced">
 		<mkdir dir="${build.dir}/jars/"/>
-		<jar destfile="${jar-roboguiced.file}" basedir="${build.dir}/classes/roboguiced">
+		<jar destfile="${jar-roboguiced.file}" basedir="${build.dir}/classes/task/roboguiced">
 			<manifest>
 				<attribute name="Built-By" value="${user}" />    
         <attribute name="Bundle-Name" value="${name}" />

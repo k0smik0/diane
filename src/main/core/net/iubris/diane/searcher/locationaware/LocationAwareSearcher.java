@@ -21,14 +21,15 @@ package net.iubris.diane.searcher.locationaware;
 
 import net.iubris.diane.searcher.Searcher;
 import net.iubris.diane.searcher.exceptions.SearchException;
-import net.iubris.diane.searcher.locationaware.exceptions.location.LocationNotNewerStateException;
-import net.iubris.diane.searcher.locationaware.exceptions.location.LocationStateException;
 import net.iubris.diane.searcher.locationaware.exceptions.search.LocationAwareSearchException;
+import net.iubris.diane.searcher.locationaware.exceptions.state.LocationNotNewerStateException;
+import net.iubris.diane.searcher.locationaware.exceptions.state.LocationStateException;
 import android.location.Location;
 
 public interface LocationAwareSearcher<SearchState, SearchResult, LocationState> extends Searcher<SearchState,SearchResult> {
 	public Location getLocation();
 	public LocationState isInNewerLocation() throws LocationNotNewerStateException, LocationStateException;
+	@Override
 	public SearchState search() throws LocationAwareSearchException, SearchException;
 	
 	//State locationAwareSearch(boolean isInNewerLocation) throws LocationAwareSearchException;

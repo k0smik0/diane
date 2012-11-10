@@ -20,9 +20,9 @@
 package net.iubris.diane.asynctask;
 
 import net.iubris.diane.searcher.exceptions.SearchException;
-import net.iubris.diane.searcher.locationaware.exceptions.location.LocationNotNewerStateException;
 import net.iubris.diane.searcher.locationaware.exceptions.search.LocationAwareSearchException;
-import net.iubris.diane.searcher.networkaware.exceptions.network.NoNetworkException;
+import net.iubris.diane.searcher.locationaware.exceptions.state.LocationNotNewerStateException;
+import net.iubris.diane.searcher.networkaware.exceptions.state.NoNetworkException;
 
 public interface SearcherCallable<ResultT> {
 	public ResultT call() throws 

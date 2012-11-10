@@ -1,7 +1,7 @@
 /*******************************************************************************
  * Copyleft 2012 Massimiliano Leone - massimiliano.leone@iubris.net .
  * 
- * NoNetworkException.java is part of 'Diane'.
+ * NotNewerLocationException.java is part of 'Diane'.
  * 
  * 'Diane' is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -17,22 +17,16 @@
  * along with 'Diane' ; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
  ******************************************************************************/
-package net.iubris.diane.searcher.networkaware.exceptions.network;
+package net.iubris.diane.searcher.networkaware.exceptions.state;
 
-import net.iubris.diane.searcher.exceptions.SearchException;
+public class NotNewerLocationException extends NetworkStateException {
 
-public class NoNetworkException extends SearchException {
-
-	public NoNetworkException(String string) {
+	public NotNewerLocationException(String string) {
 		super(string);
 	}
-	public NoNetworkException(Throwable cause) {
+	public NotNewerLocationException(Throwable cause) {
 		super(cause);
 	}
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -1518662560258888263L;
-
+	private static final long serialVersionUID = -6975814409336648121L;
 }

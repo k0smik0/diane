@@ -24,15 +24,15 @@ import java.util.concurrent.Executor;
 import net.iubris.diane.asynctask.SearcherCallable;
 import net.iubris.diane.searcher.Searcher;
 import net.iubris.diane.searcher.exceptions.SearchException;
-import net.iubris.diane.searcher.locationaware.exceptions.location.LocationNotNewerStateException;
 import net.iubris.diane.searcher.locationaware.exceptions.search.LocationAwareSearchException;
-import net.iubris.diane.searcher.networkaware.exceptions.network.NoNetworkException;
+import net.iubris.diane.searcher.locationaware.exceptions.state.LocationNotNewerStateException;
+import net.iubris.diane.searcher.networkaware.exceptions.state.NoNetworkException;
 import net.iubris.etask.EnhancedSafeAsyncTaskContexted;
 import android.content.Context;
 import android.os.Handler;
 
 public abstract class SearchAsyncTask 
-<SearchResult, S extends Searcher<SearchStatus, SearchResult>, SearchStatus> 
+<S extends Searcher<SearchStatus, SearchResult>, SearchStatus, SearchResult> 
 extends EnhancedSafeAsyncTaskContexted<SearchStatus> 
 implements SearcherCallable<SearchStatus>{
 

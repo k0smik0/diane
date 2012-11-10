@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src/main/core"/>
+	<classpathentry excluding="net/iubris/diane/searcher/networkaware/exceptions/state/NotNewerLocationException.java" kind="src" path="src/main/core"/>
 	<classpathentry kind="src" path="src/main/base"/>
 	<classpathentry kind="src" path="src/task/base"/>
 	<classpathentry excluding="net/iubris/diane/loader/DianeLoader.java" kind="src" path="src/task/roboguiced"/>

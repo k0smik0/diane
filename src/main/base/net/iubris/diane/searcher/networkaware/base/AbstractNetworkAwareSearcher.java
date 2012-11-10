@@ -23,7 +23,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 import net.iubris.diane.searcher.networkaware.NetworkAwareSearcher;
-import net.iubris.diane.searcher.networkaware.exceptions.network.NetworkStateException;
+import net.iubris.diane.searcher.networkaware.exceptions.state.NetworkStateException;
 
 public abstract class AbstractNetworkAwareSearcher<SearchState, SearchResult> implements NetworkAwareSearcher<SearchState, SearchResult, Boolean> {
 

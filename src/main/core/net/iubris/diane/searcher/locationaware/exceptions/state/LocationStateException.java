@@ -1,7 +1,7 @@
 /*******************************************************************************
  * Copyleft 2012 Massimiliano Leone - massimiliano.leone@iubris.net .
  * 
- * NetworkStateException.java is part of 'Diane'.
+ * LocationStateException.java is part of 'Diane'.
  * 
  * 'Diane' is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -17,17 +17,18 @@
  * along with 'Diane' ; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
  ******************************************************************************/
-package net.iubris.diane.searcher.networkaware.exceptions.network;
+package net.iubris.diane.searcher.locationaware.exceptions.state;
 
 import net.iubris.diane.searcher.exceptions.StateException;
 
-public class NetworkStateException extends StateException {
+public class LocationStateException extends StateException {
 
-	public NetworkStateException(String message) {
-		super(message);
+	private static final long serialVersionUID = -2633470036116304334L;
+
+	public LocationStateException(String string) {
+		super(string);
 	}
-	public NetworkStateException(Throwable cause) {
+	public LocationStateException(Throwable cause) {
 		super(cause);
 	}
-	private static final long serialVersionUID = -8133069373241529790L;
 }

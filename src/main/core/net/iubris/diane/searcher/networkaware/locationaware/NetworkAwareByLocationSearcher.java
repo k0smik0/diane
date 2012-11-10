@@ -17,11 +17,11 @@
  * along with 'Diane' ; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
  ******************************************************************************/
-package net.iubris.diane.searcher.networkaware;
+package net.iubris.diane.searcher.networkaware.locationaware;
 
 import net.iubris.diane.searcher.ByLocationSearcher;
+import net.iubris.diane.searcher.networkaware.NetworkAwareSearcher;
 
 public interface NetworkAwareByLocationSearcher<SearchState, SearchResult, NetworkState> extends
 		NetworkAwareSearcher<SearchState, SearchResult, NetworkState>, ByLocationSearcher<SearchState, SearchResult> {
-	//public SearchState search(Location location) throws NullLocationException, SearchException;
 }

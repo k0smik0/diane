@@ -20,7 +20,7 @@
 package net.iubris.diane.searcher.locationaware.base;
 
 import net.iubris.diane.searcher.locationaware.LocationAwareSearcher;
-import net.iubris.diane.searcher.locationaware.exceptions.location.LocationNotNewerStateException;
+import net.iubris.diane.searcher.locationaware.exceptions.state.LocationNotNewerStateException;
 import net.iubris.diane.searcher.locationaware.locator.LocationUpdater;
 import net.iubris.diane.searcher.locationaware.locator.Locator;
 import net.iubris.diane.searcher.locationaware.observatory.observer.LocationObserver;

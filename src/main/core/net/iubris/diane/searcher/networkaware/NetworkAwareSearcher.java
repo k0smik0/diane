@@ -21,10 +21,11 @@ package net.iubris.diane.searcher.networkaware;
 
 import net.iubris.diane.searcher.Searcher;
 import net.iubris.diane.searcher.exceptions.SearchException;
-import net.iubris.diane.searcher.networkaware.exceptions.network.NetworkStateException;
 import net.iubris.diane.searcher.networkaware.exceptions.search.NetworkAwareSearchException;
+import net.iubris.diane.searcher.networkaware.exceptions.state.NetworkStateException;
 
 public interface NetworkAwareSearcher<SearchState, SearchResult, NetworkState> extends Searcher<SearchState,SearchResult> {
 	public NetworkState isConnected() throws NetworkStateException;
+	@Override
 	public SearchState search() throws NetworkAwareSearchException, SearchException;
 }

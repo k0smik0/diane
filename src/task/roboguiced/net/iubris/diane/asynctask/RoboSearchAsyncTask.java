@@ -27,8 +27,8 @@ import android.content.Context;
 import android.os.Handler;
 
 public abstract class RoboSearchAsyncTask
-<SearchResult, S extends Searcher<SearchStatus, SearchResult>, SearchStatus> 
-extends SearchAsyncTask<SearchResult, S , SearchStatus> {
+<S extends Searcher<SearchStatus, SearchResult>, SearchStatus, SearchResult> 
+extends SearchAsyncTask<S , SearchStatus, SearchResult> {
 
 	protected RoboSearchAsyncTask(Context context) {
 		super(context);

@@ -1,7 +1,7 @@
 /*******************************************************************************
  * Copyleft 2012 Massimiliano Leone - massimiliano.leone@iubris.net .
  * 
- * NotNewerLocationException.java is part of 'Diane'.
+ * LocationNotNewerStateException.java is part of 'Diane'.
  * 
  * 'Diane' is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -17,18 +17,17 @@
  * along with 'Diane' ; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
  ******************************************************************************/
-package net.iubris.diane.searcher.networkaware.exceptions.network;
+package net.iubris.diane.searcher.locationaware.exceptions.state;
 
-import net.iubris.diane.searcher.exceptions.SearchException;
 
-public class NotNewerLocationException extends SearchException {
+public class LocationNotNewerStateException extends LocationStateException {
 
-	public NotNewerLocationException(String string) {
+	private static final long serialVersionUID = 4050873687143262682L;
+
+	public LocationNotNewerStateException(String string) {
 		super(string);
 	}
-	public NotNewerLocationException(Throwable cause) {
+	public LocationNotNewerStateException(Throwable cause) {
 		super(cause);
 	}
-
-	private static final long serialVersionUID = -6975814409336648121L;
 }
