@@ -2,11 +2,12 @@
 
 Diane is an android framework for location-aware searching.
 
-In example, a google places query is location-aware searching, because you need your geolocation.
+For example, a google places query is location-aware searching, because you need your geolocation.
 
 So, Diane provides a set of interfaces which could help your implementation model.
 
-Basically, all inherit from __Searcher__:
+Basically, all inherits from __Searcher__:
+  
 <pre>
 public interface Searcher<SearchState,SearchResult> {
 	public SearchState search() throws SearchException;
@@ -28,6 +29,7 @@ public interface LocationAwareSearcher<SearchState, SearchResult, LocationState>
 Then, you can have a network searching or local (cached?) ones, and so:
 
 combining LocationAwareSearcher with below __NetworkAwareSearcher__:
+
 <pre>
 public interface NetworkAwareSearcher<SearchState, SearchResult, NetworkState> extends Searcher<SearchState,SearchResult> {
 	public NetworkState isConnected() throws NetworkStateException;
@@ -35,17 +37,21 @@ public interface NetworkAwareSearcher<SearchState, SearchResult, NetworkState> e
 	public SearchState search() throws NetworkAwareSearchException, SearchException;
 }
 </pre>
+
 we have __NetworkAwareByLocationSearcher__:
+
 <pre>
 public interface NetworkAwareByLocationSearcher<SearchState, SearchResult, NetworkState> extends NetworkAwareSearcher<SearchState, SearchResult, NetworkState>, ByLocationSearcher<SearchState, SearchResult> {}
 </pre>
 
 Finally, for local/cached search, we combine LocationAwareSearcher with __CacheAwareSearcher__
+
 <pre>
 public interface CacheAwareSearcher<SearchState, SearchResult> extends Searcher<SearchState, SearchResult> {}
 </pre>
 
 and we have __CacheAwareByLocationSearcher__
+
 <pre>
 public interface CacheAwareByLocationSearcher<SearchState, SearchResult> extends CacheAwareSearcher<SearchState, SearchResult>,	ByLocationSearcher<SearchState, SearchResult> {
 	@Override
@@ -59,15 +65,17 @@ A base implementation for _LocationAwareSearcher_ is provided by __AbstractLocat
 As the name AbstractLocationAwareObserverSearcher is an observer (therefore Locator is an observable), but it also implements _LocationUpdater_, hence startLocationUpdates and stopLocationUpdates methods (which,internally, wrap Locator ones)
 
 And about __Locator__:
+
 <pre>
 public interface Locator extends LocationProvider,LocationUpdater,LocationObservable{}
 </pre> 
   
   
 We have a base implementation also for _NetworkAwareSearcher_, that is __AbstractNetworkAwareSearcher__:  
-it simply retrieves connection status - if we are(n't) connected to umts/wifi
+it simply retrieves connection status - if we are(n't) connected to wifi/umts/other
   
   
   
 ## The Tasks
 
+TODO
