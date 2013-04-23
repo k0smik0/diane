@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="Searcher" size="9279,2476" id="net.iubris.dianedev.searcher" metadata="uml2-1.0" initialized="true" zoom="0.5" scrolledX="137" scrolledY="25" tag="1000" key="32303037303533312D31303030204469616E652F6B30736D696B30">
+  <children xsi:type="editmodel:GroupEditModel" location="73,1126"/>
+  <children xsi:type="editmodel:GroupEditModel" location="50,2240"/>
+  <children xsi:type="editmodel:GroupEditModel" location="840,2240"/>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.14/@sourceConnections.0" name="LocalizedSearcherCacheNetworkAware" location="1214,517" size="402,93" id="net.iubris.dianedev.searcher.location.base/LocalizedSearcherCacheNetworkAware" runTimeClassModel="search(Landroid.location.Location;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="69,18">
+      <children xsi:type="editmodel:MethodEditModel" name="search" id="net.iubris.dianedev.searcher.location.base/LocalizedSearcherCacheNetworkAware#search(Landroid.location.Location;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" id="net.iubris.dianedev.searcher.location.base.aware.network/LocalizedSearcherNetworkAware&lt;-net.iubris.dianedev.searcher.location.base/LocalizedSearcherCacheNetworkAware" source="//@children.3" target="//@children.16" targetEnd="//@children.3/@sourceConnections.0/@children.1" sourceEnd="//@children.3/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="392,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="66,92"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" id="net.iubris.dianedev.searcher.location.base.aware.cache/LocalizedSearcherCacheAware&lt;-net.iubris.dianedev.searcher.location.base/LocalizedSearcherCacheNetworkAware" source="//@children.3" target="//@children.19" targetEnd="//@children.3/@sourceConnections.1/@children.1" sourceEnd="//@children.3/@sourceConnections.1/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="10,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="357,93"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.18/@sourceConnections.0 //@children.6/@sourceConnections.1 //@children.16/@sourceConnections.1" name="NetworkAwareSearcher" location="-1381,283" size="432,93" id="net.iubris.dianedev.searcher.aware.network/NetworkAwareSearcher" runTimeClassModel="search(Ljava.lang.Void;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="69,18">
+      <children xsi:type="editmodel:MethodEditModel" name="search" id="net.iubris.dianedev.searcher.aware.network/NetworkAwareSearcher#search(Ljava.lang.Void;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="net.iubris.dianedev.searcher.aware/AwareSearcher&lt;-net.iubris.dianedev.searcher.aware.network/NetworkAwareSearcher" source="//@children.4" target="//@children.13/@sourceConnections.0" targetEnd="//@children.4/@sourceConnections.0/@children.1" sourceEnd="//@children.4/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="216,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,10"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="AbstractCacheAwareSearcher" location="-2970,464" size="478,98" id="net.iubris.dianedev.searcher.aware.cache.base/AbstractCacheAwareSearcher" runTimeClassModel="AbstractCacheAwareSearcher(Lnet.iubris.dianedev.aware.cache.states.booleaned.base.DefaultBooleanStateCacheAware;),search(Ljava.lang.Void;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="199,36">
+      <children xsi:type="editmodel:MethodEditModel" name="AbstractCacheAwareSearcher" id="net.iubris.dianedev.searcher.aware.cache.base/AbstractCacheAwareSearcher#AbstractCacheAwareSearcher(Lnet.iubris.dianedev.aware.cache.states.booleaned.base.DefaultBooleanStateCacheAware;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="search" id="net.iubris.dianedev.searcher.aware.cache.base/AbstractCacheAwareSearcher#search(Ljava.lang.Void;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="net.iubris.dianedev.searcher.aware.cache/CacheAwareSearcher&lt;-net.iubris.dianedev.searcher.aware.cache.base/AbstractCacheAwareSearcher" source="//@children.5" target="//@children.17" targetEnd="//@children.5/@sourceConnections.0/@children.1" sourceEnd="//@children.5/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="468,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,83"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="net.iubris.dianedev.aware.cache.states.booleaned.base/DefaultBooleanStateCacheAware@cacheAware+net.iubris.dianedev.searcher.aware.cache.base/AbstractCacheAwareSearcher@" source="//@children.5" target="//@children.22" targetEnd="//@children.5/@sourceConnections.1/@children.2" label="//@children.5/@sourceConnections.1/@children.0" sourceEnd="//@children.5/@sourceConnections.1/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,13" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="478,46" id="net.iubris.dianedev.aware.cache.states.booleaned.base/DefaultBooleanStateCacheAware@cacheAware+net.iubris.dianedev.searcher.aware.cache.base/AbstractCacheAwareSearcher@|net.iubris.dianedev.searcher.aware.cache.base/AbstractCacheAwareSearcher#" attachSource="true" roleLabel="//@children.5/@sourceConnections.1/@children.1/@children.0">
+        <children xsi:type="editmodel:LabelEditModel" location="-2485,490" size="0,13" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="cacheAware" location="-3,40" id="net.iubris.dianedev.aware.cache.states.booleaned.base/DefaultBooleanStateCacheAware@cacheAware+net.iubris.dianedev.searcher.aware.cache.base/AbstractCacheAwareSearcher@|net.iubris.dianedev.aware.cache.states.booleaned.base/DefaultBooleanStateCacheAware#cacheAware" multiplicityLabel="//@children.5/@sourceConnections.1/@children.2/@children.1" roleLabel="//@children.5/@sourceConnections.1/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" # cacheAware" location="-1550,1877" size="83,13" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="-1489,1850" size="22,13" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.9/@sourceConnections.1" name="FullAwareSearcher" location="-1006,706" size="252,93" id="net.iubris.dianedev.searcher.aware.base/FullAwareSearcher" runTimeClassModel="search(Ljava.lang.Void;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="69,18">
+      <children xsi:type="editmodel:MethodEditModel" name="search" id="net.iubris.dianedev.searcher.aware.base/FullAwareSearcher#search(Ljava.lang.Void;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" id="net.iubris.dianedev.searcher.aware.location/LocationAwareSearcher&lt;-net.iubris.dianedev.searcher.aware.base/FullAwareSearcher" source="//@children.6" target="//@children.13" targetEnd="//@children.6/@sourceConnections.0/@children.1" sourceEnd="//@children.6/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="126,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="24,93" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" id="net.iubris.dianedev.searcher.aware.network/NetworkAwareSearcher&lt;-net.iubris.dianedev.searcher.aware.base/FullAwareSearcher" source="//@children.6" target="//@children.4" targetEnd="//@children.6/@sourceConnections.1/@children.1" sourceEnd="//@children.6/@sourceConnections.1/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="126,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="401,93" anchorKind="FixedAtEdge"/>
+      <bendpoints location="-60,304" secondRelativeDimension="-201,317" firstRelativeDimension="-47,-24"/>
+      <bendpoints location="-60,161" secondRelativeDimension="-181,174" firstRelativeDimension="-109,-166"/>
+      <bendpoints location="-60,161" secondRelativeDimension="-180,174" firstRelativeDimension="-108,-165"/>
+      <bendpoints location="-60,13" secondRelativeDimension="-80,26" firstRelativeDimension="-120,-312"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" id="net.iubris.dianedev.searcher.aware.cache/CacheAwareSearcher&lt;-net.iubris.dianedev.searcher.aware.base/FullAwareSearcher" source="//@children.6" target="//@children.17" targetEnd="//@children.6/@sourceConnections.2/@children.1" sourceEnd="//@children.6/@sourceConnections.2/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="10,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="306,93"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.13/@sourceConnections.0 //@children.17/@sourceConnections.0" name="AwareSearcher" location="-473,132" size="370,93" id="net.iubris.dianedev.searcher.aware/AwareSearcher" runTimeClassModel="search(Ljava.lang.Void;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="69,18">
+      <children xsi:type="editmodel:MethodEditModel" name="search" id="net.iubris.dianedev.searcher.aware/AwareSearcher#search(Ljava.lang.Void;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.10/@sourceConnections.0" id="net.iubris.dianedev.searcher/Searcher&lt;-net.iubris.dianedev.searcher.aware/AwareSearcher" source="//@children.7" target="//@children.12" targetEnd="//@children.7/@sourceConnections.0/@children.1" sourceEnd="//@children.7/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="185,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="213,98" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="AbstractLocalizedSearcherCacheAware" location="324,465" size="403,82" id="net.iubris.dianedev.searcher.location.base.aware.cache/AbstractLocalizedSearcherCacheAware" runTimeClassModel="search(Landroid.location.Location;),AbstractLocalizedSearcherCacheAware(Lnet.iubris.dianedev.aware.cache.states.booleaned.base.DefaultBooleanStateCacheAware;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="250,36">
+      <children xsi:type="editmodel:MethodEditModel" name="AbstractLocalizedSearcherCacheAware" id="net.iubris.dianedev.searcher.location.base.aware.cache/AbstractLocalizedSearcherCacheAware#AbstractLocalizedSearcherCacheAware(Lnet.iubris.dianedev.aware.cache.states.booleaned.base.DefaultBooleanStateCacheAware;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="search" id="net.iubris.dianedev.searcher.location.base.aware.cache/AbstractLocalizedSearcherCacheAware#search(Landroid.location.Location;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="net.iubris.dianedev.aware.cache.states.booleaned.base/DefaultBooleanStateCacheAware@cacheAware+net.iubris.dianedev.searcher.location.base.aware.cache/AbstractLocalizedSearcherCacheAware@" source="//@children.8" target="//@children.22" targetEnd="//@children.8/@sourceConnections.0/@children.2" label="//@children.8/@sourceConnections.0/@children.0" sourceEnd="//@children.8/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,13" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="400,70" id="net.iubris.dianedev.aware.cache.states.booleaned.base/DefaultBooleanStateCacheAware@cacheAware+net.iubris.dianedev.searcher.location.base.aware.cache/AbstractLocalizedSearcherCacheAware@|net.iubris.dianedev.searcher.location.base.aware.cache/AbstractLocalizedSearcherCacheAware#" attachSource="true" roleLabel="//@children.8/@sourceConnections.0/@children.1/@children.0">
+        <children xsi:type="editmodel:LabelEditModel" location="733,514" size="0,13" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="cacheAware" location="-3,40" id="net.iubris.dianedev.aware.cache.states.booleaned.base/DefaultBooleanStateCacheAware@cacheAware+net.iubris.dianedev.searcher.location.base.aware.cache/AbstractLocalizedSearcherCacheAware@|net.iubris.dianedev.aware.cache.states.booleaned.base/DefaultBooleanStateCacheAware#cacheAware" multiplicityLabel="//@children.8/@sourceConnections.0/@children.2/@children.1" roleLabel="//@children.8/@sourceConnections.0/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" # cacheAware" location="-1550,1877" size="83,13" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="-1489,1850" size="22,13" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" id="net.iubris.dianedev.searcher.location.base.aware.cache/LocalizedSearcherCacheAware&lt;-net.iubris.dianedev.searcher.location.base.aware.cache/AbstractLocalizedSearcherCacheAware" source="//@children.8" target="//@children.19" targetEnd="//@children.8/@sourceConnections.1/@children.1" sourceEnd="//@children.8/@sourceConnections.1/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="36,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="227,93"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="DefaultFullAwareSearcher" location="-1065,870" size="306,134" id="net.iubris.dianedev.searcher.aware.base/DefaultFullAwareSearcher" runTimeClassModel="getResult(),DefaultFullAwareSearcher(Lnet.iubris.dianedev.aware.location.state.booleaned.base.DefaultBooleanStateLocationAware;Lnet.iubris.dianedev.searcher.location.base.LocalizedSearcherCacheNetworkAware;),search(Ljava.lang.Void;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="176,72">
+      <children xsi:type="editmodel:MethodEditModel" name="DefaultFullAwareSearcher" id="net.iubris.dianedev.searcher.aware.base/DefaultFullAwareSearcher#DefaultFullAwareSearcher(Lnet.iubris.dianedev.aware.location.state.booleaned.base.DefaultBooleanStateLocationAware;Lnet.iubris.dianedev.searcher.location.base.LocalizedSearcherCacheNetworkAware;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="search" id="net.iubris.dianedev.searcher.aware.base/DefaultFullAwareSearcher#search(Ljava.lang.Void;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getResult" id="net.iubris.dianedev.searcher.aware.base/DefaultFullAwareSearcher#getResult()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="DefaultFullAwareSearcher" id="net.iubris.dianedev.searcher.aware.base/DefaultFullAwareSearcher#DefaultFullAwareSearcher(Lnet.iubris.dianedev.aware.location.state.booleaned.base.DefaultBooleanStateLocationAware;Lnet.iubris.dianedev.searcher.location.base.LocalizedSearcherCacheNetworkAware;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="net.iubris.dianedev.aware.location.state.booleaned.base/DefaultBooleanStateLocationAware@locationAware+net.iubris.dianedev.searcher.aware.base/DefaultFullAwareSearcher@" source="//@children.9" target="//@children.23" targetEnd="//@children.9/@sourceConnections.0/@children.2" label="//@children.9/@sourceConnections.0/@children.0" sourceEnd="//@children.9/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,13" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="306,60" id="net.iubris.dianedev.aware.location.state.booleaned.base/DefaultBooleanStateLocationAware@locationAware+net.iubris.dianedev.searcher.aware.base/DefaultFullAwareSearcher@|net.iubris.dianedev.searcher.aware.base/DefaultFullAwareSearcher#" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="locationAware" location="-3,65" id="net.iubris.dianedev.aware.location.state.booleaned.base/DefaultBooleanStateLocationAware@locationAware+net.iubris.dianedev.searcher.aware.base/DefaultFullAwareSearcher@|net.iubris.dianedev.aware.location.state.booleaned.base/DefaultBooleanStateLocationAware#locationAware" multiplicityLabel="//@children.9/@sourceConnections.0/@children.2/@children.1" roleLabel="//@children.9/@sourceConnections.0/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" # locationAware" location="-343,1065" size="94,13" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="-271,1038" size="22,13" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="net.iubris.dianedev.searcher.aware.base/FullAwareSearcher&lt;-net.iubris.dianedev.searcher.aware.base/DefaultFullAwareSearcher" source="//@children.9" target="//@children.6" targetEnd="//@children.9/@sourceConnections.1/@children.1" sourceEnd="//@children.9/@sourceConnections.1/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="183,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="124,93"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.19/@sourceConnections.0" name="LocalizedSearcher" location="975,120" size="299,93" id="net.iubris.dianedev.searcher.location/LocalizedSearcher" runTimeClassModel="search(Landroid.location.Location;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="69,18">
+      <children xsi:type="editmodel:MethodEditModel" name="search" id="net.iubris.dianedev.searcher.location/LocalizedSearcher#search(Landroid.location.Location;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" id="net.iubris.dianedev.searcher/Searcher&lt;-net.iubris.dianedev.searcher.location/LocalizedSearcher" source="//@children.10" target="//@children.7/@sourceConnections.0" targetEnd="//@children.10/@sourceConnections.0/@children.1" sourceEnd="//@children.10/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="148,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="198,98" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="AbstractLocalizedSearcherNetworkAware" location="2039,455" size="420,98" id="net.iubris.dianedev.searcher.location.base.aware.network/AbstractLocalizedSearcherNetworkAware" runTimeClassModel="AbstractLocalizedSearcherNetworkAware(Lnet.iubris.dianedev.aware.network.state.booleaned.base.DefaultBooleanStateNetworkAware;),search(Landroid.location.Location;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="261,36">
+      <children xsi:type="editmodel:MethodEditModel" name="AbstractLocalizedSearcherNetworkAware" id="net.iubris.dianedev.searcher.location.base.aware.network/AbstractLocalizedSearcherNetworkAware#AbstractLocalizedSearcherNetworkAware(Lnet.iubris.dianedev.aware.network.state.booleaned.base.DefaultBooleanStateNetworkAware;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="search" id="net.iubris.dianedev.searcher.location.base.aware.network/AbstractLocalizedSearcherNetworkAware#search(Landroid.location.Location;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" id="net.iubris.dianedev.searcher.location.base.aware.network/LocalizedSearcherNetworkAware&lt;-net.iubris.dianedev.searcher.location.base.aware.network/AbstractLocalizedSearcherNetworkAware" source="//@children.11" target="//@children.16" targetEnd="//@children.11/@sourceConnections.0/@children.1" sourceEnd="//@children.11/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="210,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="178,93" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.7/@sourceConnections.0" name="Searcher" location="48,-16" size="427,98" id="net.iubris.dianedev.searcher/Searcher" runTimeClassModel="getResult(),search(LSearchParam;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="83,36">
+      <children xsi:type="editmodel:MethodEditModel" name="getResult" id="net.iubris.dianedev.searcher/Searcher#getResult()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="search" id="net.iubris.dianedev.searcher/Searcher#search(LSearchParam;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.15/@sourceConnections.0 //@children.6/@sourceConnections.0" name="LocationAwareSearcher" location="-580,275" size="432,93" id="net.iubris.dianedev.searcher.aware.location/LocationAwareSearcher" runTimeClassModel="search(Ljava.lang.Void;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="69,18">
+      <children xsi:type="editmodel:MethodEditModel" name="search" id="net.iubris.dianedev.searcher.aware.location/LocationAwareSearcher#search(Ljava.lang.Void;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.4/@sourceConnections.0" autoLocated="true" id="net.iubris.dianedev.searcher.aware/AwareSearcher&lt;-net.iubris.dianedev.searcher.aware.location/LocationAwareSearcher" source="//@children.13" target="//@children.7" targetEnd="//@children.13/@sourceConnections.0/@children.1" sourceEnd="//@children.13/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="216,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="185,93" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="AbstractLocalizedSearcherCacheNetworkAware" location="1274,734" size="465,98" id="net.iubris.dianedev.searcher.location.base/AbstractLocalizedSearcherCacheNetworkAware" runTimeClassModel="search(Landroid.location.Location;),AbstractLocalizedSearcherCacheNetworkAware(Lnet.iubris.dianedev.searcher.location.base.aware.cache.LocalizedSearcherCacheAware;Lnet.iubris.dianedev.searcher.location.base.aware.network.LocalizedSearcherNetworkAware;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="296,36">
+      <children xsi:type="editmodel:MethodEditModel" name="AbstractLocalizedSearcherCacheNetworkAware" id="net.iubris.dianedev.searcher.location.base/AbstractLocalizedSearcherCacheNetworkAware#AbstractLocalizedSearcherCacheNetworkAware(Lnet.iubris.dianedev.searcher.location.base.aware.cache.LocalizedSearcherCacheAware;Lnet.iubris.dianedev.searcher.location.base.aware.network.LocalizedSearcherNetworkAware;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="search" id="net.iubris.dianedev.searcher.location.base/AbstractLocalizedSearcherCacheNetworkAware#search(Landroid.location.Location;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="net.iubris.dianedev.searcher.location.base/LocalizedSearcherCacheNetworkAware&lt;-net.iubris.dianedev.searcher.location.base/AbstractLocalizedSearcherCacheNetworkAware" source="//@children.14" target="//@children.3" targetEnd="//@children.14/@sourceConnections.0/@children.1" sourceEnd="//@children.14/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="170,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="230,93"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="AbstractLocationAwareSearcher" location="-450,454" size="495,98" id="net.iubris.dianedev.searcher.aware.location.base/AbstractLocationAwareSearcher" runTimeClassModel="AbstractLocationAwareSearcher(Lnet.iubris.dianedev.aware.location.state.booleaned.base.DefaultBooleanStateLocationAware;),search(Ljava.lang.Void;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="211,36">
+      <children xsi:type="editmodel:MethodEditModel" name="AbstractLocationAwareSearcher" id="net.iubris.dianedev.searcher.aware.location.base/AbstractLocationAwareSearcher#AbstractLocationAwareSearcher(Lnet.iubris.dianedev.aware.location.state.booleaned.base.DefaultBooleanStateLocationAware;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="search" id="net.iubris.dianedev.searcher.aware.location.base/AbstractLocationAwareSearcher#search(Ljava.lang.Void;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" id="net.iubris.dianedev.searcher.aware.location/LocationAwareSearcher&lt;-net.iubris.dianedev.searcher.aware.location.base/AbstractLocationAwareSearcher" source="//@children.15" target="//@children.13" targetEnd="//@children.15/@sourceConnections.0/@children.1" sourceEnd="//@children.15/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="247,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="348,93" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="net.iubris.dianedev.aware.location.state.booleaned.base/DefaultBooleanStateLocationAware@locationAware+net.iubris.dianedev.searcher.aware.location.base/AbstractLocationAwareSearcher@" source="//@children.15" target="//@children.23" targetEnd="//@children.15/@sourceConnections.1/@children.2" label="//@children.15/@sourceConnections.1/@children.0" sourceEnd="//@children.15/@sourceConnections.1/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,13" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,46" id="net.iubris.dianedev.aware.location.state.booleaned.base/DefaultBooleanStateLocationAware@locationAware+net.iubris.dianedev.searcher.aware.location.base/AbstractLocationAwareSearcher@|net.iubris.dianedev.searcher.aware.location.base/AbstractLocationAwareSearcher#" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="locationAware" location="0,65" id="net.iubris.dianedev.aware.location.state.booleaned.base/DefaultBooleanStateLocationAware@locationAware+net.iubris.dianedev.searcher.aware.location.base/AbstractLocationAwareSearcher@|net.iubris.dianedev.aware.location.state.booleaned.base/DefaultBooleanStateLocationAware#locationAware" multiplicityLabel="//@children.15/@sourceConnections.1/@children.2/@children.1" roleLabel="//@children.15/@sourceConnections.1/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" # locationAware" location="-343,1065" size="94,13" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="-271,1038" size="22,13" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.11/@sourceConnections.0 //@children.3/@sourceConnections.0" name="LocalizedSearcherNetworkAware" location="1860,270" size="357,93" id="net.iubris.dianedev.searcher.location.base.aware.network/LocalizedSearcherNetworkAware" runTimeClassModel="search(Landroid.location.Location;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="69,18">
+      <children xsi:type="editmodel:MethodEditModel" name="search" id="net.iubris.dianedev.searcher.location.base.aware.network/LocalizedSearcherNetworkAware#search(Landroid.location.Location;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="net.iubris.dianedev.searcher.location/LocalizedSearcher&lt;-net.iubris.dianedev.searcher.location.base.aware.network/LocalizedSearcherNetworkAware" source="//@children.16" target="//@children.19/@sourceConnections.0" targetEnd="//@children.16/@sourceConnections.0/@children.1" sourceEnd="//@children.16/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="178,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="865,-87"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="net.iubris.dianedev.searcher.aware.network/NetworkAwareSearcher&lt;-net.iubris.dianedev.searcher.location.base.aware.network/LocalizedSearcherNetworkAware" source="//@children.16" target="//@children.4" targetEnd="//@children.16/@sourceConnections.1/@children.1" sourceEnd="//@children.16/@sourceConnections.1/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,53" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="433,40"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.5/@sourceConnections.0 //@children.6/@sourceConnections.2 //@children.19/@sourceConnections.1" name="CacheAwareSearcher" location="-1966,275" size="415,93" id="net.iubris.dianedev.searcher.aware.cache/CacheAwareSearcher" runTimeClassModel="search(Ljava.lang.Void;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="69,18">
+      <children xsi:type="editmodel:MethodEditModel" name="search" id="net.iubris.dianedev.searcher.aware.cache/CacheAwareSearcher#search(Ljava.lang.Void;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="net.iubris.dianedev.searcher.aware/AwareSearcher&lt;-net.iubris.dianedev.searcher.aware.cache/CacheAwareSearcher" source="//@children.17" target="//@children.7" targetEnd="//@children.17/@sourceConnections.0/@children.1" sourceEnd="//@children.17/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="415,10" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="10,93"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="AbstractNetworkAwareSearcher" location="-1566,584" size="495,98" id="net.iubris.dianedev.searcher.aware.network.base/AbstractNetworkAwareSearcher" runTimeClassModel="AbstractNetworkAwareSearcher(Lnet.iubris.dianedev.aware.network.state.booleaned.base.DefaultBooleanStateNetworkAware;),search(Ljava.lang.Void;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="210,36">
+      <children xsi:type="editmodel:MethodEditModel" name="AbstractNetworkAwareSearcher" id="net.iubris.dianedev.searcher.aware.network.base/AbstractNetworkAwareSearcher#AbstractNetworkAwareSearcher(Lnet.iubris.dianedev.aware.network.state.booleaned.base.DefaultBooleanStateNetworkAware;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="search" id="net.iubris.dianedev.searcher.aware.network.base/AbstractNetworkAwareSearcher#search(Ljava.lang.Void;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="net.iubris.dianedev.searcher.aware.network/NetworkAwareSearcher&lt;-net.iubris.dianedev.searcher.aware.network.base/AbstractNetworkAwareSearcher" source="//@children.18" target="//@children.4" targetEnd="//@children.18/@sourceConnections.0/@children.1" sourceEnd="//@children.18/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="340,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="155,93" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="net.iubris.dianedev.aware.network.state.booleaned.base/DefaultBooleanStateNetworkAware@networkAware+net.iubris.dianedev.searcher.aware.network.base/AbstractNetworkAwareSearcher@" source="//@children.18" target="//@children.28" targetEnd="//@children.18/@sourceConnections.1/@children.2" label="//@children.18/@sourceConnections.1/@children.0" sourceEnd="//@children.18/@sourceConnections.1/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,13" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,52" id="net.iubris.dianedev.aware.network.state.booleaned.base/DefaultBooleanStateNetworkAware@networkAware+net.iubris.dianedev.searcher.aware.network.base/AbstractNetworkAwareSearcher@|net.iubris.dianedev.searcher.aware.network.base/AbstractNetworkAwareSearcher#" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="networkAware" location="0,44" id="net.iubris.dianedev.aware.network.state.booleaned.base/DefaultBooleanStateNetworkAware@networkAware+net.iubris.dianedev.searcher.aware.network.base/AbstractNetworkAwareSearcher@|net.iubris.dianedev.aware.network.state.booleaned.base/DefaultBooleanStateNetworkAware#networkAware" multiplicityLabel="//@children.18/@sourceConnections.1/@children.2/@children.1" roleLabel="//@children.18/@sourceConnections.1/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" # networkAware" location="-1982,1319" size="95,13" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="-1909,1292" size="22,13" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.8/@sourceConnections.1 //@children.3/@sourceConnections.1" name="LocalizedSearcherCacheAware" location="450,269" size="390,93" id="net.iubris.dianedev.searcher.location.base.aware.cache/LocalizedSearcherCacheAware" runTimeClassModel="search(Landroid.location.Location;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="69,18">
+      <children xsi:type="editmodel:MethodEditModel" name="search" id="net.iubris.dianedev.searcher.location.base.aware.cache/LocalizedSearcherCacheAware#search(Landroid.location.Location;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.16/@sourceConnections.0" id="net.iubris.dianedev.searcher.location/LocalizedSearcher&lt;-net.iubris.dianedev.searcher.location.base.aware.cache/LocalizedSearcherCacheAware" source="//@children.19" target="//@children.10" targetEnd="//@children.19/@sourceConnections.0/@children.1" sourceEnd="//@children.19/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="195,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="148,93" anchorKind="FixedAtEdge" attachSource="true"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="net.iubris.dianedev.searcher.aware.cache/CacheAwareSearcher&lt;-net.iubris.dianedev.searcher.location.base.aware.cache/LocalizedSearcherCacheAware" source="//@children.19" target="//@children.17" targetEnd="//@children.19/@sourceConnections.1/@children.1" sourceEnd="//@children.19/@sourceConnections.1/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,49" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="416,43"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.21/@sourceConnections.0" name="CacheAware" location="-1411,1544" size="244,93" id="net.iubris.dianedev.aware.cache/CacheAware" runTimeClassModel="isCacheAvailable()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="125,18">
+      <children xsi:type="editmodel:MethodEditModel" name="isCacheAvailable" id="net.iubris.dianedev.aware.cache/CacheAware#isCacheAvailable()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.22/@sourceConnections.0" name="BooleanStateCacheAware" location="-1444,1687" size="311,93" id="net.iubris.dianedev.aware.cache.states.booleaned/BooleanStateCacheAware" runTimeClassModel="isCacheAvailable()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="125,18">
+      <children xsi:type="editmodel:MethodEditModel" name="isCacheAvailable" id="net.iubris.dianedev.aware.cache.states.booleaned/BooleanStateCacheAware#isCacheAvailable()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="net.iubris.dianedev.aware.cache/CacheAware&lt;-net.iubris.dianedev.aware.cache.states.booleaned/BooleanStateCacheAware" source="//@children.21" target="//@children.20" targetEnd="//@children.21/@sourceConnections.0/@children.1" sourceEnd="//@children.21/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="155,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="122,93"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.5/@sourceConnections.1 //@children.8/@sourceConnections.0" name="DefaultBooleanStateCacheAware" location="-1460,1830" size="343,80" id="net.iubris.dianedev.aware.cache.states.booleaned.base/DefaultBooleanStateCacheAware" runTimeClassModel="isCacheAvailable()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="125,18">
+      <children xsi:type="editmodel:MethodEditModel" name="isCacheAvailable" id="net.iubris.dianedev.aware.cache.states.booleaned.base/DefaultBooleanStateCacheAware#isCacheAvailable()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="net.iubris.dianedev.aware.cache.states.booleaned/BooleanStateCacheAware&lt;-net.iubris.dianedev.aware.cache.states.booleaned.base/DefaultBooleanStateCacheAware" source="//@children.22" target="//@children.21" targetEnd="//@children.22/@sourceConnections.0/@children.1" sourceEnd="//@children.22/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="171,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="155,93"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.15/@sourceConnections.1 //@children.9/@sourceConnections.0" name="DefaultBooleanStateLocationAware" location="-242,993" size="347,116" id="net.iubris.dianedev.aware.location.state.booleaned.base/DefaultBooleanStateLocationAware" runTimeClassModel="isInNewerLocation(),location,DefaultBooleanStateLocationAware(Lnet.iubris.polaris.locator.provider.LocationProvider;Ljava.lang.Integer;J)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="117,18">
+      <children xsi:type="editmodel:AttributeEditModel" name="location" id="net.iubris.dianedev.aware.location.state.booleaned.base/DefaultBooleanStateLocationAware#location"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="228,36">
+      <children xsi:type="editmodel:MethodEditModel" name="DefaultBooleanStateLocationAware" id="net.iubris.dianedev.aware.location.state.booleaned.base/DefaultBooleanStateLocationAware#DefaultBooleanStateLocationAware(Lnet.iubris.polaris.locator.provider.LocationProvider;Ljava.lang.Integer;J)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isInNewerLocation" id="net.iubris.dianedev.aware.location.state.booleaned.base/DefaultBooleanStateLocationAware#isInNewerLocation()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" id="net.iubris.dianedev.aware.location.state.booleaned/BooleanStateLocationAware&lt;-net.iubris.dianedev.aware.location.state.booleaned.base/DefaultBooleanStateLocationAware" source="//@children.23" target="//@children.24" targetEnd="//@children.23/@sourceConnections.0/@children.1" sourceEnd="//@children.23/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="163,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="129,55"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.23/@sourceConnections.0" name="BooleanStateLocationAware" location="-211,849" size="315,55" id="net.iubris.dianedev.aware.location.state.booleaned/BooleanStateLocationAware" runTimeClassModel="">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="net.iubris.dianedev.aware.location/LocationAware&lt;-net.iubris.dianedev.aware.location.state.booleaned/BooleanStateLocationAware" source="//@children.24" target="//@children.25" targetEnd="//@children.24/@sourceConnections.0/@children.1" sourceEnd="//@children.24/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="143,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="139,93"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.24/@sourceConnections.0" name="LocationAware" location="-207,660" size="278,93" id="net.iubris.dianedev.aware.location/LocationAware" runTimeClassModel="isInNewerLocation()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="133,18">
+      <children xsi:type="editmodel:MethodEditModel" name="isInNewerLocation" id="net.iubris.dianedev.aware.location/LocationAware#isInNewerLocation()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.27/@sourceConnections.0" name="NetworkAware" location="-1861,1078" size="278,93" id="net.iubris.dianedev.aware.network/NetworkAware" runTimeClassModel="isConnected()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="100,18">
+      <children xsi:type="editmodel:MethodEditModel" name="isConnected" id="net.iubris.dianedev.aware.network/NetworkAware#isConnected()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.28/@sourceConnections.0" name="BooleanStateNetworkAware" location="-1880,929" size="316,55" id="net.iubris.dianedev.aware.network.state.booleaned/BooleanStateNetworkAware" runTimeClassModel="">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="net.iubris.dianedev.aware.network/NetworkAware&lt;-net.iubris.dianedev.aware.network.state.booleaned/BooleanStateNetworkAware" source="//@children.27" target="//@children.26" targetEnd="//@children.27/@sourceConnections.0/@children.1" sourceEnd="//@children.27/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="158,55" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="139,0"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.18/@sourceConnections.1" name="DefaultBooleanStateNetworkAware" location="-1880,1268" size="348,98" id="net.iubris.dianedev.aware.network.state.booleaned.base/DefaultBooleanStateNetworkAware" runTimeClassModel="isConnected(),DefaultBooleanStateNetworkAware(Landroid.net.ConnectivityManager;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="227,36">
+      <children xsi:type="editmodel:MethodEditModel" name="DefaultBooleanStateNetworkAware" id="net.iubris.dianedev.aware.network.state.booleaned.base/DefaultBooleanStateNetworkAware#DefaultBooleanStateNetworkAware(Landroid.net.ConnectivityManager;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isConnected" id="net.iubris.dianedev.aware.network.state.booleaned.base/DefaultBooleanStateNetworkAware#isConnected()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="net.iubris.dianedev.aware.network.state.booleaned/BooleanStateNetworkAware&lt;-net.iubris.dianedev.aware.network.state.booleaned.base/DefaultBooleanStateNetworkAware" source="//@children.28" target="//@children.27" targetEnd="//@children.28/@sourceConnections.0/@children.1" sourceEnd="//@children.28/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="158,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="158,55"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.30/@sourceConnections.0" name="NetworkStateException" location="5128,604" size="285,80" id="net.iubris.dianedev.aware.network.exceptions/NetworkStateException" runTimeClassModel="NetworkStateException(Ljava.lang.String;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="160,18">
+      <children xsi:type="editmodel:MethodEditModel" name="NetworkStateException" id="net.iubris.dianedev.aware.network.exceptions/NetworkStateException#NetworkStateException(Ljava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.37/@sourceConnections.0 //@children.39/@sourceConnections.0" autoLocated="true" id="net.iubris.dianedev.aware.exceptions/StateException&lt;-net.iubris.dianedev.aware.network.exceptions/NetworkStateException" source="//@children.29" target="//@children.31" targetEnd="//@children.29/@sourceConnections.0/@children.1" sourceEnd="//@children.29/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="140,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="116,75" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="NoNetworkException" location="5128,770" size="285,80" id="net.iubris.dianedev.aware.network.exceptions/NoNetworkException" runTimeClassModel="NoNetworkException(Ljava.lang.String;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="145,18">
+      <children xsi:type="editmodel:MethodEditModel" name="NoNetworkException" id="net.iubris.dianedev.aware.network.exceptions/NoNetworkException#NoNetworkException(Ljava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="net.iubris.dianedev.aware.network.exceptions/NetworkStateException&lt;-net.iubris.dianedev.aware.network.exceptions/NoNetworkException" source="//@children.30" target="//@children.29" targetEnd="//@children.30/@sourceConnections.0/@children.1" sourceEnd="//@children.30/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="142,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="142,80"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.29/@sourceConnections.0" name="StateException" location="5746,438" size="236,80" id="net.iubris.dianedev.aware.exceptions/StateException" runTimeClassModel="StateException(Ljava.lang.String;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="114,18">
+      <children xsi:type="editmodel:MethodEditModel" name="StateException" id="net.iubris.dianedev.aware.exceptions/StateException#StateException(Ljava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.33/@sourceConnections.0" autoLocated="true" id="net.iubris.dianedev.searcher.exceptions/SearchException&lt;-net.iubris.dianedev.aware.exceptions/StateException" source="//@children.31" target="//@children.32" targetEnd="//@children.31/@sourceConnections.0/@children.1" sourceEnd="//@children.31/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="116,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="79,111" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.31/@sourceConnections.0" name="SearchException" location="6092,272" size="164,116" id="net.iubris.dianedev.searcher.exceptions/SearchException" runTimeClassModel="SearchException(Ljava.lang.Throwable;),SearchException(Ljava.lang.String;Ljava.lang.Throwable;),SearchException(Ljava.lang.String;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="124,54">
+      <children xsi:type="editmodel:MethodEditModel" name="SearchException" id="net.iubris.dianedev.searcher.exceptions/SearchException#SearchException(Ljava.lang.String;Ljava.lang.Throwable;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="SearchException" id="net.iubris.dianedev.searcher.exceptions/SearchException#SearchException(Ljava.lang.Throwable;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="SearchException" id="net.iubris.dianedev.searcher.exceptions/SearchException#SearchException(Ljava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.34/@sourceConnections.0" name="AwareSearchException" location="6378,438" size="210,116" id="net.iubris.dianedev.searcher.aware.exceptions/AwareSearchException" runTimeClassModel="AwareSearchException(Ljava.lang.String;Ljava.lang.Throwable;),AwareSearchException(Ljava.lang.Throwable;),AwareSearchException(Ljava.lang.String;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="159,54">
+      <children xsi:type="editmodel:MethodEditModel" name="AwareSearchException" id="net.iubris.dianedev.searcher.aware.exceptions/AwareSearchException#AwareSearchException(Ljava.lang.Throwable;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="AwareSearchException" id="net.iubris.dianedev.searcher.aware.exceptions/AwareSearchException#AwareSearchException(Ljava.lang.String;Ljava.lang.Throwable;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="AwareSearchException" id="net.iubris.dianedev.searcher.aware.exceptions/AwareSearchException#AwareSearchException(Ljava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="net.iubris.dianedev.searcher.exceptions/SearchException&lt;-net.iubris.dianedev.searcher.aware.exceptions/AwareSearchException" source="//@children.33" target="//@children.31/@sourceConnections.0" targetEnd="//@children.33/@sourceConnections.0/@children.1" sourceEnd="//@children.33/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="103,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="CacheAwareSearchException" location="6060,604" size="255,116" id="net.iubris.dianedev.searcher.aware.cache.exceptions/CacheAwareSearchException" runTimeClassModel="CacheAwareSearchException(Ljava.lang.String;),CacheAwareSearchException(Ljava.lang.String;Ljava.lang.Throwable;),CacheAwareSearchException(Ljava.lang.Throwable;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="194,54">
+      <children xsi:type="editmodel:MethodEditModel" name="CacheAwareSearchException" id="net.iubris.dianedev.searcher.aware.cache.exceptions/CacheAwareSearchException#CacheAwareSearchException(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="CacheAwareSearchException" id="net.iubris.dianedev.searcher.aware.cache.exceptions/CacheAwareSearchException#CacheAwareSearchException(Ljava.lang.Throwable;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="CacheAwareSearchException" id="net.iubris.dianedev.searcher.aware.cache.exceptions/CacheAwareSearchException#CacheAwareSearchException(Ljava.lang.String;Ljava.lang.Throwable;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.35/@sourceConnections.0 //@children.36/@sourceConnections.0" autoLocated="true" id="net.iubris.dianedev.searcher.aware.exceptions/AwareSearchException&lt;-net.iubris.dianedev.searcher.aware.cache.exceptions/CacheAwareSearchException" source="//@children.34" target="//@children.33" targetEnd="//@children.34/@sourceConnections.0/@children.1" sourceEnd="//@children.34/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="125,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="103,111" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="LocationAwareSearchException" location="6345,604" size="272,116" id="net.iubris.dianedev.searcher.aware.location.exceptions/LocationAwareSearchException" runTimeClassModel="LocationAwareSearchException(Ljava.lang.String;),LocationAwareSearchException(Ljava.lang.Throwable;),LocationAwareSearchException(Ljava.lang.String;Ljava.lang.Throwable;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="206,54">
+      <children xsi:type="editmodel:MethodEditModel" name="LocationAwareSearchException" id="net.iubris.dianedev.searcher.aware.location.exceptions/LocationAwareSearchException#LocationAwareSearchException(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="LocationAwareSearchException" id="net.iubris.dianedev.searcher.aware.location.exceptions/LocationAwareSearchException#LocationAwareSearchException(Ljava.lang.Throwable;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="LocationAwareSearchException" id="net.iubris.dianedev.searcher.aware.location.exceptions/LocationAwareSearchException#LocationAwareSearchException(Ljava.lang.String;Ljava.lang.Throwable;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="net.iubris.dianedev.searcher.aware.exceptions/AwareSearchException&lt;-net.iubris.dianedev.searcher.aware.location.exceptions/LocationAwareSearchException" source="//@children.35" target="//@children.34/@sourceConnections.0" targetEnd="//@children.35/@sourceConnections.0/@children.1" sourceEnd="//@children.35/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="134,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="NetworkAwareSearchException" location="6647,604" size="272,116" id="net.iubris.dianedev.searcher.aware.network.exceptions/NetworkAwareSearchException" runTimeClassModel="NetworkAwareSearchException(Ljava.lang.String;Ljava.lang.Throwable;),NetworkAwareSearchException(Ljava.lang.String;),NetworkAwareSearchException(Ljava.lang.Throwable;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="205,54">
+      <children xsi:type="editmodel:MethodEditModel" name="NetworkAwareSearchException" id="net.iubris.dianedev.searcher.aware.network.exceptions/NetworkAwareSearchException#NetworkAwareSearchException(Ljava.lang.String;Ljava.lang.Throwable;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="NetworkAwareSearchException" id="net.iubris.dianedev.searcher.aware.network.exceptions/NetworkAwareSearchException#NetworkAwareSearchException(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="NetworkAwareSearchException" id="net.iubris.dianedev.searcher.aware.network.exceptions/NetworkAwareSearchException#NetworkAwareSearchException(Ljava.lang.Throwable;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="net.iubris.dianedev.searcher.aware.exceptions/AwareSearchException&lt;-net.iubris.dianedev.searcher.aware.network.exceptions/NetworkAwareSearchException" source="//@children.36" target="//@children.34/@sourceConnections.0" targetEnd="//@children.36/@sourceConnections.0/@children.1" sourceEnd="//@children.36/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="134,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.38/@sourceConnections.0" name="CacheStateException" location="5443,604" size="273,80" id="net.iubris.dianedev.aware.cache.exceptions/CacheStateException" runTimeClassModel="CacheStateException(Ljava.lang.String;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="149,18">
+      <children xsi:type="editmodel:MethodEditModel" name="CacheStateException" id="net.iubris.dianedev.aware.cache.exceptions/CacheStateException#CacheStateException(Ljava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="net.iubris.dianedev.aware.exceptions/StateException&lt;-net.iubris.dianedev.aware.cache.exceptions/CacheStateException" source="//@children.37" target="//@children.29/@sourceConnections.0" targetEnd="//@children.37/@sourceConnections.0/@children.1" sourceEnd="//@children.37/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="134,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="NoCacheAvailableException" location="5443,770" size="273,80" id="net.iubris.dianedev.aware.cache.exceptions/NoCacheAvailableException" runTimeClassModel="NoCacheAvailable(Ljava.lang.String;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="130,18">
+      <children xsi:type="editmodel:MethodEditModel" name="NoCacheAvailable" id="net.iubris.dianedev.aware.cache.exceptions/NoCacheAvailableException#NoCacheAvailable(Ljava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="net.iubris.dianedev.aware.cache.exceptions/CacheStateException&lt;-net.iubris.dianedev.aware.cache.exceptions/NoCacheAvailableException" source="//@children.38" target="//@children.37" targetEnd="//@children.38/@sourceConnections.0/@children.1" sourceEnd="//@children.38/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="136,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="136,80"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.40/@sourceConnections.0" name="LocationStateException" location="5746,604" size="284,80" id="net.iubris.dianedev.aware.location.exceptions/LocationStateException" runTimeClassModel="LocationStateException(Ljava.lang.String;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="161,18">
+      <children xsi:type="editmodel:MethodEditModel" name="LocationStateException" id="net.iubris.dianedev.aware.location.exceptions/LocationStateException#LocationStateException(Ljava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="net.iubris.dianedev.aware.exceptions/StateException&lt;-net.iubris.dianedev.aware.location.exceptions/LocationStateException" source="//@children.39" target="//@children.29/@sourceConnections.0" targetEnd="//@children.39/@sourceConnections.0/@children.1" sourceEnd="//@children.39/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="140,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="LocationNotNewerException" location="5746,770" size="284,80" id="net.iubris.dianedev.aware.location.exceptions/LocationNotNewerException" runTimeClassModel="LocationNotNewerException(Ljava.lang.String;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="186,18">
+      <children xsi:type="editmodel:MethodEditModel" name="LocationNotNewerException" id="net.iubris.dianedev.aware.location.exceptions/LocationNotNewerException#LocationNotNewerException(Ljava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="net.iubris.dianedev.aware.location.exceptions/LocationStateException&lt;-net.iubris.dianedev.aware.location.exceptions/LocationNotNewerException" source="//@children.40" target="//@children.39" targetEnd="//@children.40/@sourceConnections.0/@children.1" sourceEnd="//@children.40/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="142,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="142,80"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" properties="open=net.iubris.dianedev.searcher/Searcher;wireOptions=1;Product=eUML2"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+</editmodel:ClassDiagramEditModel>

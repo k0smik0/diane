@@ -1,0 +1,79 @@
+<project name="diane-task_roboguiced" default="jars">
+	<!-- change this as your own	-->
+	
+	<property name="name" value="${ant.project.name}"/>
+	<property name="user" value="k0smik0"/>
+	<property name="vendor" value="Massimiliano Leone - k0smik0"/>
+	<property name="version" value="0.1"/>
+	<property name="copyright" value="Copyleft 2012 Massimiliano Leone - iubris.net@gmail.com"/>
+	<property name="license.file" value="COPYING.txt"/>
+	<property name="license.url" value="http://www.gnu.org/licenses/lgpl.txt"/>
+	<property name="docurl" value="https://github.com/k0smik0/diane"/>
+	
+	
+	<!-- change here with your own -->
+	<property name="android-path" value="/data/fucina/develop/usr/apps/android-sdk/" />
+	<property name="android-sdk-target-version" value="17"/>
+		
+	<property name="main-libs-dir" value="libs"/>
+		
+	<!-- don't touch below -->
+	
+	<property name="src.dir" value="src" />
+	<property name="build.dir" value="build" />	
+	
+	<property name="jar-task.file" value="${build.dir}/jars/diane-robotask.jar"/>
+	
+	<path id="classpath-android">
+		<fileset dir="${android-path}/platforms/android-${android-sdk-target-version}/">
+			<include name="android*.jar"/>
+		</fileset>
+	</path>
+				
+	<path id="classpath-task">
+		<path refid="classpath-android"/>		
+		<fileset dir="${main-libs-dir}">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
+	
+
+	<target name="clean-task">
+		<delete dir="${build.dir}/classes/task"/>
+	</target>
+	
+	<target name="clean-jar">
+		<delete file="${jar-main.file}"/>
+	</target>
+	
+	<target name="clean" depends="clean-task"/>
+	
+	<target name="compile-task">
+		<mkdir dir="${build.dir}/classes/task"/>
+		<javac destdir="${build.dir}/classes/task" includeantruntime="false">
+			<src path="${src.dir}/task" />
+			<include name="**/*.java"/>
+			<classpath refid="classpath-task"/>
+		</javac>
+	</target>
+		
+	<target name="jar-task" depends="clean-jar, clean-task, compile-task">
+		<mkdir dir="${build.dir}/jars/"/>
+		<jar destfile="${jar-task.file}" basedir="${build.dir}/classes/task">
+			<manifest>
+				<attribute name="Built-By" value="${user}" />    
+        <attribute name="Bundle-Name" value="${name}" />
+      	<attribute name="Bundle-Copyright" value="${copyright}" />
+      	<attribute name="Bundle-Vendor" value="${vendor}" />
+        <attribute name="Bundle-Version" value="${version}" />
+        <attribute name="Bundle-License" value="${license.url} " />
+        <attribute name="Build-DocURL" value="${docurl}" />	      
+			</manifest>			
+			<metainf dir="." includes="${license.file}"/>
+		</jar>
+		<antcall target="clean-task"/>
+	</target>
+	
+	<target name="jars" depends="jar-task"/>
+
+</project>
