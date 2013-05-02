@@ -1,5 +1,7 @@
 package net.iubris.diane.searcher.location.aware.full.base;
 
+import javax.inject.Inject;
+
 import net.iubris.diane.aware.cache.exceptions.base.CacheTooOldException;
 import net.iubris.diane.aware.network.exceptions.base.NoNetworkException;
 import net.iubris.diane.searcher.aware.cache.exceptions.CacheAwareSearchException;
@@ -27,6 +29,7 @@ public class DefaultLocalizedSearcherCacheNetworkAware<Result> implements Locali
 	private final LocalizedSearcherNetworkAware<Result> networkAwareSearcher;
 	private Result result;
 	
+	@Inject
 	public DefaultLocalizedSearcherCacheNetworkAware(
 			LocalizedSearcherCacheAware<Result> cacheAwareSearcher,
 			LocalizedSearcherNetworkAware<Result> networkAwareSearcher) {

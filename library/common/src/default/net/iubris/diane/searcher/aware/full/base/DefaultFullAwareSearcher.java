@@ -1,5 +1,7 @@
 package net.iubris.diane.searcher.aware.full.base;
 
+import javax.inject.Inject;
+
 import net.iubris.diane.aware.cache.exceptions.base.CacheTooOldException;
 import net.iubris.diane.aware.location.exceptions.base.LocationNotSoUsefulException;
 import net.iubris.diane.aware.location.state.three.ThreeStateLocationAwareLocationSupplier;
@@ -28,6 +30,7 @@ public class DefaultFullAwareSearcher<Result> implements FullAwareSearcher<Resul
 	 */
 	private final LocalizedSearcherCacheNetworkAware<Result> localizedSearcherCacheNetworkAware;
 	
+	@Inject
 	public DefaultFullAwareSearcher(ThreeStateLocationAwareLocationSupplier locationAware,
 			LocalizedSearcherCacheNetworkAware<Result> awareSearcher) {
 		this.locationAwareProvider = locationAware;

@@ -1,7 +1,10 @@
 package net.iubris.diane.aware.location.state.three.base;
 
+import javax.inject.Inject;
+
 import net.iubris.diane.aware.location.exceptions.base.LocationNotSoUsefulException;
 import net.iubris.diane.aware.location.state.three.ThreeStateLocationAwareLocationSupplier;
+import net.iubris.diane.aware.location.state.three.base.annotation.DianeDistanceMaximumThreshold;
 import net.iubris.polaris.locator.provider.LocationProvider;
 import net.iubris.polaris.locator.utils.LocationUtils;
 import net.iubris.polaris.locator.utils.exceptions.LocationNotSoFarException;
@@ -21,8 +24,9 @@ public class DefaultThreeStateLocationAwareLocationSupplier implements ThreeStat
 	private Location location;
 	private Location freshLocation;
 	
+	@Inject
 	public DefaultThreeStateLocationAwareLocationSupplier(LocationProvider locationProvider, 
-			Integer distanceMaximumThreshold) {
+			@DianeDistanceMaximumThreshold Integer distanceMaximumThreshold) {
 		if (distanceMaximumThreshold <=0) 
 			throw new NumberFormatException("Only positive value");
 		this.locationProvider = locationProvider;

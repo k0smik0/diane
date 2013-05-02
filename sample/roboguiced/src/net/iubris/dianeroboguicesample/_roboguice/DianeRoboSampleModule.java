@@ -9,7 +9,6 @@ import java.net.URL;
 import javax.inject.Inject;
 
 import net.iubris.diane._roboguice.module.AbstractDianeModule;
-import net.iubris.diane._roboguice.searcher.location.aware.full.base.DefaultLocalizedSearcherCacheNetworkAwareProvider;
 import net.iubris.diane.aware.cache.exceptions.base.CacheTooOldException;
 import net.iubris.diane.aware.cache.states.three.ThreeStateCacheAware;
 import net.iubris.diane.aware.location.exceptions.base.LocationNotSoUsefulException;
@@ -22,6 +21,7 @@ import net.iubris.diane.searcher.exceptions.SearchException;
 import net.iubris.diane.searcher.location.aware.cache.LocalizedSearcherCacheAware;
 import net.iubris.diane.searcher.location.aware.cache.base.AbstractLocalizedSearcherCacheAware;
 import net.iubris.diane.searcher.location.aware.full.LocalizedSearcherCacheNetworkAware;
+import net.iubris.diane.searcher.location.aware.full.base.DefaultLocalizedSearcherCacheNetworkAware;
 import net.iubris.diane.searcher.location.aware.network.LocalizedSearcherNetworkAware;
 import net.iubris.diane.searcher.location.aware.network.base.AbstractLocalizedSearcherNetworkAware;
 import net.iubris.dianeroboguicesample.controller.DianeRoboSampleSearcher;
@@ -121,7 +121,8 @@ public class DianeRoboSampleModule extends AbstractDianeModule {
 	
 	@Override
 	protected void bindLocalizedSearcherCacheNetworkAware() {
-		bind( new TypeLiteral<LocalizedSearcherCacheNetworkAware<String>>(){}).toProvider(new TypeLiteral<DefaultLocalizedSearcherCacheNetworkAwareProvider<String>>(){});
+//		bind( new TypeLiteral<LocalizedSearcherCacheNetworkAware<String>>(){}).toProvider(new TypeLiteral<DefaultLocalizedSearcherCacheNetworkAwareProvider<String>>(){});
+		bind( new TypeLiteral<LocalizedSearcherCacheNetworkAware<String>>(){}).to(new TypeLiteral<DefaultLocalizedSearcherCacheNetworkAware<String>>(){});
 	}
 	/*@Override
 	protected void bindFullAwareSearcher() {

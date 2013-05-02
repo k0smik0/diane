@@ -1,11 +1,10 @@
 package net.iubris.diane._roboguice.module;
 
-import net.iubris.diane._roboguice.aware.location.state.three.base.DianeDistanceMaximumThreshold;
-import net.iubris.diane._roboguice.providers.aware.location.state.three.base.DefaultThreeStateLocationAwareLocationSupplierProvider;
-import net.iubris.diane._roboguice.providers.aware.network.state.checker.base.DefaultCheckerStateNetworkAwareProvider;
 import net.iubris.diane.aware.location.state.three.ThreeStateLocationAwareLocationSupplier;
 import net.iubris.diane.aware.location.state.three.base.DefaultThreeStateLocationAwareLocationSupplier;
+import net.iubris.diane.aware.location.state.three.base.annotation.DianeDistanceMaximumThreshold;
 import net.iubris.diane.aware.network.state.checker.CheckerStateNetworkAware;
+import net.iubris.diane.aware.network.state.checker.base.DefaultCheckerStateNetworkAware;
 import net.iubris.diane.searcher.aware.full.base.DefaultFullAwareSearcher;
 import net.iubris.diane.searcher.location.aware.cache.base.AbstractLocalizedSearcherCacheAware;
 import net.iubris.diane.searcher.location.aware.full.base.DefaultLocalizedSearcherCacheNetworkAware;
@@ -56,7 +55,8 @@ public abstract class AbstractDianeModule extends AbstractModule {
 	 *  default: binds to DefaultThreeStateLocationAwareLocationSupplier 
 	 */
 	protected void bindThreeStateLocationAwareLocationSupplier() {
-		bind(ThreeStateLocationAwareLocationSupplier.class).toProvider(DefaultThreeStateLocationAwareLocationSupplierProvider.class);
+//		bind(ThreeStateLocationAwareLocationSupplier.class).toProvider(DefaultThreeStateLocationAwareLocationSupplierProvider.class);
+		bind(ThreeStateLocationAwareLocationSupplier.class).to(DefaultThreeStateLocationAwareLocationSupplier.class);
 	};
 	
 	
@@ -74,7 +74,8 @@ public abstract class AbstractDianeModule extends AbstractModule {
 	 *  default: to DefaultCheckerStateNetworkAware
 	 */
 	protected void bindCheckerStateNetworkAware() {
-		bind(CheckerStateNetworkAware.class).toProvider(DefaultCheckerStateNetworkAwareProvider.class);
+//		bind(CheckerStateNetworkAware.class).toProvider(DefaultCheckerStateNetworkAwareProvider.class);
+		bind(CheckerStateNetworkAware.class).to(DefaultCheckerStateNetworkAware.class);
 	}
 	
 	/**

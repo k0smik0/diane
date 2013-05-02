@@ -15,6 +15,8 @@
 	<property name="android-sdk-target-version" value="17"/>
 		
 	<property name="libs-dir" value="libs"/>
+	<!-- don't include extra libs jars in your project if you don't want use dependency injection-->
+	<property name="extra-libs-dir" value="libs_extra"/>
 		
 	<!-- don't touch below -->
 	
@@ -34,6 +36,9 @@
 		<fileset dir="${libs-dir}">
 			<include name="polaris-core.jar"/>
 			<include name="polaris-utils.jar"/>
+		</fileset>
+		<fileset dir="${extra-libs-dir}">
+			<include name="javax.inject.jar"/>
 		</fileset>
 	</path>
 
