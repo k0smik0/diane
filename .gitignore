@@ -1,3 +1,5 @@
-OLD/
-**/bin/
-**/jarlist.cache
+**/OLD/*
+**/bin/*
+**/gen/*
+**/NO*/*
+./.gitignore
