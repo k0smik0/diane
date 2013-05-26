@@ -4,7 +4,6 @@ import net.iubris.diane.aware.network.exceptions.base.NoNetworkException;
 import net.iubris.diane.aware.network.state.checker.CheckerStateNetworkAware;
 import net.iubris.diane.searcher.aware.network.NetworkAwareSearcher;
 import net.iubris.diane.searcher.aware.network.exceptions.NetworkAwareSearchException;
-import net.iubris.diane.searcher.exceptions.SearchException;
 
 /**
  * @author  Massimiliano Leone - k0smik0
@@ -22,7 +21,7 @@ public abstract class AbstractNetworkAwareSearcher<SearchState, SearchResult> im
 	}
 
 	@Override
-	public SearchState search(Void... params) throws NoNetworkException, NetworkAwareSearchException, SearchException {
+	public SearchState search(Void... params) throws NoNetworkException, NetworkAwareSearchException {
 		networkAware.isConnected();
 		return doSearch();
 	}

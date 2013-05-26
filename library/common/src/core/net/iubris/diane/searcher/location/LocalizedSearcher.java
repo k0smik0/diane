@@ -31,5 +31,7 @@ public interface LocalizedSearcher<SearchResult> extends Searcher<Location, Void
 	 * @throws SearchException
 	 */
 	@Override
-	public Void search(Location... location) throws SearchException;
+	public Void search(Location... locations) throws 
+//		StateException,/*NetworkAwareSearchException,CacheAwareSearchException, */
+		SearchException;
 }

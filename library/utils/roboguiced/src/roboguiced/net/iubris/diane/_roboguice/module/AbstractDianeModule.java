@@ -2,22 +2,36 @@ package net.iubris.diane._roboguice.module;
 
 import net.iubris.diane.aware.location.state.three.ThreeStateLocationAwareLocationSupplier;
 import net.iubris.diane.aware.location.state.three.base.DefaultThreeStateLocationAwareLocationSupplier;
-import net.iubris.diane.aware.location.state.three.base.annotation.DianeDistanceMaximumThreshold;
+import net.iubris.diane.aware.location.state.three.base.annotation.DistanceMaximumThreshold;
 import net.iubris.diane.aware.network.state.checker.CheckerStateNetworkAware;
 import net.iubris.diane.aware.network.state.checker.base.DefaultCheckerStateNetworkAware;
 import net.iubris.diane.searcher.aware.full.base.DefaultFullAwareSearcher;
-import net.iubris.diane.searcher.location.aware.cache.base.AbstractLocalizedSearcherCacheAware;
-import net.iubris.diane.searcher.location.aware.full.base.DefaultLocalizedSearcherCacheNetworkAware;
 
 import com.google.inject.AbstractModule;
 
 public abstract class AbstractDianeModule extends AbstractModule {
 	
 	private final int distanceMaximumThreshold;
+//	private final int timeMaximumThreshold;
 	
 	public AbstractDianeModule() {
-		this.distanceMaximumThreshold = 200; // 200m is default
+		this.distanceMaximumThreshold = 200; // 200 meters is default
+//		this.timeMaximumThreshold = 2; // 2 minutes is default
 	}
+	
+	/*public AbstractDianeModule(int distanceMaximumThreshold, int timeMaximumThreshold) {
+		this.distanceMaximumThreshold = distanceMaximumThreshold;
+//		this.timeMaximumThreshold = timeMaximumThreshold;
+	}*/
+	public AbstractDianeModule(int distanceMaximumThreshold) {
+		this.distanceMaximumThreshold = distanceMaximumThreshold;
+//		this.timeMaximumThreshold = 2;
+	}
+	/*
+	public AbstractDianeModule(Integer timeMaximumThreshold) {
+		this.timeMaximumThreshold = timeMaximumThreshold;
+		distanceMaximumThreshold = 200;
+	}*/
 
 	/**
 	 * this just calls abstract method bind*SOME*Aware you have to implement, 
@@ -27,74 +41,100 @@ public abstract class AbstractDianeModule extends AbstractModule {
 	protected void configure() {
 		
 		bindLocationProvider(); // abstract
-		bindDianeDistanceMaximumThreshold();		
+		bindDistanceMaximumThreshold();		
 		bindThreeStateLocationAwareLocationSupplier();
 		
 		bindThreeStateCacheAware(); // abstract
-		bindLocalizedSearcherCacheAware(); // abstract
+		bindLocalizedSearcherCacheAwareStrictChecking(); // abstract
 		bindCheckerStateNetworkAware();
-		bindLocalizedSearcherNetworkAware(); // abstract
-		bindLocalizedSearcherCacheNetworkAware(); 
+		bindLocalizedSearcherNetworkAwareStrictChecking(); // abstract
+		bindLocalizedSearcherCacheNetworkAwareStrictChecking();
 		
 		bindFullAwareSearcher();
 	}
 	
 	/**
-	 *  bond needed  for {@link DefaultThreeStateLocationAwareLocationSupplier } and descendents
+	 *  bind needed  for {@link DefaultThreeStateLocationAwareLocationSupplier } and descendents
 	 */
 	protected abstract void bindLocationProvider();
+//	protected abstract LocationProvider providesLocationProvider(LocationProvider locationProviderConcrete);
 	/**
-	 *  bond needed  for {@link DefaultThreeStateLocationAwareLocationSupplier } and descendents<br/>
-	 *  default is 200
+	 *  bind needed  for {@link DefaultThreeStateLocationAwareLocationSupplier } and descendents<br/>
+	 *  default is:<br/>
+	 *  bindConstant().annotatedWith(DistanceMaximumThreshold.class).to(distanceMaximumThreshold);
+	 *  with distanceMaximumThreshold=200<br/>
+	 *  you can override this method or change distanceMaximumThreshold using constructor
 	 */
-	protected void bindDianeDistanceMaximumThreshold() {
-		bindConstant().annotatedWith(DianeDistanceMaximumThreshold.class).to(distanceMaximumThreshold);
+	protected void bindDistanceMaximumThreshold() {
+//		bindConstant().annotatedWith(DistanceMaximumThreshold.class).to(distanceMaximumThreshold);
+		bind(Integer.class).annotatedWith(DistanceMaximumThreshold.class).toInstance(Integer.valueOf(distanceMaximumThreshold));
 	}
 	/**
-	 *  bond needed  for {@link DefaultFullAwareSearcher } and descendents<br/>
+	 *  bind needed  for {@link DefaultThreeStateLocationAwareLocationSupplier } and descendents<br/>
+	 *  default is:<br/>
+	 *  bindConstant().annotatedWith(TimeMaximumThreshold.class).to(timeMaximumThreshold);<br/>
+	 *  bind(Integer.class).annotatedWith(TimeMaximumThreshold.class).to(timeMaximumThreshold);
+	 *  with timeMaximumThreshold=2<br/>
+	 *  you can override this method or change timeMaximumThreshold using constructor
+	 */
+	/*protected void bindTimeMaximumThreshold() {
+//		bindConstant().annotatedWith(TimeMaximumThreshold.class).to(timeMaximumThreshold);
+		bind(Integer.class).annotatedWith(TimeMaximumThreshold.class).toInstance(Integer.valueOf(timeMaximumThreshold));
+	}*/
+	
+	/*protected void setDistanceMaximumThreshold(int distanceMaximumThreshold) {
+		this.distanceMaximumThreshold = distanceMaximumThreshold;
+	}*/
+	
+	/**
+	 *  bind needed  for {@link DefaultFullAwareSearcher } and descendents<br/>
 	 *  default: binds to DefaultThreeStateLocationAwareLocationSupplier 
 	 */
 	protected void bindThreeStateLocationAwareLocationSupplier() {
-//		bind(ThreeStateLocationAwareLocationSupplier.class).toProvider(DefaultThreeStateLocationAwareLocationSupplierProvider.class);
 		bind(ThreeStateLocationAwareLocationSupplier.class).to(DefaultThreeStateLocationAwareLocationSupplier.class);
+//		bind(ThreeStateLocationAwareLocationSupplier.class).in(Singleton.class);
 	};
 	
 	
 	/**
-	 *  bond needed for {@link AbstractLocalizedSearcherCacheAware } and descendents
+	 *  bind needed for {@link AbstractLocalizedSearcherCacheAware } and descendents<br/>
+	 *  use TypeLiteral for binding!
 	 */
 	protected abstract void bindThreeStateCacheAware();
 	/**
-	 *  bond needed  for {@link DefaultLocalizedSearcherCacheNetworkAware } and descendents
+	 *  bind needed  for {@link DefaultLocalizedSearcherCacheNetworkAware } and descendents<br/>
+	 *  use TypeLiteral for binding!
 	 */
-	protected abstract void bindLocalizedSearcherCacheAware();
+	protected abstract void bindLocalizedSearcherCacheAwareStrictChecking();
 	
 	/**
-	 *  bond needed for {@link CheckerStateNetworkAware } and descendents<br/>
+	 *  bind needed for {@link CheckerStateNetworkAware } and descendents<br/>
 	 *  default: to DefaultCheckerStateNetworkAware
 	 */
 	protected void bindCheckerStateNetworkAware() {
-//		bind(CheckerStateNetworkAware.class).toProvider(DefaultCheckerStateNetworkAwareProvider.class);
 		bind(CheckerStateNetworkAware.class).to(DefaultCheckerStateNetworkAware.class);
 	}
 	
 	/**
-	 *  bond needed for {@link DefaultLocalizedSearcherCacheNetworkAware } and descendents
-	 */
-	protected abstract void bindLocalizedSearcherNetworkAware();
+	 *
+	*  bind needed for {@link DefaultLocalizedSearcherCacheNetworkAware } and descendents
+	*/
+	protected abstract void bindLocalizedSearcherNetworkAwareStrictChecking();
 	/**
-	 *  bond needed for {@link DefaultFullAwareSearcher } and descendents
-	 *  default: DefaultLocalizedSearcherCacheNetworkAware
+	 *  bind needed for {@link DefaultFullAwareSearcher } and descendents<br/>
+	 *  you can use DefaultLocalizedSearcherCacheNetworkAware with TypeLiterale, as above:<br/>
+	 *  bind( new TypeLiteral<LocalizedSearcherCacheNetworkAwareStrict<YourResultParam>>(){}).to(new TypeLiteral<DefaultLocalizedSearcherCacheNetworkAware<YourResultParam>>(){});
 	 */
-	protected <Result> void bindLocalizedSearcherCacheNetworkAware() {
-//		bind( new TypeLiteral<LocalizedSearcherCacheNetworkAware<Result>>(){}).toProvider(new TypeLiteral<DefaultLocalizedSearcherCacheNetworkAwareProvider<Result>>(){});
-	}
+	protected abstract void bindLocalizedSearcherCacheNetworkAwareStrictChecking();
+//		bind( new TypeLiteral<LocalizedSearcherCacheNetworkAwareStrict<Result>>(){}).to(new TypeLiteral<DefaultLocalizedSearcherCacheNetworkAwareStrict<Result>>(){});
+	
 	
 	/**
-	 *  bond useful for FullAwareSearcher direct uses
-	 *  default: DefaultFullAwareSearcher
+	 *  bind useful for FullAwareSearcher direct uses<br/>
+	 *  you can use DefaultFullAwareSearcher with TypeLiterale, as above:<br/>
+	 *  bind( new TypeLiteral<FullAwareSearcher<YourResultParam>>(){}).toProvider(new TypeLiteral<DefaultFullAwareSearcherProvider<YourResultParam>>(){});
 	 */
-	protected <Result> void bindFullAwareSearcher() {
-//		bind( new TypeLiteral<FullAwareSearcher<Result>>(){}).toProvider(new TypeLiteral<DefaultFullAwareSearcherProvider<Result>>(){});
+	protected void bindFullAwareSearcher() {
+//		bind( new TypeLiteral<FullAwareSearcher<Result>>(){}).toProvider(new TypeLiteral<DefaultFullAwareSearcher<Result>>(){});
 	}
 }

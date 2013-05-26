@@ -1,10 +1,10 @@
 package net.iubris.diane.searcher.aware.location.base;
 
-import net.iubris.diane.aware.location.exceptions.base.LocationNotSoUsefulException;
-import net.iubris.diane.aware.location.state.three.ThreeStateLocationAware;
+import net.iubris.diane.aware.location.state.three.ThreeStateLocationAwareLocationSupplier;
 import net.iubris.diane.searcher.aware.location.LocationAwareSearcher;
 import net.iubris.diane.searcher.aware.location.exceptions.LocationAwareSearchException;
-import net.iubris.diane.searcher.exceptions.SearchException;
+import net.iubris.diane.searcher.aware.location.exceptions.base.LocationNotSoUsefulException;
+import android.location.Location;
 
 /**
  * @author  Massimiliano Leone - k0smik0
@@ -15,17 +15,22 @@ public abstract class AbstractLocationAwareSearcher<SearchState, SearchResult> i
 	 * @uml.property  name="locationAware"
 	 * @uml.associationEnd  
 	 */
-	protected final ThreeStateLocationAware locationAware;
+	protected final ThreeStateLocationAwareLocationSupplier locationAware;
 	
-	public AbstractLocationAwareSearcher(ThreeStateLocationAware locationAware) {
+	public AbstractLocationAwareSearcher(ThreeStateLocationAwareLocationSupplier locationAware) {
 		this.locationAware = locationAware;
 	}
 
 	@Override
-	public SearchState search(Void... params) throws LocationNotSoUsefulException, LocationAwareSearchException, SearchException {
-		locationAware.isLocationUseful();
-		return doSearch();
+	public SearchState search(Void... params) throws /*LocationFreshNullException,*/ LocationNotSoUsefulException, LocationAwareSearchException {
+		boolean locationUseful = locationAware.isLocationUseful();
+		if (locationUseful) {
+			Location location = locationAware.getLocation();
+			return doSearch(location);
+		}
+		return doNotSearch();
 	}
 
-	protected abstract SearchState doSearch() throws LocationAwareSearchException;
+	protected abstract SearchState doSearch(Location location) throws LocationAwareSearchException;
+	protected abstract SearchState doNotSearch() throws LocationAwareSearchException;
 }

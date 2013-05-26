@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".DianeVanillaSampleMainActivity" >
+    tools:context=".DianeRoboSampleMainActivity" >
 
     <Button
         android:id="@+id/button_network"
@@ -44,5 +44,14 @@
         android:layout_marginBottom="20dp"
         android:layout_toRightOf="@+id/button_network"
         android:text="Auto" />
+
+    <Button
+        android:id="@+id/button_updates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_network"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:text="Stop Fake Locations" />
 
 </RelativeLayout>

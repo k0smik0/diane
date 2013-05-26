@@ -19,7 +19,7 @@
  ******************************************************************************/
 package net.iubris.diane.searcher.aware.cache;
 
-import net.iubris.diane.aware.cache.exceptions.base.CacheTooOldException;
+import net.iubris.diane.aware.cache.exceptions.CacheStateException;
 import net.iubris.diane.searcher.aware.AwareSearcher;
 import net.iubris.diane.searcher.aware.cache.exceptions.CacheAwareSearchException;
 import net.iubris.diane.searcher.exceptions.SearchException;
@@ -27,5 +27,10 @@ import net.iubris.diane.searcher.exceptions.SearchException;
 public interface CacheAwareSearcher<SearchState, SearchResult> 
 	extends AwareSearcher<SearchState, SearchResult> {
 	@Override
-	public SearchState search(Void... param) throws CacheTooOldException, CacheAwareSearchException, SearchException;
+	public SearchState search(Void... param) throws 
+//		CacheTooOldException, 
+		CacheStateException,
+		CacheAwareSearchException
+		, SearchException
+		;
 }

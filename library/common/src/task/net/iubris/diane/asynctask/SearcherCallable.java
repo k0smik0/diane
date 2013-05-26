@@ -24,20 +24,24 @@ import java.util.concurrent.Callable;
 import net.iubris.diane.aware.cache.exceptions.CacheStateException;
 import net.iubris.diane.aware.cache.exceptions.base.CacheTooOldException;
 import net.iubris.diane.aware.location.exceptions.LocationStateException;
-import net.iubris.diane.aware.location.exceptions.base.LocationNotSoUsefulException;
 import net.iubris.diane.aware.network.exceptions.NetworkStateException;
 import net.iubris.diane.aware.network.exceptions.base.NoNetworkException;
 import net.iubris.diane.searcher.aware.cache.exceptions.CacheAwareSearchException;
 import net.iubris.diane.searcher.aware.exceptions.AwareSearchException;
 import net.iubris.diane.searcher.aware.location.exceptions.LocationAwareSearchException;
+import net.iubris.diane.searcher.aware.location.exceptions.base.LocationNotSoUsefulException;
+import net.iubris.diane.searcher.aware.location.exceptions.base.LocationTooNearException;
 import net.iubris.diane.searcher.aware.network.exceptions.NetworkAwareSearchException;
 import net.iubris.diane.searcher.exceptions.SearchException;
 
 public interface SearcherCallable<ResultT> extends Callable<ResultT> {
+	@Override
 	public ResultT call() throws
+	LocationTooNearException,
 	LocationNotSoUsefulException, LocationStateException,
-	CacheTooOldException,CacheStateException,
+	CacheTooOldException, CacheStateException,
 	NoNetworkException, NetworkStateException,
 	LocationAwareSearchException, NetworkAwareSearchException, CacheAwareSearchException, 
-	AwareSearchException, 	SearchException, Exception;
+	AwareSearchException, 	SearchException, 
+	Exception;
 }

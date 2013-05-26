@@ -19,14 +19,19 @@
  ******************************************************************************/
 package net.iubris.diane.searcher.aware.network;
 
-import net.iubris.diane.aware.network.exceptions.base.NoNetworkException;
+import net.iubris.diane.aware.network.exceptions.NetworkStateException;
 import net.iubris.diane.searcher.aware.AwareSearcher;
 import net.iubris.diane.searcher.aware.network.exceptions.NetworkAwareSearchException;
 import net.iubris.diane.searcher.exceptions.SearchException;
 
 public interface NetworkAwareSearcher<SearchState, SearchResult> 
 	extends AwareSearcher<SearchState, SearchResult> {
-//	public NetworkState isConnected() throws NetworkStateException;
 	@Override
-	public SearchState search(Void... params) throws NoNetworkException, NetworkAwareSearchException, SearchException;
+	public SearchState search(Void... params) throws 
+//		NoNetworkException,
+		NetworkStateException,
+		NetworkAwareSearchException
+
+		, SearchException
+		;
 }

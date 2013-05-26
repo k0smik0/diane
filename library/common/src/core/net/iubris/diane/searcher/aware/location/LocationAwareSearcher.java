@@ -19,8 +19,8 @@
  ******************************************************************************/
 package net.iubris.diane.searcher.aware.location;
 
+import net.iubris.diane.aware.location.exceptions.LocationStateException;
 import net.iubris.diane.searcher.aware.AwareSearcher;
-import net.iubris.diane.searcher.aware.exceptions.AwareSearchException;
 import net.iubris.diane.searcher.aware.location.exceptions.LocationAwareSearchException;
 import net.iubris.diane.searcher.exceptions.SearchException;
 
@@ -39,5 +39,8 @@ public interface LocationAwareSearcher<SearchState, SearchResult, LocationState>
 public interface LocationAwareSearcher<SearchState, SearchResult> 
 	extends AwareSearcher<SearchState, SearchResult> {
 	@Override
-	public SearchState search(Void... params) throws LocationAwareSearchException, AwareSearchException,SearchException;
+	public SearchState search(Void... noparams) throws
+		LocationStateException,
+		LocationAwareSearchException/*, AwareSearchException*/
+		, SearchException;
 }

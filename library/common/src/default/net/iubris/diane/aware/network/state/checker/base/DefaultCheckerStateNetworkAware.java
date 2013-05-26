@@ -2,10 +2,10 @@ package net.iubris.diane.aware.network.state.checker.base;
 
 import javax.inject.Inject;
 
-import android.net.ConnectivityManager;
 import net.iubris.diane.aware.network.exceptions.base.NoNetworkException;
 import net.iubris.diane.aware.network.state.checker.CheckerStateNetworkAware;
 import net.iubris.diane.aware.network.utils.NetworkUtils;
+import android.net.ConnectivityManager;
 
 public class DefaultCheckerStateNetworkAware implements CheckerStateNetworkAware {
 

@@ -55,7 +55,7 @@
 	<target name="compile-common">
 		<mkdir dir="${build.dir}/classes/common"/>
 		<javac destdir="${build.dir}/classes/common" includeantruntime="false">
-			<src path="${src.dir}" />
+			<src path="${src.dir}/core:${src.dir}/abstract:${src.dir}/default:${src.dir}/task" />
 			<include name="**/*.java"/>
 			<classpath refid="classpath-common"/>
 		</javac>

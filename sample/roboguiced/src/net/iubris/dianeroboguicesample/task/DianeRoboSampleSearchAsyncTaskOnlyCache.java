@@ -2,16 +2,14 @@ package net.iubris.dianeroboguicesample.task;
 
 import javax.inject.Inject;
 
-import net.iubris.diane.asynctask.base.AbstractRoboSearchAsyncTask;
+import net.iubris.diane.asynctask.base.RoboSearchAsyncTask;
 import net.iubris.diane.aware.cache.exceptions.base.CacheTooOldException;
-import net.iubris.diane.aware.location.exceptions.base.LocationNotSoUsefulException;
 import net.iubris.diane.searcher.aware.cache.exceptions.CacheAwareSearchException;
-import net.iubris.diane.searcher.exceptions.SearchException;
 import net.iubris.dianeroboguicesample.controller.DianeRoboSampleSearcher;
 import android.content.Context;
 import android.widget.Toast;
 
-public class DianeRoboSampleSearchAsyncTaskOnlyCache extends AbstractRoboSearchAsyncTask<DianeRoboSampleSearcher, Void, Void, String> {
+public class DianeRoboSampleSearchAsyncTaskOnlyCache extends RoboSearchAsyncTask<DianeRoboSampleSearcher, Void, Void, String> {
 	
 	final private DianeRoboSampleSearcher dianeSampleSearcher;
 	
@@ -22,14 +20,26 @@ public class DianeRoboSampleSearchAsyncTaskOnlyCache extends AbstractRoboSearchA
 		this.dianeSampleSearcher = dianeSampleController;
 	}
 	@Override
-	public String call() throws LocationNotSoUsefulException, CacheTooOldException, CacheAwareSearchException, SearchException {
+	public String call() 
+			throws 
+//		LocationNotSoUsefulException, 
+		CacheTooOldException, 
+		CacheAwareSearchException,
+		Exception 
+		{
 		dianeSampleSearcher.searchByCacheJustForExamplePurpose();		
 		return dianeSampleSearcher.getResultByCache();
 	}
 	@Override
 	protected void onSuccess(String result) throws Exception {
-		Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+		Toast.makeText(context, "only cache result:\n"+result, Toast.LENGTH_LONG).show();
 	}
+	
+	@Override
+	protected void onException(CacheTooOldException e) throws RuntimeException {
+		Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+//		Toast.makeText(context, dianeSampleSearcher.getResult(), Toast.LENGTH_LONG).show();
+	};
 	
 /*	@Override
 	protected void onException(Exception e) throws RuntimeException {

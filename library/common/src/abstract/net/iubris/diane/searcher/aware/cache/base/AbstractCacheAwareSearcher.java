@@ -23,9 +23,12 @@ public abstract class AbstractCacheAwareSearcher<SearchState, SearchResult> impl
 
 	@Override
 	public SearchState search(Void... param) throws CacheTooOldException, CacheAwareSearchException {
-			cacheAware.isCacheAvailable();
+		Boolean cacheAvailable = cacheAware.isCacheAvailable();
+		if (cacheAvailable)
 			return doSearch();
+		return doNotSearch();
 	}
 
 	protected abstract SearchState doSearch() throws CacheAwareSearchException;
+	protected abstract SearchState doNotSearch() throws CacheAwareSearchException;
 }
