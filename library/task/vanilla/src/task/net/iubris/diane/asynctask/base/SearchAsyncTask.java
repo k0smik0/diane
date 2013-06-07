@@ -30,6 +30,7 @@ import net.iubris.diane.aware.network.exceptions.base.NoNetworkException;
 import net.iubris.diane.searcher.Searcher;
 import net.iubris.diane.searcher.aware.cache.exceptions.CacheAwareSearchException;
 import net.iubris.diane.searcher.aware.exceptions.AwareSearchException;
+import net.iubris.diane.searcher.aware.exceptions.base.StillSearchException;
 import net.iubris.diane.searcher.aware.location.exceptions.LocationAwareSearchException;
 import net.iubris.diane.searcher.aware.location.exceptions.base.LocationNotSoUsefulException;
 import net.iubris.diane.searcher.aware.location.exceptions.base.LocationTooNearException;
@@ -67,6 +68,7 @@ implements SearcherCallable<SearchResult>
     	LocationAwareSearchException, NetworkAwareSearchException, CacheAwareSearchException, 
     	AwareSearchException, 	SearchException,*/ Exception;
 	
+    protected void onException(StillSearchException e) throws RuntimeException {}
     protected void onException(LocationTooNearException e) throws RuntimeException {}
     
     protected void onException(LocationNotSoUsefulException e) throws RuntimeException {

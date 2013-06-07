@@ -8,6 +8,7 @@ import net.iubris.diane.aware.network.exceptions.NetworkStateException;
 import net.iubris.diane.aware.network.exceptions.base.NoNetworkException;
 import net.iubris.diane.searcher.aware.cache.exceptions.CacheAwareSearchException;
 import net.iubris.diane.searcher.aware.exceptions.AwareSearchException;
+import net.iubris.diane.searcher.aware.exceptions.base.StillSearchException;
 import net.iubris.diane.searcher.aware.location.exceptions.LocationAwareSearchException;
 import net.iubris.diane.searcher.aware.location.exceptions.base.LocationNotSoUsefulException;
 import net.iubris.diane.searcher.aware.location.exceptions.base.LocationTooNearException;
@@ -29,7 +30,7 @@ public class DianeSampleSearchAsyncTask extends SearchAsyncTask<DianeSampleSearc
 		this.dianeSampleSearcher = dianeSampleController;
 	}
 	@Override
-	public String call() throws LocationNotSoUsefulException,
+	public String call() throws StillSearchException, LocationNotSoUsefulException,
 			LocationStateException, CacheTooOldException, CacheStateException,
 			NoNetworkException, NetworkStateException,
 			LocationAwareSearchException, NetworkAwareSearchException,
@@ -41,6 +42,9 @@ public class DianeSampleSearchAsyncTask extends SearchAsyncTask<DianeSampleSearc
 	@Override
 	protected void onSuccess(String result) throws Exception {
 		Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+	}
+	protected void onException(StillSearchException e) throws RuntimeException {
+		showException(e);
 	}
 	@Override
 	protected void onException(NoNetworkException e) throws RuntimeException {

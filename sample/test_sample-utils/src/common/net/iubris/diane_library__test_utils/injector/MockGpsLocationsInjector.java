@@ -1,8 +1,12 @@
 package net.iubris.diane_library__test_utils.injector;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -15,110 +19,79 @@ import android.os.Build;
 import android.util.Log;
 import android.util.Pair;
 
-//@ContextSingleton
 @Singleton
 public class MockGpsLocationsInjector {
 
 //	public static String MOCK_GPS_PROVIDER = "MOCK_GPS_PROVIDER";
 	public static String MOCK_GPS_PROVIDER = LocationManager.GPS_PROVIDER;
 	
-//	private final Map<Pair<Double, Double>, String> mockLocations = new LinkedHashMap<Pair<Double,Double>, String>();
 	private final LocationManager locationManager;
+	private final LocationProvider gpsProvider;
+	private final ExecutorService locationInjectExecutorService;
 	
+	private int locationInjectionInterval = 2;
 	private boolean rotate;
 
-	private final LocationProvider gpsProvider;
+	private final List<Pair<Double,Double>> locations;
+	private final int locationsListBound;
+	private int locationsIndex=0;
 
 	@Inject
 	public MockGpsLocationsInjector(LocationManager locationManager) {
 		this.locationManager = locationManager;
-		
 		gpsProvider = locationManager.getProvider(LocationManager.GPS_PROVIDER);
-		
-/*		mockLocations.put(new Pair<Double,Double>(44.493287,11.376921),"via Massarenti 352");
-		mockLocations.put(new Pair<Double,Double>(44.493138,11.375912),"via Massarenti 250");
-		
-		mockLocations.put(new Pair<Double,Double>(44.493207,11.360119),"via Massarenti 54");
-		mockLocations.put(new Pair<Double,Double>(44.49398,11.3568370),"via San Vitale 89");
-		
-		mockLocations.put(new Pair<Double,Double>(44.494282,11.352047),"via petroni 1");
-		mockLocations.put(new Pair<Double,Double>(44.496176,11.35077),"piazza giuseppe verdi 4");
-		
-		mockLocations.put(new Pair<Double,Double>(44.494531,11.342696),"Piazza del Nettuno 2");
-		mockLocations.put(new Pair<Double,Double>(44.493968,11.344762),"via degli Orefici 6");*/
+		locationInjectExecutorService = Executors.newFixedThreadPool(1);
+		locations = new ArrayList<Pair<Double,Double>>();
+		Set<Pair<Double, Double>> keySet = MockLocations.locationsMap.keySet();
+		locations.addAll( keySet );
+		locationsListBound = keySet.size()-1;
 	}
 	
 	public void startLocationsTest() {
+Log.d("MockGpsLocationsInjector:39","start inject location");
 		restoreGps();
 		clearProvider();
 		addProvider();
-		
 		rotate = true;
-		ExecutorService executorService = Executors.newFixedThreadPool(2);
-		executorService.execute( new Runnable() {
-			@Override
-			public void run() {
-				while (rotate) {
-					for (Pair<Double, Double> latlng: MockLocations.locationsMap.keySet()) {
-//						Toast.makeText(context, "we are in: "+latlng.getKey(), Toast.LENGTH_SHORT).show();
-						Double latitude = latlng.first;
-						Double longitude = latlng.second;
-Log.d("MockLocationsInjector:66",".\n."+new Date().toGMTString()+"\n");
-Log.d("MockLocationsInjector:67","injecting "+MockLocations.locationsMap.get(latlng)+" ("+latitude+","+longitude+")");				
-						setLocation(latitude,longitude);
-						try {
-							Thread.sleep(7*1000);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-					}
-				}
-			}
-		});
-		
+		locationInjectExecutorService.execute( locationInjectionRunnable );
 	}
 	public void stopLocationsTest() {
+Log.d("MockGpsLocationsInjector:50","stop inject location");
 		rotate = false;
+		try {
+Log.d("MockGpsLocationsInjector:53","wait for stop inject location");			
+			locationInjectExecutorService.awaitTermination(1, TimeUnit.SECONDS);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+			locationInjectExecutorService.shutdownNow();
+		}
+//		locationInjectExecutorService.shutdown();
 		clearProvider();
 		restoreGps();
 	}
 	public boolean isRunning() {
 		return rotate;
 	}
-	
+	/**
+	 * @param locationInjectionInterval seconds - default is 10
+	 */
+	public void setLocationInjectionInterval(int locationInjectionInterval) {
+		this.locationInjectionInterval = locationInjectionInterval;
+	}
+
 	private void addProvider() {
 		if (!locationManager.isProviderEnabled(MOCK_GPS_PROVIDER)) {
-Log.d("MockGpsLocationsInjector:90","adding and enabling "+MOCK_GPS_PROVIDER);
+Log.d("MockGpsLocationsInjector:85","adding and enabling "+MOCK_GPS_PROVIDER);
 			locationManager.addTestProvider(MOCK_GPS_PROVIDER, false, false, true, false, false, true, true, 0, 5);
 			locationManager.setTestProviderEnabled(MOCK_GPS_PROVIDER, true);
 		}
 	}
 	private void clearProvider() {
-		/*List<String> allProviders = locationManager.getProviders(false);
-		for (String ap: allProviders) 
-			Log.d("MockGpsLocationsInjector:96",ap);
-		List<String> enabledProviders = locationManager.getProviders(true);
-		for (String ep: enabledProviders) 
-			Log.d("MockGpsLocationsInjector:99",ep+" enabled");
-		*/
-		
 		if (locationManager.isProviderEnabled(MOCK_GPS_PROVIDER)) {
 			locationManager.clearTestProviderEnabled(MOCK_GPS_PROVIDER);
 			locationManager.clearTestProviderLocation(MOCK_GPS_PROVIDER);
 			locationManager.clearTestProviderStatus(MOCK_GPS_PROVIDER);
 		}
-		
-		/*
-		try {
-			if (locationManager.isProviderEnabled(MOCK_GPS_PROVIDER)) {
-				locationManager.setTestProviderEnabled(MOCK_GPS_PROVIDER, false);
-				locationManager.removeTestProvider(MOCK_GPS_PROVIDER);
-			}
-		} catch (IllegalArgumentException e) {
-			e.printStackTrace();
-		} catch (NullPointerException e) {
-			e.printStackTrace();
-		}*/
 	}
 	private void restoreGps() {
 		locationManager.addTestProvider(gpsProvider.getName(), 
@@ -129,7 +102,6 @@ Log.d("MockGpsLocationsInjector:90","adding and enabling "+MOCK_GPS_PROVIDER);
 	}
 	
 	
-//	@SuppressLint("NewApi")
 	@SuppressLint("NewApi")
 	private void setLocation(double latitude, double longitude) {
 //		Location gpsMockLocation = new Location(MOCK_GPS_PROVIDER);
@@ -147,8 +119,46 @@ Log.d("MockGpsLocationsInjector:90","adding and enabling "+MOCK_GPS_PROVIDER);
 		locationManager.setTestProviderLocation(LocationManager.GPS_PROVIDER, gpsMockLocation);
 	}
 	
-	/*public Map<Pair<Double, Double>, String> getMockLocations() {
-		return mockLocations;
-	}*/
 	
+	private Runnable locationInjectionRunnable = new Runnable() {
+		private void injectLocation(final List<Pair<Double, Double>> locations, final int locationsIndex) {
+			Pair<Double, Double> latlng = locations.get( locationsIndex );
+			Double latitude = latlng.first;
+			Double longitude = latlng.second;
+//			Log.d("MockLocationsInjector:130",".\n."+new Date().toGMTString()+"\n");
+			Log.d("MockLocationsInjector:131","injecting "+MockLocations.locationsMap.get(latlng)+" ("+latitude+","+longitude+")");				
+			setLocation(latitude,longitude);
+		}
+		@Override
+		public void run() {
+			while (rotate) {
+Log.d("MockGpsLocationsInjector:137", "locationInjectionRunnable - rotate: "+rotate);				
+				if (locationsIndex==locationsListBound)
+					locationsIndex=0;
+				injectLocation(locations, locationsIndex);
+				locationsIndex++;
+				try {
+					Thread.sleep(locationInjectionInterval*1000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+Log.d("MockGpsLocationsInjector:143", "locationInjectionRunnable - rotate: "+rotate+" - exiting runnable");
+			
+			/*while (rotate) {
+				for (Pair<Double, Double> latlng: MockLocations.locationsMap.keySet()) {
+					Double latitude = latlng.first;
+					Double longitude = latlng.second;
+Log.d("MockLocationsInjector:115",".\n."+new Date().toGMTString()+"\n");
+Log.d("MockLocationsInjector:116","injecting "+MockLocations.locationsMap.get(latlng)+" ("+latitude+","+longitude+")");				
+					setLocation(latitude,longitude);
+					try {
+						Thread.sleep(locationInjectionInterval*1000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+			}*/
+		}
+	};
 }

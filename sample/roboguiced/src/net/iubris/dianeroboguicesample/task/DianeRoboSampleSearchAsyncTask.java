@@ -6,6 +6,7 @@ import net.iubris.diane.asynctask.base.RoboSearchAsyncTask;
 import net.iubris.diane.aware.cache.exceptions.base.CacheTooOldException;
 import net.iubris.diane.aware.network.exceptions.base.NoNetworkException;
 import net.iubris.diane.searcher.aware.cache.exceptions.CacheAwareSearchException;
+import net.iubris.diane.searcher.aware.exceptions.base.StillSearchException;
 import net.iubris.diane.searcher.aware.location.exceptions.LocationAwareSearchException;
 import net.iubris.diane.searcher.aware.location.exceptions.base.LocationNotSoUsefulException;
 import net.iubris.diane.searcher.aware.location.exceptions.base.LocationTooNearException;
@@ -25,7 +26,7 @@ public class DianeRoboSampleSearchAsyncTask extends RoboSearchAsyncTask<DianeRob
 		this.dianeSampleSearcher = dianeSampleController;
 	}
 	@Override
-	public String call() throws LocationTooNearException, LocationNotSoUsefulException, 
+	public String call() throws StillSearchException, LocationTooNearException, LocationNotSoUsefulException, 
 		CacheTooOldException, NoNetworkException, 
 		CacheAwareSearchException, NetworkAwareSearchException { 
 			dianeSampleSearcher.search();
@@ -36,6 +37,9 @@ public class DianeRoboSampleSearchAsyncTask extends RoboSearchAsyncTask<DianeRob
 		Toast.makeText(context, result, Toast.LENGTH_LONG).show();
 	}
 	
+	protected void onException(StillSearchException e) throws RuntimeException {
+		showException(e);
+	}
 	@Override
 	protected void onException(NoNetworkException e) throws RuntimeException {
 		showException(e,"from cache: \n"+dianeSampleSearcher.getResult());

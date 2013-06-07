@@ -5,6 +5,7 @@ import net.iubris.diane.aware.location.exceptions.LocationStateException;
 import net.iubris.diane.aware.network.exceptions.NetworkStateException;
 import net.iubris.diane.searcher.aware.cache.CacheAwareSearcher;
 import net.iubris.diane.searcher.aware.cache.exceptions.CacheAwareSearchException;
+import net.iubris.diane.searcher.aware.exceptions.base.StillSearchException;
 import net.iubris.diane.searcher.aware.location.LocationAwareSearcher;
 import net.iubris.diane.searcher.aware.location.exceptions.LocationAwareSearchException;
 import net.iubris.diane.searcher.aware.network.NetworkAwareSearcher;
@@ -21,5 +22,6 @@ LocationAwareSearcher<Void, Result>, NetworkAwareSearcher<Void, Result>, CacheAw
 		CacheStateException,
 		CacheAwareSearchException,
 		NetworkStateException,
-		NetworkAwareSearchException;
+		NetworkAwareSearchException,
+		StillSearchException;
 }

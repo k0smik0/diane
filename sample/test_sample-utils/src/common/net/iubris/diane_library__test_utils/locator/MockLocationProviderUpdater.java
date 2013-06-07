@@ -41,7 +41,7 @@ public class MockLocationProviderUpdater implements LocationProvider, LocationUp
 		pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 		receiver = new MockLocationReceiver();
 		
-        // LocationProvider init
+		// LocationProvider init
 		location = initLocation();
 	}
 	
@@ -78,13 +78,13 @@ Log.d("MockLocationProvider:71", "found network location");
 			return networkLocation;
 		}
 		Location passiveLocation = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
-        if (passiveLocation!=null) {
+		if (passiveLocation!=null) {
 Log.d("MockLocationProvider:76", "found passive location");
-        	return passiveLocation;
-        }
-        Location mockLocation = locationManager.getLastKnownLocation(MockGpsLocationsInjector.MOCK_GPS_PROVIDER);
+			return passiveLocation;
+		}
+		Location mockLocation = locationManager.getLastKnownLocation(MockGpsLocationsInjector.MOCK_GPS_PROVIDER);
 Log.d("MockLocationProvider:80", "found mock location");
-    	return mockLocation;
+		return mockLocation;
 	}
 
 	@Override
@@ -100,9 +100,13 @@ Log.d("MockLocationProvider:80", "found mock location");
 	public class MockLocationReceiver extends BroadcastReceiver {
 		@Override
 		public void onReceive(Context context, Intent intent) {
+Log.d("MockLocationProviderUpdater:103","@MockLocationReceiver - onReceive");
 			String klc = LocationManager.KEY_LOCATION_CHANGED;
 			Location location = (Location)intent.getExtras().get(klc);
-			setLocation(location);
+			if (location!=null) {
+Log.d("MockLocationProviderUpdater:107","@MockLocationReceiver - setting location "+location);
+				setLocation(location);
+			}
 			/*Location location = null;
 			String klc = LocationManager.KEY_LOCATION_CHANGED;
 			if (intent.hasExtra(klc)) {

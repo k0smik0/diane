@@ -41,13 +41,12 @@ public class DefaultThreeStateLocationAwareLocationSupplier implements ThreeStat
 		this.distanceMaximumThreshold = distanceMaximumThreshold;
 //		this.timeMaximumThreshold = timeMaximumThreshold;
 		this.locationProvider = locationProvider;
-		Log.d("DefaultThreeStateLocationAwareLocationSupplier:44","locationProvider: "+locationProvider.getClass().getSimpleName());
-		
+Log.d("DefaultThreeStateLocationAwareLocationSupplier:44","locationProvider: "+locationProvider.getClass().getSimpleName());
 		
 		// init
 //		this.location = locationProvider.getLocation();
-		this.location = getFreshLocation();
-Log.d("DefaultThreeStateLocationAwareLocationSupplier:41","constructor - init new location: "+location);
+//		this.location = getFreshLocation();
+//Log.d("DefaultThreeStateLocationAwareLocationSupplier:49","constructor - init new location: "+location);
 	}
 
 	/**
@@ -87,7 +86,7 @@ Log.d("DefaultThreeStateLocationAwareLocationSupplier:41","constructor - init ne
 	 * is (absolutely!) <i>not useful</i> if it doen't respect any of above rules<br/>
 	 */
 	@Override
-	public boolean isLocationUseful() throws /*LocationFreshNullException,*/ LocationNotSoUsefulException {
+	public boolean isLocationUseful() throws LocationNotSoUsefulException {
 		// retrieve a newFreshLocation
 		Location newFreshLocation = getFreshLocation();
 Log.d("DefaultThreeStateLocationAwareLocationSupplier:91","location is: "+location);
@@ -166,6 +165,13 @@ Log.d("DefaultThreeStateLocationAwareLocationSupplier:96","new location: "+locat
 		return freshLocation;
 	}*/
 	protected Location getFreshLocation() {
+		/*if (locationProvider.getLocation() == null)
+			try {
+				wait();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}*/
+Log.d(this.getClass().getSimpleName()+":174","getting location by "+locationProvider);
 		return locationProvider.getLocation();
 	}
 	
