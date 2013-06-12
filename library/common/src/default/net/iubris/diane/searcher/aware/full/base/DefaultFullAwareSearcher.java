@@ -21,19 +21,12 @@ import android.util.Log;
  */
 public class DefaultFullAwareSearcher<Result> implements FullAwareSearcher<Result> {
 
-	/**
-	 * @uml.property  name="locationAware"
-	 * @uml.associationEnd  
-	 */
 	protected final ThreeStateLocationAwareLocationSupplier locationAwareProvider;
-	/**
-	 * @uml.property  name="localizedSearcherCacheNetworkAware"
-	 * @uml.associationEnd  
-	 */
 	protected final LocalizedSearcherCacheNetworkAwareStrictChecking<Result> localizedSearcherCacheNetworkAware;
 	
-	private Result result;
+	protected Result result;
 	private boolean searching = false;
+	private boolean isFirstSearch = true;
 	
 	@Inject
 	public DefaultFullAwareSearcher(ThreeStateLocationAwareLocationSupplier locationAware,
@@ -51,24 +44,18 @@ public class DefaultFullAwareSearcher<Result> implements FullAwareSearcher<Resul
 		if (searching==true) throw new StillSearchException("a search is still active");
 		searching=true;
 		
-		if (result==null) { // first search
+		if (isFirstSearch) { // first search
 			try {
 				locationAwareProvider.isLocationUseful();
-			} catch(LocationNotSoUsefulException e) {} // we don't care about usefulness
+			} catch(LocationNotSoUsefulException e) {} // first search, so we don't care about usefulness
+			isFirstSearch = false;
 			return doSearch();
 		}
 		
 		boolean locationUseful = locationAwareProvider.isLocationUseful(); // if location is null, wait - if it is not useful (not so newer OR not so far OR etc), throws LocationNotSoUsefulException
 		if (locationUseful) { // if location is not useful (not so newer OR not so far OR etc), throws LocationNotSoUsefulException
 			//ok, we have "true", so start our search
-			return doSearch();
-			/*Location location = locationAwareProvider.getLocation();
-Log.d("DefaultFullAwareSearcher:62","using location: "+location);
-			// use non-aware localizedsearcher as delegate
-			localizedSearcherCacheNetworkAware.search(location);
-			result = localizedSearcherCacheNetworkAware.getResult();
-			return null;
-			*/
+			return doSearch();			
 		}			
 		// we are here because not throwed LocationNotSoUsefulException nor above "if" returned true: 
 		// so location is definitely near and we throw below LocationTooNearException
@@ -83,14 +70,13 @@ Log.d("DefaultFullAwareSearcher:72","using location: "+location);
 		// use non-aware localizedsearcher as delegate
 		localizedSearcherCacheNetworkAware.search(location);
 		result = localizedSearcherCacheNetworkAware.getResult();
-		searching=false;
+		searching = false;
 		return null;
 	}
 	
 	@Override
 	public Result getResult() {
 		return result;
-//		return localizedSearcherCacheNetworkAware.getResult();
 	}
 	
 }

@@ -22,5 +22,4 @@ public class DefaultCheckerStateNetworkAware implements CheckerStateNetworkAware
 			return null;
 		throw new NoNetworkException("no network connection");		
 	}
-
 }

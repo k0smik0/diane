@@ -16,17 +16,9 @@ import android.location.Location;
  */
 public class DefaultLocalizedSearcherCacheNetworkAwareStrictChecking<Result> implements LocalizedSearcherCacheNetworkAwareStrictChecking<Result> {
 	
-	/**
-	 * @uml.property  name="cacheAwareSearcher"
-	 * @uml.associationEnd  
-	 */
 	private final LocalizedSearcherCacheAwareStrictChecking<Result> cacheAwareSearcher;
-	/**
-	 * @uml.property  name="networkAwareSearcher"
-	 * @uml.associationEnd  
-	 */
 	private final LocalizedSearcherNetworkAwareStrictChecking<Result> networkAwareSearcher;
-	private Result result;
+	protected Result result;
 	
 	@Inject
 	public DefaultLocalizedSearcherCacheNetworkAwareStrictChecking(
@@ -34,13 +26,12 @@ public class DefaultLocalizedSearcherCacheNetworkAwareStrictChecking<Result> imp
 			LocalizedSearcherNetworkAwareStrictChecking<Result> networkAwareSearcher) {
 		this.cacheAwareSearcher = cacheAwareSearcher;
 		this.networkAwareSearcher = networkAwareSearcher;
-	}
-	
+	}	
 
 	@Override
-	public Void search(Location... location)   
-			throws NoNetworkException, NetworkAwareSearchException, CacheTooOldException, CacheAwareSearchException 
-			{
+	public Void search(Location... location) throws 
+			NoNetworkException, NetworkAwareSearchException, 
+			CacheTooOldException, CacheAwareSearchException {
 		try { // trying network
 			networkAwareSearcher.search(location); // network ok - it could throw NetworkSearchException
 			result = networkAwareSearcher.getResult();
