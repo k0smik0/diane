@@ -86,7 +86,9 @@ Log.d("DefaultThreeStateLocationAwareLocationSupplier:119","location is far, ret
 		return true;		
 	}
 	protected Location getFreshLocation() {
-Log.d(this.getClass().getSimpleName()+":174","getting location by "+locationProvider);
+Log.d(this.getClass().getSimpleName()+":89","getting location by "+locationProvider);
+//Log.d(this.getClass().getSimpleName()+":89","format location to 6 decimal places ");
+//		DecimalFormat dec = new DecimalFormat("#.######");
 		return locationProvider.getLocation();
 	}
 }
