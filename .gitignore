@@ -25,6 +25,7 @@ sample/vanilla/bin/*
 sample/vanilla/gen/*
 sample/roboguiced/bin/*
 sample/roboguiced/gen/*
+sample/roboguiced/values_no
 sample/test_sample-utils/bin/*
 sample/test_sample-utils/gen/*
 
