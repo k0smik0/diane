@@ -13,25 +13,24 @@ import net.iubris.diane.searcher.aware.location.exceptions.base.LocationTooNearE
 import net.iubris.diane.searcher.aware.network.exceptions.NetworkAwareSearchException;
 import net.iubris.diane.searcher.location.aware.full.LocalizedSearcherCacheNetworkAwareStrictChecking;
 import android.location.Location;
-import android.util.Log;
 
 /**
  * @author    Massimiliano Leone - k0smik0
  * @uml.dependency   supplier="net.iubris.dianedev.searcher.location.base.LocalizedSearcherCacheNetworkAware"
  */
-public class DefaultFullAwareSearcher<Result> implements FullAwareSearcher<Result> {
+public class DefaultFullAwareSearcher<SearchResult> implements FullAwareSearcher<SearchResult> {
 
-	protected final ThreeStateLocationAwareLocationSupplier locationAwareProvider;
-	protected final LocalizedSearcherCacheNetworkAwareStrictChecking<Result> localizedSearcherCacheNetworkAware;
+	protected final ThreeStateLocationAwareLocationSupplier locationAwareSupplier;
+	protected final LocalizedSearcherCacheNetworkAwareStrictChecking<SearchResult> localizedSearcherCacheNetworkAware;
 	
-	protected Result result;
+	protected SearchResult result;
 	private boolean searching = false;
 	private boolean isFirstSearch = true;
 	
 	@Inject
-	public DefaultFullAwareSearcher(ThreeStateLocationAwareLocationSupplier locationAware,
-			LocalizedSearcherCacheNetworkAwareStrictChecking<Result> awareSearcher) {
-		this.locationAwareProvider = locationAware;
+	public DefaultFullAwareSearcher(ThreeStateLocationAwareLocationSupplier locationAwareSupplier,
+			LocalizedSearcherCacheNetworkAwareStrictChecking<SearchResult> awareSearcher) {
+		this.locationAwareSupplier = locationAwareSupplier;
 		this.localizedSearcherCacheNetworkAware = awareSearcher;
 	}
 
@@ -46,27 +45,27 @@ public class DefaultFullAwareSearcher<Result> implements FullAwareSearcher<Resul
 		
 		if (isFirstSearch) { // first search
 			try {
-				locationAwareProvider.isLocationUseful();
+				locationAwareSupplier.isNewLocationUseful();
 			} catch(LocationNotSoUsefulException e) {} // first search, so we don't care about usefulness
 			isFirstSearch = false;
 			return doSearch();
 		}
 		
-		boolean locationUseful = locationAwareProvider.isLocationUseful(); // if location is null, wait - if it is not useful (not so newer OR not so far OR etc), throws LocationNotSoUsefulException
+		boolean locationUseful = locationAwareSupplier.isNewLocationUseful(); // if location is null, wait - if it is not useful (not so newer OR not so far OR etc), throws LocationNotSoUsefulException
 		if (locationUseful) { // if location is not useful (not so newer OR not so far OR etc), throws LocationNotSoUsefulException
 			//ok, we have "true", so start our search
 			return doSearch();			
 		}			
 		// we are here because not throwed LocationNotSoUsefulException nor above "if" returned true: 
 		// so location is definitely near and we throw below LocationTooNearException
-Log.d("DefaultFullAwareSearcher:69","locationUseful is false, throwing LocationTooNearException");
+//Log.d("DefaultFullAwareSearcher:69","locationUseful is false, throwing LocationTooNearException");
 		searching=false;
 		throw new LocationTooNearException("location is too near, a new search is absolutely useless");
 	}
 	
 	private Void doSearch() throws CacheTooOldException, NoNetworkException, CacheAwareSearchException, NetworkAwareSearchException {
-		Location location = locationAwareProvider.getLocation();
-Log.d("DefaultFullAwareSearcher:72","using location: "+location);
+		Location location = locationAwareSupplier.getLocation();
+//Log.d("DefaultFullAwareSearcher:72","using location: "+location);
 		// use non-aware localizedsearcher as delegate
 		localizedSearcherCacheNetworkAware.search(location);
 		result = localizedSearcherCacheNetworkAware.getResult();
@@ -75,7 +74,12 @@ Log.d("DefaultFullAwareSearcher:72","using location: "+location);
 	}
 	
 	@Override
-	public Result getResult() {
+	public void resetSearchState() {
+		searching = false;
+	}
+	
+	@Override
+	public SearchResult getResult() {
 		return result;
 	}
 	

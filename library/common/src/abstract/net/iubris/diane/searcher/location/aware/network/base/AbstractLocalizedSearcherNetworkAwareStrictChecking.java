@@ -9,8 +9,8 @@ import net.iubris.diane.searcher.location.aware.network.LocalizedSearcherNetwork
 /**
  * @author  Massimiliano Leone - k0smik0
  */
-public abstract class AbstractLocalizedSearcherNetworkAwareStrictChecking<Result> 
-	implements LocalizedSearcherNetworkAwareStrictChecking<Result> {
+public abstract class AbstractLocalizedSearcherNetworkAwareStrictChecking<SearchResult> 
+	implements LocalizedSearcherNetworkAwareStrictChecking<SearchResult> {
 
 	/**
 	 * @uml.property  name="networkAware"

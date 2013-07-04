@@ -10,7 +10,6 @@ import net.iubris.polaris.locator.provider.LocationProvider;
 import net.iubris.polaris.locator.utils.LocationUtils;
 import net.iubris.polaris.locator.utils.exceptions.LocationNotSoFarException;
 import android.location.Location;
-import android.util.Log;
 
 /**
  * @author  Massimiliano Leone - k0smik0
@@ -30,7 +29,7 @@ public class DefaultThreeStateLocationAwareLocationSupplier implements ThreeStat
 			throw new NumberFormatException("Only positive value admitted for distanceMaximumThreshold");
 		this.distanceMaximumThreshold = distanceMaximumThreshold;
 		this.locationProvider = locationProvider;
-Log.d("DefaultThreeStateLocationAwareLocationSupplier:44","locationProvider: "+locationProvider.getClass().getSimpleName());
+//Log.d("DefaultThreeStateLocationAwareLocationSupplier:44","locationProvider: "+locationProvider.getClass().getSimpleName());
 	}
 
 	/**
@@ -49,20 +48,20 @@ Log.d("DefaultThreeStateLocationAwareLocationSupplier:44","locationProvider: "+l
 	 * is (absolutely!) <i>not useful</i> if it doen't respect any of above rules<br/>
 	 */
 	@Override
-	public boolean isLocationUseful() throws LocationNotSoUsefulException {
+	public boolean isNewLocationUseful() throws LocationNotSoUsefulException {
 		// retrieve a newFreshLocation
 		Location newFreshLocation = getFreshLocation();
-Log.d("DefaultThreeStateLocationAwareLocationSupplier:91","location is: "+location);
-Log.d("DefaultThreeStateLocationAwareLocationSupplier:92","newFreshLocation is: "+newFreshLocation);
+//Log.d("DefaultThreeStateLocationAwareLocationSupplier:91","location is: "+location);
+//Log.d("DefaultThreeStateLocationAwareLocationSupplier:92","newFreshLocation is: "+newFreshLocation);
 //		LocationCheckers.checkIsNull
 		if (location==null) { // it should never happen, but if so: any location is always preferable than null
 			location = newFreshLocation;
-Log.d("DefaultThreeStateLocationAwareLocationSupplier:96","location was null, returning newFreshLocation: "+newFreshLocation);			
+//Log.d("DefaultThreeStateLocationAwareLocationSupplier:96","location was null, returning newFreshLocation: "+newFreshLocation);			
 			return true;
 		}
 		boolean locationBetter = LocationUtils.isLocationBetter(newFreshLocation, location, locationProvider.getMinimumTimeThreshold(), locationProvider.getMinimumDistanceThreshold());
 		if (!locationBetter) {// it should never happen, but if so, return false
-Log.d("DefaultThreeStateLocationAwareLocationSupplier:101","location is not better, returning false");		
+//Log.d("DefaultThreeStateLocationAwareLocationSupplier:101","location is not better, returning false");		
 			return false;
 		}
 		
@@ -77,16 +76,16 @@ Log.d("DefaultThreeStateLocationAwareLocationSupplier:101","location is not bett
 		}
 		if (!locationFar) { // near, returning false
 			location = newFreshLocation; // always update location (2)
-Log.d("DefaultThreeStateLocationAwareLocationSupplier:115","location is near, returning false");
+//Log.d("DefaultThreeStateLocationAwareLocationSupplier:115","location is near, returning false");
 			return false;
 		} 
-Log.d("DefaultThreeStateLocationAwareLocationSupplier:119","location is far, returning true");
+//Log.d("DefaultThreeStateLocationAwareLocationSupplier:119","location is far, returning true");
 		// it is far, so return true
 		location = newFreshLocation; // always update location (3)
 		return true;		
 	}
 	protected Location getFreshLocation() {
-Log.d(this.getClass().getSimpleName()+":89","getting location by "+locationProvider);
+//Log.d(this.getClass().getSimpleName()+":89","getting location by "+locationProvider);
 //Log.d(this.getClass().getSimpleName()+":89","format location to 6 decimal places ");
 //		DecimalFormat dec = new DecimalFormat("#.######");
 		return locationProvider.getLocation();

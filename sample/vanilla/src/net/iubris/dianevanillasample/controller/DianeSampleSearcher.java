@@ -21,27 +21,27 @@ public class DianeSampleSearcher extends DefaultFullAwareSearcher<String> {
 	private final LocalizedSearcherCacheAwareStrictChecking<String> localizedSearcherCacheAware;
 	private final LocalizedSearcherNetworkAwareStrictChecking<String> localizedSearcherNetworkAware;
 
-	public DianeSampleSearcher(ThreeStateLocationAwareLocationSupplier locationAwareProvider,
+	public DianeSampleSearcher(ThreeStateLocationAwareLocationSupplier locationAwareSupplier,
 			LocalizedSearcherCacheNetworkAwareStrictChecking<String> awareSearcher,
 			LocalizedSearcherCacheAwareStrictChecking<String> localizedSearcherCacheAware,
 			LocalizedSearcherNetworkAwareStrictChecking<String> localizedSearcherNetworkAware) {
-		super(locationAwareProvider, awareSearcher);
+		super(locationAwareSupplier, awareSearcher);
 		this.localizedSearcherCacheAware = localizedSearcherCacheAware;
 		this.localizedSearcherNetworkAware = localizedSearcherNetworkAware;
 	}
 	
 	public Location getLocationJustForExamplePurpose(){
-		return locationAwareProvider.getLocation();
+		return locationAwareSupplier.getLocation();
 	}
 	
 	public Void searchByNetworkJustForExamplePurpose(Void... arg0) throws LocationNotSoUsefulException,
 			NoNetworkException, NetworkAwareSearchException, SearchException {
-		localizedSearcherNetworkAware.search( locationAwareProvider.getLocation() );
+		localizedSearcherNetworkAware.search( locationAwareSupplier.getLocation() );
 		networkResult = localizedSearcherNetworkAware.getResult();
 		return null;
 	}	
 	public Void searchByCacheJustForExamplePurpose(Void... arg0) throws CacheTooOldException, CacheAwareSearchException, SearchException  {
-		localizedSearcherCacheAware.search( locationAwareProvider.getLocation() );
+		localizedSearcherCacheAware.search( locationAwareSupplier.getLocation() );
 		cacheResult = localizedSearcherCacheAware.getResult();
 		return null;
 	}

@@ -13,5 +13,5 @@ public interface ThreeStateLocationAware extends LocationAware<Boolean> {
 	 * @throws LocationNotSoUsefulException if new location is (obviously) not so useful, according implementation logic
 	 */
 	@Override
-	public boolean isLocationUseful() throws /*LocationFreshNullException,*/ LocationNotSoUsefulException;
+	public boolean isNewLocationUseful() throws /*LocationFreshNullException,*/ LocationNotSoUsefulException;
 }

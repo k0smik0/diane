@@ -23,6 +23,6 @@ import net.iubris.diane.searcher.aware.location.exceptions.base.LocationNotSoUse
 
 public interface LocationAware<LocationState> {
 //	public LocationState isInNewerLocation() throws LocationNotNewerException;
-	public boolean isLocationUseful() throws /*LocationFreshNullException,*/ LocationNotSoUsefulException;
+	public boolean isNewLocationUseful() throws /*LocationFreshNullException,*/ LocationNotSoUsefulException;
 //	public Location getLocation();
 }

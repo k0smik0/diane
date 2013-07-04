@@ -23,12 +23,12 @@ public class DianaSampleLocalizedSearcherCacheAwareStrictChecking extends Abstra
 
 	@Override
 	protected void doSearch(Location location) throws CacheAwareSearchException {
-		LocationInfo locationInfo = LocationInfo.buildLocationInfo(location);
+		LocationInfo locationInfo = new LocationInfo(location);
 		Pair<Double,Double> latlng = new Pair<Double, Double>(location.getLatitude(),location.getLongitude());
 		
 		if (MockLocations.locationsMap.containsKey(latlng))
 			locationInfo.setAddress( MockLocations.locationsMap.get(latlng) +" [from cache]");
 		
-		result = locationInfo.toString();
+		result = locationInfo.getInfo();
 	}
 }

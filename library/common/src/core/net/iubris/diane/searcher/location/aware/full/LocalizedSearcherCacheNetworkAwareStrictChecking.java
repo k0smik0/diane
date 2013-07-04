@@ -6,8 +6,8 @@ import net.iubris.diane.searcher.aware.cache.exceptions.CacheAwareSearchExceptio
 import net.iubris.diane.searcher.aware.network.exceptions.NetworkAwareSearchException;
 import android.location.Location;
 
-public interface LocalizedSearcherCacheNetworkAwareStrictChecking<Result> extends
-		LocalizedSearcherCacheNetworkAware<Result> {
+public interface LocalizedSearcherCacheNetworkAwareStrictChecking<SearchResult> extends
+		LocalizedSearcherCacheNetworkAware<SearchResult> {
 	
 	@Override
 	public Void search(Location... locations) 

@@ -130,13 +130,11 @@ public class DianeSampleSearcherProvider extends AbstractDianeSearcherProvider<D
 
 			@Override
 			public Integer getMaximumDistanceThreshold() {
-				// TODO Auto-generated method stub
 				return null;
 			}
 
 			@Override
 			public Integer getMaximumTimeThreshold() {
-				// TODO Auto-generated method stub
 				return null;
 			}
 		};*/

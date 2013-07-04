@@ -7,8 +7,8 @@ import net.iubris.diane.searcher.aware.network.exceptions.NetworkAwareSearchExce
 import net.iubris.diane.searcher.location.LocalizedSearcher;
 import android.location.Location;
 
-public interface LocalizedSearcherCacheNetworkAware<Result>
- extends LocalizedSearcher<Result> { // use composition
+public interface LocalizedSearcherCacheNetworkAware<SearchResult>
+ extends LocalizedSearcher<SearchResult> { // use composition
 //	extends LocalizedSearcherNetworkAware<Result>, LocalizedSearcherCacheAware<Result> { // use inheritance
 
 	@Override

@@ -2,7 +2,7 @@
 
 Diane is an android framework for location-aware searching.
 
-For example, a google places query is location-aware searching, because you need your geolocation.
+For example, a google places query is location-aware searching, because it needs your geolocation.
 
 So, Diane provides a set of interfaces which could help your implementation model.
 

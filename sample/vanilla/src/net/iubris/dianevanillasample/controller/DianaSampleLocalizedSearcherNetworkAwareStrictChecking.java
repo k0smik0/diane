@@ -33,7 +33,7 @@ public class DianaSampleLocalizedSearcherNetworkAwareStrictChecking extends Abst
 		try {
 //			geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 10);
 			List<Address> fromLocation = new Geocoder(context,Locale.getDefault()).getFromLocation(location.getLatitude(), location.getLongitude(), 10);
-			LocationInfo locationInfo = LocationInfo.buildLocationInfo(location); 
+			LocationInfo locationInfo = new LocationInfo(location); 
 Log.d("DianeSampleLocalizedSearcherNetworkAwareStrictChecking:36",""+fromLocation.size());
 			if (fromLocation != null && fromLocation.size() > 0) {
 		        Address address = fromLocation.get(0);
@@ -44,7 +44,7 @@ Log.d("DianeSampleLocalizedSearcherNetworkAwareStrictChecking:36",""+fromLocatio
 Log.d("DianeSampleLocalizedSearcherNetworkAwareStrictChecking:43",addressText);
 		        locationInfo.setAddress(addressText);
 			}
-			result = locationInfo.toString();
+			result = locationInfo.getInfo();
 		} catch (IOException e1) {
 			e1.printStackTrace();
 			throw new NetworkAwareSearchException(e1);

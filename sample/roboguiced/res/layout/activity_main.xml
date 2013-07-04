@@ -1,57 +1,98 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/RelativeLayout1"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".DianeRoboSampleMainActivity" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/LinearLayout1"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	tools:context=".DianeRoboSampleMainActivity" >
 
-    <Button
-        android:id="@+id/button_network"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/button_here"
-        android:text="by Network" />
+	<Button
+		android:id="@+id/button_auto"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_weight="0.1"
+		android:layout_gravity="center_horizontal"
+		android:layout_marginBottom="5dp"
+		android:layout_marginTop="5dp"
+		android:text="Search Auto"
+		android:onClick="onAutoClick" />
+	
+	<LinearLayout 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_weight=".1"
+		android:orientation="horizontal"
+		android:layout_marginBottom="5dp">
+	
+		<Button
+			android:id="@+id/button_network"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="0.15"
+			android:layout_marginLeft="10dp"
+			android:layout_marginRight="10dp"
+			android:layout_gravity="left|start"
+			android:singleLine="false"
+			android:text="Search by Network"
+			android:onClick="onNetworkClick" />
+	
+		<Button
+			android:id="@+id/button_cache"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="0.16"
+			android:layout_marginLeft="10dp"
+			android:layout_marginRight="10dp"
+			android:layout_gravity="right|end"
+			android:singleLine="false"
+			android:text="Search by Cache"
+			android:onClick="onCacheClick" />
+	
+	</LinearLayout>
+	
+	<TextView
+		android:id="@+id/text_field_result"
+		android:layout_width="fill_parent"
+		android:layout_height="150dp"
+		android:layout_weight="1"
+		android:layout_gravity="center_horizontal"
+		android:gravity="left"
+		android:paddingLeft="10dp"
+		android:paddingRight="10dp"
+		android:scrollHorizontally="false"
+		android:scrollbars="vertical"
+		android:singleLine="false"
+		android:textIsSelectable="false" />
 
-    <Button
-        android:id="@+id/button_cache"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button_network"
-        android:layout_alignBottom="@+id/button_network"
-        android:layout_toRightOf="@+id/button_auto"
-        android:text="by Cache" />
+	<LinearLayout 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_weight=".05"
+		android:orientation="horizontal"
+		android:layout_marginBottom="1dp">
+		
+		<Button
+			android:id="@+id/button_here"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight=".08"
+			android:layout_marginLeft="10dp"
+			android:layout_marginRight="10dp"
+			android:layout_gravity="left|start"
+			android:text="Here"
+			android:onClick="onHereClick" />
 
-    <Button
-        android:id="@+id/button_here"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="44dp"
-        android:text="Here" />
+		<Button
+			android:id="@+id/button_updates"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight=".12"
+			android:layout_marginLeft="10dp"
+			android:layout_marginRight="10dp"
+			android:layout_gravity="right|end"
+			android:text="Start Fake Locations"
+			android:onClick="onFakeLocationClick" />
+	
+	</LinearLayout>
 
-    <Button
-        android:id="@+id/button_auto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/button_cache"
-        android:layout_marginBottom="20dp"
-        android:layout_toRightOf="@+id/button_network"
-        android:text="Auto" />
-
-    <Button
-        android:id="@+id/button_updates"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button_network"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp"
-        android:text="Stop Fake Locations" />
-
-</RelativeLayout>
+</LinearLayout>

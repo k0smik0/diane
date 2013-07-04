@@ -10,8 +10,8 @@ import net.iubris.diane.searcher.location.aware.full.LocalizedSearcherCacheNetwo
 import net.iubris.diane.searcher.location.aware.full.base.DefaultLocalizedSearcherCacheNetworkAwareStrictChecking;
 import net.iubris.diane.searcher.location.aware.network.LocalizedSearcherNetworkAwareStrictChecking;
 import net.iubris.diane_library__test_utils._roboguice.module.DianeTestUtilModule;
-import net.iubris.dianeroboguicesample.controller.DianaRoboSampleLocalizedSearcherCacheAwareStrictChecking;
-import net.iubris.dianeroboguicesample.controller.DianeRoboSampleLocalizedSearcherNetworkAwareStrictChecking;
+import net.iubris.dianeroboguicesample.controller.searcher.DianaRoboSampleLocalizedSearcherCacheAwareStrictChecking;
+import net.iubris.dianeroboguicesample.controller.searcher.DianeRoboSampleLocalizedSearcherNetworkAwareStrictChecking;
 
 import com.google.inject.Provides;
 import com.google.inject.TypeLiteral;
@@ -52,35 +52,4 @@ public class DianeRoboSampleModule extends AbstractDianeModule {
 	protected void bindLocalizedSearcherCacheNetworkAwareStrictChecking() {
 		bind( new TypeLiteral<LocalizedSearcherCacheNetworkAwareStrictChecking<String>>(){}).to(new TypeLiteral<DefaultLocalizedSearcherCacheNetworkAwareStrictChecking<String>>(){});
 	}
-	/*
-	@Provides @Inject @Singleton
-	public DianeRoboSampleSearcher providesDianeSampleSearcher(ThreeStateLocationAwareLocationSupplier locationAware,
-			LocalizedSearcherCacheNetworkAwareStrictChecking<String> awareSearcher,
-			final LocalizedSearcherCacheAwareStrictChecking<String> localizedSearcherCacheAware,
-			final LocalizedSearcherNetworkAwareStrictChecking<String> localizedSearcherNetworkAware,
-			final ThreeStateLocationAwareLocationSupplier threeStateLocationAwareLocationSupplier) {
-		
-		return new DianeRoboSampleSearcher(locationAware, awareSearcher) {
-			@Override
-			public Location getLocationJustForExamplePurpose() {
-				return threeStateLocationAwareLocationSupplier.getLocation();
-			}
-			@Override
-			public Void searchByCacheJustForExamplePurpose(Void... arg0) throws CacheTooOldException, CacheAwareSearchException, Exception {
-				localizedSearcherCacheAware.search( threeStateLocationAwareLocationSupplier.getLocation() );
-				cacheResult = localizedSearcherCacheAware.getResult();
-				return null;
-			}
-			@Override
-			public Void searchByNetworkJustForExamplePurpose(Void... arg0)
-					throws LocationNotSoUsefulException, NoNetworkException,
-					NetworkAwareSearchException, Exception {
-				localizedSearcherNetworkAware.search( threeStateLocationAwareLocationSupplier.getLocation() );
-				networkResult = localizedSearcherNetworkAware.getResult();
-				return null;
-			}
-		};
-		
-	}*/
-
 }

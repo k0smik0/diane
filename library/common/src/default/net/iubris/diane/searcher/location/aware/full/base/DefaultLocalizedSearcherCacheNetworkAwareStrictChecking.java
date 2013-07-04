@@ -14,16 +14,16 @@ import android.location.Location;
 /**
  * @author  Massimiliano Leone - k0smik0
  */
-public class DefaultLocalizedSearcherCacheNetworkAwareStrictChecking<Result> implements LocalizedSearcherCacheNetworkAwareStrictChecking<Result> {
+public class DefaultLocalizedSearcherCacheNetworkAwareStrictChecking<SearchResult> implements LocalizedSearcherCacheNetworkAwareStrictChecking<SearchResult> {
 	
-	private final LocalizedSearcherCacheAwareStrictChecking<Result> cacheAwareSearcher;
-	private final LocalizedSearcherNetworkAwareStrictChecking<Result> networkAwareSearcher;
-	protected Result result;
+	private final LocalizedSearcherCacheAwareStrictChecking<SearchResult> cacheAwareSearcher;
+	private final LocalizedSearcherNetworkAwareStrictChecking<SearchResult> networkAwareSearcher;
+	protected SearchResult result;
 	
 	@Inject
 	public DefaultLocalizedSearcherCacheNetworkAwareStrictChecking(
-			LocalizedSearcherCacheAwareStrictChecking<Result> cacheAwareSearcher,
-			LocalizedSearcherNetworkAwareStrictChecking<Result> networkAwareSearcher) {
+			LocalizedSearcherCacheAwareStrictChecking<SearchResult> cacheAwareSearcher,
+			LocalizedSearcherNetworkAwareStrictChecking<SearchResult> networkAwareSearcher) {
 		this.cacheAwareSearcher = cacheAwareSearcher;
 		this.networkAwareSearcher = networkAwareSearcher;
 	}	
@@ -45,7 +45,7 @@ public class DefaultLocalizedSearcherCacheNetworkAwareStrictChecking<Result> imp
 	}
 	
 	@Override
-	public Result getResult() {
+	public SearchResult getResult() {
 		return result;
 	}
 }

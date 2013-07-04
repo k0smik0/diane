@@ -9,8 +9,8 @@ import android.location.Location;
 /**
  * @author  Massimiliano Leone - k0smik0
  */
-public abstract class AbstractLocalizedSearcherCacheAwareStrictChecking<Result> 
-	implements LocalizedSearcherCacheAwareStrictChecking<Result> {
+public abstract class AbstractLocalizedSearcherCacheAwareStrictChecking<SearchResult> 
+	implements LocalizedSearcherCacheAwareStrictChecking<SearchResult> {
 	
 	/**
 	 * @uml.property  name="cacheAware"

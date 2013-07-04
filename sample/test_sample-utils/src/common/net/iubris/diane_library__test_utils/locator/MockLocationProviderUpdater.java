@@ -28,6 +28,7 @@ public class MockLocationProviderUpdater implements LocationProvider, LocationUp
 	private BroadcastReceiver receiver;
 
 	final String locationUpdateAction = "net.iubris.diane_sample_utils.LOCATION_UPDATE_RECEIVED";
+	private final String klc = LocationManager.KEY_LOCATION_CHANGED;
 
 	@Inject
 	public MockLocationProviderUpdater(LocationManager locationManager, Context context) {
@@ -62,28 +63,28 @@ public class MockLocationProviderUpdater implements LocationProvider, LocationUp
 		return location;
 	}
 	public void setLocation(Location location) {
-		Log.d("MockLocationProvider:32","store new location: "+location);
+		Log.d("MockLocationProviderUpdater:65","store new location: "+location);
 		this.location = location;
 	};
 	
 	private Location initLocation() {
 		Location gpsLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 		if (gpsLocation!=null) {
-Log.d("MockLocationProvider:66", "found gps location: "+gpsLocation);
+Log.d("MockLocationProviderUpdater:72", "found gps location: "+gpsLocation);
 			return gpsLocation;
 		}
 		Location networkLocation = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
 		if (networkLocation!=null) {
-Log.d("MockLocationProvider:71", "found network location");
+Log.d("MockLocationProvider:77", "found network location");
 			return networkLocation;
 		}
 		Location passiveLocation = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
 		if (passiveLocation!=null) {
-Log.d("MockLocationProvider:76", "found passive location");
+Log.d("MockLocationProviderUpdater:82", "found passive location");
 			return passiveLocation;
 		}
 		Location mockLocation = locationManager.getLastKnownLocation(MockGpsLocationsInjector.MOCK_GPS_PROVIDER);
-Log.d("MockLocationProvider:80", "found mock location");
+Log.d("MockLocationProviderUpdater:88", "found mock location");
 		return mockLocation;
 	}
 
@@ -100,11 +101,11 @@ Log.d("MockLocationProvider:80", "found mock location");
 	public class MockLocationReceiver extends BroadcastReceiver {
 		@Override
 		public void onReceive(Context context, Intent intent) {
-Log.d("MockLocationProviderUpdater:103","@MockLocationReceiver - onReceive");
-			String klc = LocationManager.KEY_LOCATION_CHANGED;
+			Log.d("MockLocationProviderUpdater:104","received intent, action:"+intent.getAction()+" "+intent.getExtras());
 			Location location = (Location)intent.getExtras().get(klc);
 			if (location!=null) {
-Log.d("MockLocationProviderUpdater:107","@MockLocationReceiver - setting location "+location);
+Log.d("MockLocationProviderUpdater:107","@MockLocationReceiver - onReceive");
+Log.d("MockLocationProviderUpdater:108","@MockLocationReceiver - setting location "+location);
 				setLocation(location);
 			}
 			/*Location location = null;

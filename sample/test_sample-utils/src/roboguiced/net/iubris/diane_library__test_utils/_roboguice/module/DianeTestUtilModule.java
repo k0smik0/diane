@@ -10,7 +10,7 @@ public class DianeTestUtilModule extends PolarisModule {
 
 	@Override
 	protected void bindLocationProvider() {
-		bind(LocationProvider.class).to(MockLocationProviderUpdater.class);		
+		bind(LocationProvider.class).to(MockLocationProviderUpdater.class);
 	}
 
 	@Override

@@ -11,9 +11,10 @@ import net.iubris.diane.searcher.aware.location.exceptions.LocationAwareSearchEx
 import net.iubris.diane.searcher.aware.network.NetworkAwareSearcher;
 import net.iubris.diane.searcher.aware.network.exceptions.NetworkAwareSearchException;
 
-public interface FullAwareSearcher<Result> extends
-LocationAwareSearcher<Void, Result>, NetworkAwareSearcher<Void, Result>, CacheAwareSearcher<Void, Result> {
-//AwareSearcher<Void, Result> {
+public interface FullAwareSearcher<SearchResult> extends
+//AwareSearcher<Void, SearchResult>, //{
+LocationAwareSearcher<Void, SearchResult>, NetworkAwareSearcher<Void, SearchResult>, CacheAwareSearcher<Void, SearchResult> {
+
 
 	@Override
 	public Void search(Void... params) throws 
@@ -24,4 +25,6 @@ LocationAwareSearcher<Void, Result>, NetworkAwareSearcher<Void, Result>, CacheAw
 		NetworkStateException,
 		NetworkAwareSearchException,
 		StillSearchException;
+	
+	void resetSearchState();
 }

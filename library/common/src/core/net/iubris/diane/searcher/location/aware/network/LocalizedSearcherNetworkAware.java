@@ -5,7 +5,7 @@ import net.iubris.diane.searcher.aware.network.exceptions.NetworkAwareSearchExce
 import net.iubris.diane.searcher.location.LocalizedSearcher;
 import android.location.Location;
 
-public interface LocalizedSearcherNetworkAware<Result> extends LocalizedSearcher<Result> {
+public interface LocalizedSearcherNetworkAware<SearchResult> extends LocalizedSearcher<SearchResult> {
 	@Override
 	public Void search(Location... location) throws
 		NetworkStateException
