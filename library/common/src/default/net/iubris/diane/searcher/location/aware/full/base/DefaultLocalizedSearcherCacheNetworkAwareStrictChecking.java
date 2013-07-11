@@ -48,8 +48,8 @@ public class DefaultLocalizedSearcherCacheNetworkAwareStrictChecking<SearchResul
 	}	
 
 	@Override
-	public Void search(Location... location) throws 
-			NoNetworkException, NetworkAwareSearchException, 
+	public Void search(Location... location) throws
+			NoNetworkException, NetworkAwareSearchException,
 			CacheTooOldException, CacheAwareSearchException {
 		try { // trying network
 			networkAwareSearcher.search(location); // network ok - it could throw NetworkSearchException

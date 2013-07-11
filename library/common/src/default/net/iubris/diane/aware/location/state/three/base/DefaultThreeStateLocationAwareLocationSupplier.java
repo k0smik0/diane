@@ -103,6 +103,7 @@ public class DefaultThreeStateLocationAwareLocationSupplier implements ThreeStat
 		location = newFreshLocation; // always update location (3)
 		return true;		
 	}
+	
 	protected Location getFreshLocation() {
 //Log.d(this.getClass().getSimpleName()+":89","getting location by "+locationProvider);
 //Log.d(this.getClass().getSimpleName()+":89","format location to 6 decimal places ");

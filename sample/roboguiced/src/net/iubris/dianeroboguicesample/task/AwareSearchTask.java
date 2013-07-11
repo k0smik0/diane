@@ -32,7 +32,6 @@ import net.iubris.diane.searcher.aware.location.exceptions.base.LocationTooNearE
 import net.iubris.diane.searcher.aware.network.exceptions.NetworkAwareSearchException;
 import net.iubris.dianeroboguicesample.controller.DianeRoboSampleAwareSearcher;
 import android.content.Context;
-//import android.widget.Toast;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,6 +51,7 @@ public class AwareSearchTask extends RoboSearchAsyncTask<DianeRoboSampleAwareSea
 	@Override
 	protected void onPreExecute() throws Exception {
 		Toast.makeText(context, "...searching...", Toast.LENGTH_SHORT).show();
+//Debug.startMethodTracing(Environment.getExternalStorageDirectory().getPath()+"/traces/diane_sample_roboguiced__aware_search_task");		
 	}
 	@Override
 	public String call() throws StillSearchException, LocationTooNearException, LocationNotSoUsefulException, 
@@ -62,13 +62,14 @@ public class AwareSearchTask extends RoboSearchAsyncTask<DianeRoboSampleAwareSea
 	}
 	@Override
 	protected void onSuccess(String result) throws Exception {
+//Debug.stopMethodTracing();
 		textView.setText( textView.getText()
 				+result+"\n\n");
 //		Toast.makeText(context, result, Toast.LENGTH_LONG).show();
 	}
 	
 	protected void onException(StillSearchException e) throws RuntimeException {
-		ExceptionUtils.showException(e,textView,dianeSampleAwareSearcher);
+		ExceptionUtils.showException(e,textView);
 	}
 	@Override
 	protected void onException(NoNetworkException e) throws RuntimeException {
@@ -104,8 +105,4 @@ public class AwareSearchTask extends RoboSearchAsyncTask<DianeRoboSampleAwareSea
 	protected void onException(RuntimeException e) {
 		ExceptionUtils.showException(e,textView,dianeSampleAwareSearcher);
 	}
-	
-	
-	
-	
 }

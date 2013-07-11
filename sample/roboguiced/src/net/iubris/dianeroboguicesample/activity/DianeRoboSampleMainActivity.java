@@ -60,6 +60,7 @@ public class DianeRoboSampleMainActivity extends RoboActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+//Debug.startMethodTracing(Environment.getExternalStorageDirectory().getPath()+"/traces/diane_sample_roboguiced__startup");		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
@@ -116,6 +117,13 @@ public class DianeRoboSampleMainActivity extends RoboActivity {
 		});*/
 	}
 	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		locationUpdater.startLocationUpdates();
+//Debug.stopMethodTracing();
+	}
+	
 	public void onAutoClick(View v) {
 		awareSearchTask.execute();
 	}
@@ -138,12 +146,6 @@ public class DianeRoboSampleMainActivity extends RoboActivity {
 			locationsInjector.startLocationsTest();
 			buttonUpdates.setText("Stop Fake Locations");
 		}
-	}
-	
-	@Override
-	protected void onResume() {
-		super.onResume();
-		locationUpdater.startLocationUpdates();
 	}
 	
 	@Override

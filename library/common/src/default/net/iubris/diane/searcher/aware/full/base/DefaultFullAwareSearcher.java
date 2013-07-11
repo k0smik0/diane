@@ -46,6 +46,9 @@ public class DefaultFullAwareSearcher<SearchResult> implements FullAwareSearcher
 	private boolean searching = false;
 	private boolean isFirstSearch = true;
 	
+	// improve: to handle externally (in LocalizedSearcherCacheNetworkAware) when some exception occurred and an empty result is returned
+	private boolean emptyResultForException = false;
+	
 	@Inject
 	public DefaultFullAwareSearcher(ThreeStateLocationAwareLocationSupplier locationAwareSupplier,
 			LocalizedSearcherCacheNetworkAwareStrictChecking<SearchResult> awareSearcher) {
@@ -95,6 +98,12 @@ public class DefaultFullAwareSearcher<SearchResult> implements FullAwareSearcher
 	@Override
 	public void resetSearchState() {
 		searching = false;
+	}
+	
+//	@Override
+	public void resetSearchStateExceptive() {
+		searching = false;
+		emptyResultForException  = true;
 	}
 	
 	@Override
