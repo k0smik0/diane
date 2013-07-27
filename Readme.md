@@ -1,81 +1,87 @@
 # Diane
-
-Diane is an android framework for location-aware searching.
-
-For example, a google places query is location-aware searching, because it needs your geolocation.
-
-So, Diane provides a set of interfaces which could help your implementation model.
-
-Basically, all inherits from __Searcher__:
+Diane is an Android framework for (location) aware searching.
   
+What about "_aware_"?  
+
+  - imagine you want search some data from a remote provider, and these data are geolocated;  
+  - imagine also you want implement once time your business logic for search data from a remote provider, choosing between different providers using ttl or similar parameters;  
+  - imagine, finally, that your remote provider is not working, and you have to backup to local provider (a king of cache, isn't?)
+  - of course, you want use a fresh location for your search
+
+So, you would a component make this "dirty work" for you, hiding some checks before start the search; and checks can be, for example:
+
+  - "location usefulness": last search used a geolocation not so far from fresh location, retrieved just now: so, is a new search really useful?
+  - "network awareness": connection is not available, or remote server doesn't give a reasonable response. Do you would handle this happening? How? a simple message or using internal cache?
+  - "cache awareness": and local cache is consistent? perhaps it could be too old, and its data could not be so useful - so you would handle also this accident
+  - other additional checks
+
+
+Diane is a component implementing all these strategies: it provides some default behaviour (as location "usefulness" check), and lets you free to implement your custom business logic.
+
+It is generic based, so result agnostic. You have to specify your data type at instance time or extending base/abstract class.
+
+## How-To
+
+#### The oop contract
+"Searcher" is hierarchy founder
 <pre>
-public interface Searcher<SearchState,SearchResult> {
-	public SearchState search() throws SearchException;
-	public SearchResult getSearchResult();
+<code>
+public interface Searcher<SearchParams,SearchState,SearchResult> {
+  public SearchState search(SearchParams... params) throws SearchException;
+  public SearchResult getResult();
 }
+</code>  
 </pre>
+and all is a Searcher specialization.
 
-so, we have the First obvious __LocationAwareSearcher__:
+#### The implementation
 
-<pre>
-public interface LocationAwareSearcher<SearchState, SearchResult, LocationState> extends Searcher<SearchState,SearchResult> {
-	public Location getLocation();
-	public LocationState isInNewerLocation() throws LocationNotNewerStateException, LocationStateException;
-	public SearchState search() throws LocationAwareSearchException, SearchException;
-}
-</pre> 
+For a fast using, there is DefaultFullAwareSearcher, which hides some of above logic, directly (as "is a search still working") or delegating to injected component (geolocation usefulness, network/cache awareness, etc)
+
+
+<code>
+public class DefaultFullAwareSearcher<SearchResult> implements	FullAwareSearcher<SearchResult>
+</code>
+
+just instance this, et voilà (of course you have specify generics parameters).
+
+This class need two constructor parameters:
+
+ - ThreeStateLocationAwareLocationSupplier - this is the "location aware" responsible
+ - LocalizedSearcherCacheNetworkAwareStrictChecking<SearchResult> - it is the effective search actor, and it hides network/cache awareness logics
+
+These above are interfaces, but some concrete/abstract classes are provided for instancing, that is: DefaultThreeStateLocationAwareLocationSupplier and DefaultLocalizedSearcherCacheNetworkAwareStrictChecking.
+
+These above are interfaces, but some concrete/abstract classes are provided for instancing, that is: 
+
+ - DefaultThreeStateLocationAwareLocationSupplier  
+ - DefaultLocalizedSearcherCacheNetworkAwareStrictChecking.
+
+Again, you need provide arguments for these two above:
+
+  - DefaultThreeStateLocationAwareLocationSupplier needs for LocationProvider (it is an interface from Polaris )
+  - DefaultLocalizedSearcherCacheNetworkAwareStrictChecking needs for:
+    - a LocalizedSearcherCacheAware 
+    - a LocalizedSearcherNetworkAware
+
+There are still interfaces, and abstract classes are provided: you have to implement "doSearch" methods with your business search logic (for remote search or cache search), et voilà.
+
+#### The UML
+Check the uml class diagram for better focus about hierarchy:
+[Diane](library/common/uml/Diane.png)
+
+#### Examples
+
+Examples are more simpler to understand: check for [vanilla](sample/vanilla) or [roboguiced](sample/roboguiced) version.  
+
+Vanilla version is provided just for test or "education" purposes, while I use, really, roboguiced version.   
+Its dependency injection handle allows to to forget all about passing arguments to  classes constructors: let IoC container does for you.  
+In this way you have just to implement "doSearch" methods and binding the interfaces to concrete class in roboguice module class (5 rows code, check out within examples).
   
-
-Then, you can have a network searching or local (cached?) ones, and so:
-
-combining LocationAwareSearcher with below __NetworkAwareSearcher__:
-
-<pre>
-public interface NetworkAwareSearcher<SearchState, SearchResult, NetworkState> extends Searcher<SearchState,SearchResult> {
-	public NetworkState isConnected() throws NetworkStateException;
-	@Override
-	public SearchState search() throws NetworkAwareSearchException, SearchException;
-}
-</pre>
-
-we have __NetworkAwareByLocationSearcher__:
-
-<pre>
-public interface NetworkAwareByLocationSearcher<SearchState, SearchResult, NetworkState> extends NetworkAwareSearcher<SearchState, SearchResult, NetworkState>, ByLocationSearcher<SearchState, SearchResult> {}
-</pre>
-
-Finally, for local/cached search, we combine LocationAwareSearcher with __CacheAwareSearcher__
-
-<pre>
-public interface CacheAwareSearcher<SearchState, SearchResult> extends Searcher<SearchState, SearchResult> {}
-</pre>
-
-and we have __CacheAwareByLocationSearcher__
-
-<pre>
-public interface CacheAwareByLocationSearcher<SearchState, SearchResult> extends CacheAwareSearcher<SearchState, SearchResult>,	ByLocationSearcher<SearchState, SearchResult> {
-	@Override
-	public SearchState search(Location location) throws LocationNullException;			
-}
-</pre>
-
+This [video](http://www.youtube.com/watch?v=pA4CGULfZpU) show some demos.
   
-    
-A base implementation for _LocationAwareSearcher_ is provided by __AbstractLocationAwareObserverSearcher__, which delegates to _Locator_ (see above) the location retrieving task.  
-As the name AbstractLocationAwareObserverSearcher is an observer (therefore Locator is an observable), but it also implements _LocationUpdater_, hence startLocationUpdates and stopLocationUpdates methods (which,internally, wrap Locator ones)
-
-And about __Locator__:
-
-<pre>
-public interface Locator extends LocationProvider,LocationUpdater,LocationObservable{}
-</pre> 
+--
   
+  The directory "test_sample-utils" are some mock components, useful for test location-awareness Diane: something as "MockLocationProvider" to retrieve geolocation, and something as "MockLocationsInjector", to provide fake locations to device (real or simulator).
   
-We have a base implementation also for _NetworkAwareSearcher_, that is __AbstractNetworkAwareSearcher__:  
-it simply retrieves connection status - if we are(n't) connected to wifi/umts/other
-  
-  
-  
-## The Tasks
-
-TODO
+See this [video](http://www.youtube.com/watch?v=Q3tfgJBrnwk) for a mock locations tool demo.
