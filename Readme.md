@@ -18,7 +18,7 @@ So, you would a component make this "dirty work" for you, hiding some checks bef
 
 Diane is a component implementing all these strategies: it provides some default behaviour (as location "usefulness" check), and lets you free to implement your custom business logic.
 
-It is generic based, so result agnostic. You have to specify your data type at instance time or extending base/abstract class.
+It is generics based, so result agnostic. You have to specify your data type at instance time or extending base/abstract class.
 
 ## How-To
 
@@ -36,7 +36,7 @@ and all is a Searcher specialization.
 
 #### The implementation
 
-For a fast using, there is DefaultFullAwareSearcher, which hides some of above logic, directly (as "is a search still working") or delegating to injected component (geolocation usefulness, network/cache awareness, etc)
+For a fast using, there is DefaultFullAwareSearcher: it hides some of above logic, directly (as "is a search still working") or delegating to injected component (geolocation usefulness, network/cache awareness, etc)
 
 
 <code>
@@ -76,7 +76,7 @@ Examples are more simpler to understand: check for [vanilla](sample/vanilla) or 
 
 Vanilla version is provided just for test or "education" purposes, while I use, really, roboguiced version.   
 Its dependency injection handle allows to to forget all about passing arguments to  classes constructors: let IoC container does for you.  
-In this way you have just to implement "doSearch" methods and binding the interfaces to concrete class in roboguice module class (5 rows code, check out within examples).
+In this way you have just to implement "doSearch" methods and binding the interfaces to concrete class in roboguice module class (5 rows code, check out examples).
   
 This [video](http://www.youtube.com/watch?v=pA4CGULfZpU) show some demos.
   
