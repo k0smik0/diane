@@ -1,7 +1,7 @@
 # Diane
 Diane is an Android framework for (location) aware searching.
   
-What about "_aware_"?  
+What about *"aware"*?  
 
   - imagine you want search some data from a remote provider, and these data are geolocated;  
   - imagine also you want implement once time your business logic for search data from a remote provider, choosing between different providers using ttl or similar parameters;  
@@ -84,4 +84,8 @@ This [video](http://www.youtube.com/watch?v=pA4CGULfZpU) show some demos.
   
   The directory "test_sample-utils" are some mock components, useful for test location-awareness Diane: something as "MockLocationProvider" to retrieve geolocation, and something as "MockLocationsInjector", to provide fake locations to device (real or simulator).
   
-See this [video](http://www.youtube.com/watch?v=Q3tfgJBrnwk) for a mock locations tool demo.
+See this [video](http://www.youtube.com/watch?v=Q3tfgJBrnwk) for a mock locations tool demo.  
+
+-- 
+And, by the way, because the name *Diane*: as many of you know, Diane was the goddess of the hunting, in Roman mythology, so this fashion name ;D
+
