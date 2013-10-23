@@ -21,13 +21,13 @@ library/utils/vanilla/NO_2
 library/utils/roboguiced/bin/*
 library/utils/roboguiced/gen/*
 
-sample/vanilla/bin/*
-sample/vanilla/gen/*
-sample/roboguiced/bin/*
-sample/roboguiced/gen/*
-sample/roboguiced/values_no
-sample/test_sample-utils/bin/*
-sample/test_sample-utils/gen/*
+demo/vanilla/bin/*
+demo/vanilla/gen/*
+demo/roboguiced/bin/*
+demo/roboguiced/gen/*
+demo/roboguiced/values_no
+demo/test_demo-utils/bin/*
+demo/test_demo-utils/gen/*
 
 .gitignore
 .umlproject

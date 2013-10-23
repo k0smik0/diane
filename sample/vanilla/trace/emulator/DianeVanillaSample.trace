@@ -1,194 +1,0 @@
-*version
-3
-data-file-overflow=false
-clock=dual
-elapsed-time-usec=12025
-num-method-calls=849
-clock-call-overhead-nsec=10891
-vm=dalvik
-*threads
-1	main
-10	pool-1-thread-1
-9	Binder_2
-8	Binder_1
-7	FinalizerWatchdogDaemon
-6	FinalizerDaemon
-5	ReferenceQueueDaemon
-4	JDWP
-3	Signal Catcher
-2	GC
-*methods
-0xb33d61e8	net/iubris/diane/asynctask/base/SearchAsyncTask	<init>	(Landroid/content/Context;)V	(null)	-1
-0xb339c328	java/util/concurrent/Executors$DefaultThreadFactory	newThread	(Ljava/lang/Runnable;)Ljava/lang/Thread;	Executors.java	-1
-0xb339c2e8	java/util/concurrent/Executors$DefaultThreadFactory	<init>	()V	Executors.java	484
-0xb31574d8	java/util/concurrent/atomic/AtomicInteger	compareAndSet	(II)Z	AtomicInteger.java	106
-0xb31575b8	java/util/concurrent/atomic/AtomicInteger	get	()I	AtomicInteger.java	60
-0xb3157660	java/util/concurrent/atomic/AtomicInteger	getAndIncrement	()I	AtomicInteger.java	132
-0xb3157428	java/util/concurrent/atomic/AtomicInteger	<init>	()V	AtomicInteger.java	51
-0xb3157460	java/util/concurrent/atomic/AtomicInteger	<init>	(I)V	AtomicInteger.java	44
-0xb33d6c70	net/iubris/etask/EnhancedSafeAsyncTask	execute	()V	(null)	-1
-0xb33d6ca8	net/iubris/etask/EnhancedSafeAsyncTask	execute	([Ljava/lang/StackTraceElement;)V	(null)	-1
-0xb33d6d50	net/iubris/etask/EnhancedSafeAsyncTask	future	()Ljava/util/concurrent/FutureTask;	(null)	-1
-0xb33d6df8	net/iubris/etask/EnhancedSafeAsyncTask	newTask	()Lnet/iubris/etask/EnhancedSafeAsyncTask$Task;	(null)	-1
-0xb33d6718	net/iubris/etask/EnhancedSafeAsyncTask	<clinit>	()V	(null)	-1
-0xb33d6750	net/iubris/etask/EnhancedSafeAsyncTask	<init>	()V	(null)	-1
-0xb33d6080	net/iubris/dianevanillasample/DianeSampleSearchAsyncTask	<init>	(Landroid/content/Context;Lnet/iubris/dianevanillasample/DianeSampleSearcher;)V	DianeSampleSearchAsyncTask.java	25
-0xb3157ad0	sun/misc/Unsafe	compareAndSwapInt	(Ljava/lang/Object;JII)Z	Unsafe.java	-2
-0xb310c4c8	java/lang/ThreadGroup	addThread	(Ljava/lang/Thread;)V	ThreadGroup.java	704
-0xb310c7a0	java/lang/ThreadGroup	isDestroyed	()Z	ThreadGroup.java	444
-0xb313b2a0	java/util/HashMap	addNewEntry	(Ljava/lang/Object;Ljava/lang/Object;II)V	HashMap.java	476
-0xb313b690	java/util/HashMap	put	(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;	HashMap.java	386
-0xb313b738	java/util/HashMap	size	()I	HashMap.java	280
-0xb313ae70	java/util/HashMap	<init>	()V	HashMap.java	125
-0xb313b068	java/util/HashMap	doubleCapacity	()[Ljava/util/HashMap$HashMapEntry;	HashMap.java	569
-0xb313b0d8	java/util/HashMap	makeTable	(I)[Ljava/util/HashMap$HashMapEntry;	HashMap.java	555
-0xb313b228	java/util/HashMap	secondaryHash	(I)I	HashMap.java	973
-0xb310ccc0	java/lang/VMThread	getStatus	()I	VMThread.java	-2
-0xb310cba0	java/lang/VMThread	create	(Ljava/lang/Thread;J)V	VMThread.java	-2
-0xb310cbd8	java/lang/VMThread	currentThread	()Ljava/lang/Thread;	VMThread.java	-2
-0xb3147fa8	java/lang/AbstractStringBuilder	append0	(Ljava/lang/String;)V	AbstractStringBuilder.java	138
-0xb3148718	java/lang/AbstractStringBuilder	toString	()Ljava/lang/String;	AbstractStringBuilder.java	-1
-0xb3147da8	java/lang/AbstractStringBuilder	<init>	()V	AbstractStringBuilder.java	74
-0xb3266bc0	java/lang/IntegralToString	appendInt	(Ljava/lang/AbstractStringBuilder;I)V	IntegralToString.java	173
-0xb3266ca0	java/lang/IntegralToString	convertInt	(Ljava/lang/AbstractStringBuilder;I)Ljava/lang/String;	IntegralToString.java	-1
-0xb339d180	java/util/concurrent/LinkedBlockingQueue$Node	<init>	(Ljava/lang/Object;)V	LinkedBlockingQueue.java	102
-0xb3109250	java/lang/ClassLoader	findLoadedClass	(Ljava/lang/String;)Ljava/lang/Class;	ClassLoader.java	350
-0xb3109480	java/lang/ClassLoader	loadClass	(Ljava/lang/String;)Ljava/lang/Class;	ClassLoader.java	461
-0xb31094b8	java/lang/ClassLoader	loadClass	(Ljava/lang/String;Z)Ljava/lang/Class;	ClassLoader.java	491
-0xb31e1a60	android/os/Handler	<init>	(Landroid/os/Looper;)V	Handler.java	134
-0xb31e1ad0	android/os/Handler	<init>	(Landroid/os/Looper;Landroid/os/Handler$Callback;Z)V	Handler.java	224
-0xb3107670	java/lang/Throwable	fillInStackTrace	()Ljava/lang/Throwable;	Throwable.java	161
-0xb3107390	java/lang/Throwable	<init>	()V	Throwable.java	83
-0xb31073c8	java/lang/Throwable	<init>	(Ljava/lang/String;)V	Throwable.java	95
-0xb3107518	java/lang/Throwable	nativeFillInStackTrace	()Ljava/lang/Object;	Throwable.java	-2
-0xb3146478	dalvik/system/BaseDexClassLoader	findClass	(Ljava/lang/String;)Ljava/lang/Class;	BaseDexClassLoader.java	62
-0xb3138c40	java/util/AbstractMap	<init>	()V	AbstractMap.java	171
-0xb3194858	android/os/Debug	startMethodTracing	(Ljava/lang/String;)V	Debug.java	-1
-0xb31948c8	android/os/Debug	startMethodTracing	(Ljava/lang/String;II)V	Debug.java	490
-0xb31949e0	android/os/Debug	stopMethodTracing	()V	Debug.java	536
-0xb3115f38	java/lang/ref/FinalizerReference	<init>	(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V	FinalizerReference.java	42
-0xb3115f70	java/lang/ref/FinalizerReference	add	(Ljava/lang/Object;)V	FinalizerReference.java	54
-0xb33d6590	net/iubris/etask/EnhancedSafeAsyncTaskContexted	<init>	(Landroid/content/Context;)V	(null)	-1
-0xb31b8e48	java/util/HashSet	add	(Ljava/lang/Object;)Z	HashSet.java	95
-0xb31b9008	java/util/HashSet	size	()I	HashSet.java	183
-0xb31b8cb8	java/util/HashSet	<init>	()V	HashSet.java	40
-0xb31b8d98	java/util/HashSet	<init>	(Ljava/util/HashMap;)V	HashSet.java	81
-0xb310a398	java/lang/String	_getChars	(II[CI)V	String.java	903
-0xb310aa60	java/lang/String	length	()I	String.java	-2
-0xb3109ad0	java/lang/String	<init>	(II[C)V	String.java	431
-0xb3136110	java/util/Collections	emptyList	()Ljava/util/List;	Collections.java	2409
-0xb31fc5b0	java/util/AbstractQueue	<init>	()V	AbstractQueue.java	42
-0xb33a0be0	java/util/concurrent/locks/ReentrantLock$Sync	newCondition	()Ljava/util/concurrent/locks/AbstractQueuedSynchronizer$ConditionObject;	ReentrantLock.java	141
-0xb33a0c50	java/util/concurrent/locks/ReentrantLock$Sync	tryRelease	(I)Z	ReentrantLock.java	122
-0xb33a0a50	java/util/concurrent/locks/ReentrantLock$Sync	<init>	()V	ReentrantLock.java	88
-0xb3107160	java/lang/Object	hashCode	()I	Object.java	-2
-0xb339e7d8	java/util/concurrent/TimeUnit	x	(JJJ)J	TimeUnit.java	137
-0xb339c968	java/util/concurrent/LinkedBlockingQueue	<init>	()V	LinkedBlockingQueue.java	219
-0xb339c9a0	java/util/concurrent/LinkedBlockingQueue	<init>	(I)V	LinkedBlockingQueue.java	229
-0xb3146bd8	dalvik/system/DexPathList	findClass	(Ljava/lang/String;)Ljava/lang/Class;	DexPathList.java	311
-0xb33d7278	net/iubris/etask/EnhancedSafeAsyncTask$Task	<init>	(Lnet/iubris/etask/EnhancedSafeAsyncTask;)V	(null)	-1
-0xb3137338	java/util/AbstractCollection	<init>	()V	AbstractCollection.java	36
-0xb31cad30	java/util/concurrent/FutureTask	<init>	(Ljava/util/concurrent/Callable;)V	FutureTask.java	104
-0xb339a448	java/util/concurrent/locks/ReentrantLock	lock	()V	ReentrantLock.java	259
-0xb339a4b8	java/util/concurrent/locks/ReentrantLock	newCondition	()Ljava/util/concurrent/locks/Condition;	ReentrantLock.java	475
-0xb339a598	java/util/concurrent/locks/ReentrantLock	unlock	()V	ReentrantLock.java	432
-0xb339a130	java/util/concurrent/locks/ReentrantLock	<init>	()V	ReentrantLock.java	230
-0xb3158118	dalvik/system/VMStack	getThreadStackTrace	(Ljava/lang/Thread;)[Ljava/lang/StackTraceElement;	VMStack.java	-2
-0xb3383128	dalvik/system/DexFile	loadClassBinaryName	(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;	DexFile.java	211
-0xb3382eb8	dalvik/system/DexFile	defineClass	(Ljava/lang/String;Ljava/lang/ClassLoader;I)Ljava/lang/Class;	DexFile.java	-2
-0xb3398688	java/util/concurrent/AbstractExecutorService	<init>	()V	AbstractExecutorService.java	42
-0xb310d5c0	java/lang/Exception	<init>	(Ljava/lang/String;)V	Exception.java	47
-0xb3138420	java/util/AbstractSet	<init>	()V	AbstractSet.java	33
-0xb3149658	java/lang/VMClassLoader	findLoadedClass	(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class;	VMClassLoader.java	-2
-0xb31497a8	java/lang/VMClassLoader	loadClass	(Ljava/lang/String;Z)Ljava/lang/Class;	VMClassLoader.java	-2
-0xb3146790	java/lang/BootClassLoader	findClass	(Ljava/lang/String;)Ljava/lang/Class;	ClassLoader.java	765
-0xb31468e0	java/lang/BootClassLoader	loadClass	(Ljava/lang/String;Z)Ljava/lang/Class;	ClassLoader.java	822
-0xb3146750	java/lang/BootClassLoader	getInstance	()Ljava/lang/BootClassLoader;	ClassLoader.java	752
-0xb3109768	java/lang/StackTraceElement	<init>	(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V	StackTraceElement.java	60
-0xb33a0058	java/util/concurrent/locks/AbstractQueuedSynchronizer$ConditionObject	<init>	(Ljava/util/concurrent/locks/AbstractQueuedSynchronizer;)V	AbstractQueuedSynchronizer.java	1818
-0xb3139678	java/util/ArrayList	add	(Ljava/lang/Object;)Z	ArrayList.java	-1
-0xb31394b0	java/util/ArrayList	<init>	()V	ArrayList.java	81
-0xb3116860	dalvik/system/VMDebug	startClassPrep	()V	VMDebug.java	360
-0xb3116978	dalvik/system/VMDebug	startMethodTracing	(Ljava/lang/String;II)V	VMDebug.java	171
-0xb3116b00	dalvik/system/VMDebug	stopMethodTracing	()V	VMDebug.java	-2
-0xb313b9d0	java/util/HashMap$HashMapEntry	<init>	(Ljava/lang/Object;Ljava/lang/Object;ILjava/util/HashMap$HashMapEntry;)V	HashMap.java	729
-0xb339e3a8	java/util/concurrent/ThreadPoolExecutor$Worker	<init>	(Ljava/util/concurrent/ThreadPoolExecutor;Ljava/lang/Runnable;)V	ThreadPoolExecutor.java	566
-0xb3118340	java/lang/Number	<init>	()V	Number.java	33
-0xb339b910	java/util/concurrent/locks/AbstractOwnableSynchronizer	getExclusiveOwnerThread	()Ljava/lang/Thread;	AbstractOwnableSynchronizer.java	55
-0xb339b948	java/util/concurrent/locks/AbstractOwnableSynchronizer	setExclusiveOwnerThread	(Ljava/lang/Thread;)V	AbstractOwnableSynchronizer.java	44
-0xb339b8d0	java/util/concurrent/locks/AbstractOwnableSynchronizer	<init>	()V	AbstractOwnableSynchronizer.java	30
-0xb3136f68	java/util/AbstractList	<init>	()V	AbstractList.java	376
-0xb3147318	java/lang/StringBuilder	append	(I)Ljava/lang/StringBuilder;	StringBuilder.java	139
-0xb3147430	java/lang/StringBuilder	append	(Ljava/lang/String;)Ljava/lang/StringBuilder;	StringBuilder.java	216
-0xb3147cf0	java/lang/StringBuilder	toString	()Ljava/lang/String;	StringBuilder.java	663
-0xb3147070	java/lang/StringBuilder	<init>	()V	StringBuilder.java	54
-0xb339beb0	java/util/concurrent/Executors	defaultThreadFactory	()Ljava/util/concurrent/ThreadFactory;	Executors.java	286
-0xb339bf58	java/util/concurrent/Executors	newFixedThreadPool	(I)Ljava/util/concurrent/ExecutorService;	Executors.java	61
-0xb33d35e0	net/iubris/dianevanillasample/DianeVanillaSampleMainActivity	access$0	(Lnet/iubris/dianevanillasample/DianeVanillaSampleMainActivity;)Lnet/iubris/dianevanillasample/DianeSampleSearcher;	DianeVanillaSampleMainActivity.java	13
-0xb33a0ed0	java/util/concurrent/locks/ReentrantLock$NonfairSync	lock	()V	ReentrantLock.java	-1
-0xb33a0e90	java/util/concurrent/locks/ReentrantLock$NonfairSync	<init>	()V	ReentrantLock.java	172
-0xb328c1e0	android/os/Looper	getMainLooper	()Landroid/os/Looper;	Looper.java	102
-0xb339b218	java/util/concurrent/locks/AbstractQueuedSynchronizer	compareAndSetState	(II)Z	AbstractQueuedSynchronizer.java	542
-0xb339b3a0	java/util/concurrent/locks/AbstractQueuedSynchronizer	getState	()I	AbstractQueuedSynchronizer.java	517
-0xb339b608	java/util/concurrent/locks/AbstractQueuedSynchronizer	release	(I)Z	AbstractQueuedSynchronizer.java	1236
-0xb339b678	java/util/concurrent/locks/AbstractQueuedSynchronizer	setState	(I)V	AbstractQueuedSynchronizer.java	526
-0xb339abf0	java/util/concurrent/locks/AbstractQueuedSynchronizer	<init>	()V	AbstractQueuedSynchronizer.java	275
-0xb339d9d0	java/util/concurrent/ThreadPoolExecutor	execute	(Ljava/lang/Runnable;)V	ThreadPoolExecutor.java	-1
-0xb339dc70	java/util/concurrent/ThreadPoolExecutor	getThreadFactory	()Ljava/util/concurrent/ThreadFactory;	ThreadPoolExecutor.java	1434
-0xb339d370	java/util/concurrent/ThreadPoolExecutor	<init>	(IIJLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/BlockingQueue;)V	ThreadPoolExecutor.java	1133
-0xb339d418	java/util/concurrent/ThreadPoolExecutor	<init>	(IIJLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/BlockingQueue;Ljava/util/concurrent/ThreadFactory;Ljava/util/concurrent/RejectedExecutionHandler;)V	ThreadPoolExecutor.java	1240
-0xb339d450	java/util/concurrent/ThreadPoolExecutor	addWorker	(Ljava/lang/Runnable;Z)Z	ThreadPoolExecutor.java	-1
-0xb339d568	java/util/concurrent/ThreadPoolExecutor	compareAndIncrementWorkerCount	(I)Z	ThreadPoolExecutor.java	380
-0xb339d5a0	java/util/concurrent/ThreadPoolExecutor	ctlOf	(II)I	ThreadPoolExecutor.java	357
-0xb339d808	java/util/concurrent/ThreadPoolExecutor	runStateOf	(I)I	ThreadPoolExecutor.java	355
-0xb339d840	java/util/concurrent/ThreadPoolExecutor	workerCountOf	(I)I	ThreadPoolExecutor.java	356
-0xb3116160	java/lang/ref/Reference	<init>	(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V	Reference.java	84
-0xb313c288	java/lang/ref/WeakReference	<init>	(Ljava/lang/Object;)V	WeakReference.java	95
-0xb339f2f8	java/util/concurrent/TimeUnit$3	toNanos	(J)J	TimeUnit.java	66
-0xb310b988	java/lang/Thread	getPriority	()I	Thread.java	584
-0xb310b9c0	java/lang/Thread	getStackTrace	()[Ljava/lang/StackTraceElement;	Thread.java	591
-0xb310b9f8	java/lang/Thread	getState	()Ljava/lang/Thread$State;	Thread.java	603
-0xb310ba30	java/lang/Thread	getThreadGroup	()Ljava/lang/ThreadGroup;	Thread.java	626
-0xb310bb10	java/lang/Thread	isDaemon	()Z	Thread.java	723
-0xb310be90	java/lang/Thread	start	()V	Thread.java	1044
-0xb310b4b0	java/lang/Thread	<init>	(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;J)V	Thread.java	347
-0xb310b590	java/lang/Thread	create	(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;J)V	Thread.java	404
-0xb310b5c8	java/lang/Thread	currentThread	()Ljava/lang/Thread;	Thread.java	476
-0xb3128530	java/lang/System	arraycopy	(Ljava/lang/Object;ILjava/lang/Object;II)V	System.java	-2
-0xb3128760	java/lang/System	getSecurityManager	()Ljava/lang/SecurityManager;	System.java	483
-0xb310dd78	java/lang/ClassNotFoundException	<init>	(Ljava/lang/String;Ljava/lang/Throwable;)V	ClassNotFoundException.java	59
-*end
-SLOW   \ú—Õ?⁄                 yi≥       …H≥   /    YH≥"   >    `h≥9   V    Äî≥K   g    ∏î≥[   w    Pí≥k   á    Pg≥{   ó    Qg≥ã   ß    Xñ≥õ   ∑    Yñ≥Æ   À    Qí≥ø   €    ‡h≥œ   Î    Pí≥ﬂ   ˚    Pg≥Ó      Qg≥˛      Xñ≥  *   Yñ≥   =   Qí≥1  M   êg≥A  ]   ®ó≥P  m   `h≥c  Ä   ah≥y  ñ   x›≥ë  ≠   ¿’≥¢  æ   »s≥≤  Œ   ês≥¬  ﬁ   a≥“  Ó   a≥‚  ˛   pv≥Ú     u≥     u≥h  Ü   qv≥}  ö   ës≥ç  ©   …s≥ú  π   ¡’≥¨  …   y›≥ª  ÿ   ©ó≥Õ  È   íg≥ﬁ  ˙   ‚h≥ˆ     xd≥  #   ÿk≥  3   (18≥'  D   ∏.8≥7  T   `h≥K  i   `h≥f  É   Äî≥x  î   ∏î≥à  §   Pí≥¢  æ   Pg≥≤  Œ   Qg≥¬  ﬂ   Xñ≥“  Ô   Yñ≥Â     Qí≥ˆ     ‡h≥  "   Pí≥  2   Pg≥%  A   Qg≥4  Q   Xñ≥D  a   Yñ≥V  s   Qí≥g  É   êg≥w  ì   ®ó≥Ü  £   `h≥ô  ∂   ah≥≠      x›≥¬  ﬂ   ¿’≥”     »s≥„  ˇ   ês≥Ú     a≥     a≥  /   pv≥"  >   u≥1  N   u≥D  a   qv≥U  q   ës≥d  Å   …s≥t  ê   ¡’≥É  †   y›≥ì  Ø   ©ó≥£  ¿   íg≥≥  –   ‚h≥√  ‡   xd≥”     ÿk≥‚  ˇ   (18≥Ú     ∏.8≥  -   `h≥*  H   `h≥D  b   Äî≥V  r   ∏î≥f  Ç   Pí≥u  í   Pg≥Ö  °   Qg≥ï  ±   Xñ≥•  ¡   Yñ≥∑  ’   Qí≥»  ‰   ‡h≥◊  Ù   Pí≥Á     Pg≥˜     Qg≥  #   Xñ≥  3   Yñ≥(  F   Qí≥9  V   êg≥H  f   ®ó≥X  u   `h≥k  à   ah≥Å  û   x›≥ó  ¥   ¿’≥®  ≈   »s≥∏  ’   ês≥«  ‰   a≥‡  ˝   a≥     pv≥      u≥  ,   u≥"  ?   qv≥3  O   ës≥B  _   …s≥R  o   ¡’≥a  ~   y›≥q  ç   ©ó≥Å  û   íg≥ë  Æ   ‚h≥°  æ   xd≥±  Œ   ÿk≥¡  ﬁ   (18≥–  Ó   ∏.8≥‡  ˛   `h≥Û  	   `h≥
-	  (	   Äî≥	  9	   ∏î≥,	  I	   Pí≥<	  Y	   Pg≥K	  h	   Qg≥[	  x	   Xñ≥k	  à	   Yñ≥~	  õ	   Qí≥é	  ´	   ‡h≥û	  ª	   Pí≥≠	   	   Pg≥Ω	  ⁄	   Qg≥Ã	  È	   Xñ≥Á	  
-   Yñ≥˚	  M
-   Qí≥A
-  ^
-   êg≥Q
-  n
-   ®ó≥a
-  ~
-   `h≥s
-  ë
-   ah≥Ü
-  §
-   x›≥õ
-  π
-   ¿’≥≠
-   
-   »s≥º
-  ⁄
-   ês≥Ã
-  È
-   a≥‹
-  ˘
-   a≥Î
-  	   pv≥˚
-     u≥  (   u≥  ;   qv≥.  L   ës≥>  [   …s≥M  k   ¡’≥]  z   y›≥l  ä   ©ó≥}  ö   íg≥ç  ™   ‚h≥ú  π   xd≥≠      ÿk≥Ω  ⁄   (18≥Ã  Í   ∏.8≥‹  ˘   `h≥Ô     `h≥	  '   Äî≥  ;   ∏î≥.  K   Pí≥>  [   Pg≥M  j   Qg≥]  z   Xñ≥m  ä   Yñ≥Ä  ù   Qí≥ê  ≠   ‡h≥†  Ω   Pí≥Ø  Ã   Pg≥ø  ‹   Qg≥œ  Ï   Xñ≥ﬁ  ¸   Yñ≥Ò     Qí≥     ·h≥  .   πî≥!  >   Åî≥0  M   ah≥@  ]   ah≥b  Å   π.8≥v  î   )18≥á  §   Ÿk≥ó  µ   yd≥ß  ƒ   πî≥∂  ‘   Åî≥”  Ò   ah≥‰     ah≥  =   π.8≥2  P   )18≥B  `   Ÿk≥R  o   yd≥b  ~   πî≥l  â   Åî≥v  ì   ah≥Ä  ù   `h≥ë  ≠   Äî≥ú  π   ∏î≥ß  ƒ   Pí≥≤  Œ   Pg≥º  ÿ   Qg≥∆  „   Xñ≥—  Ì   Yñ≥›  ˚   Qí≥Ë     ‡h≥Ú     Pí≥˝     Pg≥  $   Qg≥  1   Xñ≥  ;   Yñ≥*  G   Qí≥5  Q   êg≥?  [   ®ó≥H  e   `h≥T  q   ah≥c  Ä   x›≥q  é   ¿’≥|  ô   »s≥Ü  £   ês≥ê  ¨   a≥ö  ∂   a≥§  ¿   pv≥Æ      u≥∏  ‘   u≥ƒ  ‡   qv≥Œ  Î   ës≥ÿ  Ù   …s≥‚  ˛   ¡’≥Ï     y›≥ı     ©ó≥      íg≥
-  '   ‚h≥  1   xd≥  ;   ÿk≥(  E   (18≥2  N   ∏.8≥<  X   `h≥Z  w   ah≥i  Ü   π.8≥t  ë   )18≥~  õ   Ÿk≥â  •   yd≥ì  ∞   πî≥†  Ω   Åî≥™  «   ah≥¥  —   ah≥√  ‡   π.8≥Œ  Î   )18≥ÿ  ı   Ÿk≥‚  ˇ   yd≥Ï     πî≥ı     Åî≥ˇ     ah≥	  &   ah≥  4   π.8≥!  >   )18≥+  H   Ÿk≥5  R   yd≥?  \   πî≥H  e   Åî≥R  o   ah≥\  y   g=≥l  â   `h≥z  ñ   Äî≥Ö  °   ∏î≥è  ´   Pí≥ô  ∂   Pg≥¢  ¿   Qg≥¨  …   Xñ≥æ  €   Yñ≥      Qí≥¸     ‡h≥  $   Pí≥  .   Pg≥  8   Qg≥&  C   Xñ≥0  M   Yñ≥?  \   Qí≥J  f   ·h≥T  p   πî≥^  z   Åî≥h  Ö   ah≥r  è   Xø9≥Ñ  ¢   h…9≥ñ  ≥   †…9≥°  æ   ∞≈≥´  »   8s≥∂  “   9s≥¿  ›   ±≈≥   Á   (t≥‘  Ò   @É≥ﬂ  ¸   AÉ≥È     )t≥Û     0°9≥˝     ê:≥  %   P
-:≥  /   ´9≥  :   –∏9≥'  D   —∏9≥1  N   Ò´9≥;  X   Q
-:≥D  a   ë:≥N  k   1°9≥X  u   ∏§9≥b     ‡:≥l  â   X :≥w  î   Y :≥Å  û   ·:≥ã  ®   π§9≥ï  ±   0°9≥ü  º   ê:≥©  ∆   P
-:≥≥  –   ´9≥Ω  ⁄   –∏9≥«  Â   —∏9≥—  Ó   Ò´9≥€  ¯   Q
-:≥Â     ë:≥Ô     1°9≥˘     ∏§9≥      ‡:≥  )   X :≥  4   Y :≥!  =   ·:≥+  G   π§9≥4  Q   Ä—9≥?  \   Å—9≥I  f   °…9≥S  p   i…9≥]  z   p”9≥h  Ö   ∞æ9≥s  è   Ë¬9≥ã  ©   `t≥ñ  ¥   @É≥°  æ   AÉ≥´  »   at≥∂  ”   `á≥¬  ﬂ   aá≥–  Ì   »µ≥⁄  ˜   ÿÀ≥‰     ŸÀ≥Ô     …µ≥¯     0∫≥      ¯π≥  *   ¿Ã≥  4   ¡Ã≥!  ?   ˘π≥+  I   1∫≥6  S   pp≥@  ]   ®}≥J  g   ©}≥V  s   qp≥`  ~   0t≥v  î   ®≥Ç  ü   `™≥è  ¨   a™≥¢  ¿   ò£≥≠      0Ö≥º  Ÿ   1Ö≥∆  „   ô£≥–  Ì   ©≥⁄  ˜   1t≥„      `v≥Ô     ∏u≥˘     πu≥      ÿt≥  *   –z≥  3   —z≥&  C   Ÿt≥1  N   av≥;  X   s≥E  a   ¿k&≥N  l   †l&≥X  v   ®≥b  Ä   `™≥l  ä   a™≥v  ì   ò£≥Ä  ù   0Ö≥ä  ß   1Ö≥î  ±   ô£≥û  ª   ©≥ß  ƒ   °l&≥±  Œ   ¡k&≥ª  ÿ   s≥ƒ  ‚   0t≥÷  Û   ®≥·  ˛   `™≥Î     a™≥ı     ò£≥ˇ     0Ö≥	  &   1Ö≥  0   ô£≥  :   ©≥&  D   1t≥0  M   |≥:  W   á≥C  a   –ö≥N  k   —ö≥X  u   á≥b  ~   Ò|≥k  à   È¬9≥u  í   ±æ9≥~  ú   ‘9≥à  ¶   àÜ9≥í  ∞   p_≥ù  ∫   8_≥∞  Œ   `a≥ª  Ÿ   aa≥≈  „   9_≥œ  Ï   q_≥⁄  ˜   âÜ9≥‰     †’9≥Ô     °’9≥˘     `t≥      @É≥  *   AÉ≥  3   at≥   >   0°9≥*  H   ê:≥5  R   P
-:≥?  ]   ´9≥I  f   –∏9≥S  p   —∏9≥\  z   Ò´9≥f  Ñ   Q
-:≥p  ç   ë:≥z  ó   1°9≥Ñ  °   ∏å≥é  ´   pÆ≥ô  ∑   @å≥§  ¡   Aå≥Æ  À   qÆ≥Ÿ  ˆ   òç≥„      Ñ≥Ó     8s≥˘     9s≥  !   !Ñ≥  +   ôç≥  5   πå≥%  B   ∏§9≥/  L   ‡:≥9  V   X :≥C  `   Y :≥M  j   ·:≥W  t   π§9≥a  ~   ¯Ú9≥k  â   ÿÁ9≥v  ö   ŸÁ9≥à  •   ˘Ú9≥í  Ø   ‘9≥¿  ﬁ   q”9≥À  È   Yø9≥’  Û   g=≥Â     ‡5=≥ı     ·5=≥  !   Ä`=≥  +   Ëa=≥  5   êe=≥"  ?   Pg=≥,  I   Qg=≥6  T   ëe=≥@  ^   Èa=≥J  g   Å`=≥T  r   pl=≥^  |   `h≥k  â   Äî≥w  â   ∏î≥Å  â   Pí≥ã  â   Pg≥ï  â   Qg≥ü  â   Xñ≥©  â   Yñ≥µ  â   Qí≥ø  â   ‡h≥…  â   Pí≥”  â   Pg≥›  â   Qg≥Á  â   Xñ≥Ò  â   Yñ≥¸  â   Qí≥  â   ·h≥  â   πî≥  â   Åî≥$  â   ah≥.  â   »µ≥9  â   ÿÀ≥D  â   ŸÀ≥N  â   …µ≥X  â   ¿π≥b  â   Å≥l  â   hó≥Ü  â   ió≥ì  â   hó≥•  â   ió≥±  â   hó≥ø  â   ió≥…  â   hó≥ÿ  â   ió≥„  â   hó≥ı  â   ió≥  â   hó≥  â   ió≥  â   hó≥+  â   ió≥6  â   hó≥D  â   ió≥O  â   hó≥^  â   ió≥i  â   hó≥x  â   ió≥É  â   hó≥ê  â   ió≥õ  â   hó≥™  â   ió≥µ  â   hó≥ƒ  â   ió≥œ  â   hó≥Â  â   ió≥Ò  â   hó≥ˇ  â   ió≥*  â   Å≥6  â   ¡π≥A  â   ®l=≥K  â   Pm=≥U  â   `h≥™     Äî≥∂     ∏î≥¿     Pí≥   %   Pg≥‘  /   Qg≥ﬁ  :   Xñ≥Ë  D   Yñ≥Ù  O   Qí≥˛  Y   ‡h≥  c   Pí≥  n   Pg≥  x   Qg≥&  Ç   Xñ≥/  å   Yñ≥;  ó   Qí≥E  °   ·h≥O  ´   πî≥Y  µ   Åî≥b  æ   ah≥l  »   ¯m=≥w  ”   `h≥Ñ  ﬂ   Äî≥è  Í   ∏î≥ô  Ù   Pí≥¢  ˛   Pg≥¨  	   Qg≥∂     Xñ≥¿     Yñ≥À  (   Qí≥÷  2   ‡h≥‡  <   Pí≥È  E   Pg≥Û  O   Qg≥˝  Y   Xñ≥  c   Yñ≥  n   Qí≥  x   êg≥&  Ç   ®ó≥0  å   `h≥<  ò   ah≥M  ©   x›≥Z  ∑   ¿’≥e  ¡   »s≥o  À   ês≥y  ’   a≥É  ﬂ   a≥ç  È   pv≥ó  Ú   u≥°  ¸   u≥≠  	    qv≥∑      ës≥¡      …s≥À  &    ¡’≥‘  0    y›≥ﬁ  :    ©ó≥Ë  E    íg≥Û  O    ‚h≥˝  Y    xd≥   c    ÿk≥   m    (18≥   x    ∏.8≥&   Ç    `h≥1   ç    ah≥B   û    π.8≥M   ©    )18≥W   ≥    Ÿk≥a   Ω    yd≥k   «    πî≥u   —    Åî≥   €    ah≥â   Â    xr=≥ï   Ò    `h≥¢   ˇ    Äî≥≠   	!   ∏î≥∑   !   Pí≥¡   !   Pg≥    '!   Qg≥‘   0!   Xñ≥ﬁ   :!   Yñ≥Í   F!   Qí≥Ù   P!   ‡h≥˛   Z!   Pí≥Z!  ∑!   Pg≥f!  ¬!   Qg≥p!  Õ!   Xñ≥{!  ◊!   Yñ≥á!  „!   Qí≥ë!  Ì!   ·h≥ü!  ˚!   πî≥©!  "   Åî≥≥!  "   ah≥æ!  "   `h≥”!  0"   Äî≥ﬂ!  ;"   ∏î≥È!  E"   Pí≥Û!  O"   Pg≥˝!  Z"   Qg≥"  d"   Xñ≥"  m"   Yñ≥"  y"   Qí≥'"  É"   ‡h≥1"  é"   Pí≥;"  ò"   Pg≥E"  ¢"   Qg≥O"  ¨"   Xñ≥Z"  ∂"   Yñ≥e"  ¡"   Qí≥o"  Ã"   ·h≥y"  ÷"   πî≥É"  ‡"   Åî≥ç"  È"   ah≥ó"  Û"   ‡¡(≥¢"  ˇ"   ·¡(≥¨"  	#   `≥∏"  #   –≥¬"  #   —≥Ã"  )#   a≥÷"  2#   yr=≥‡"  <#   ˘m=≥È"  F#   0≠≥ı"  Q#   1≠≥ #  ]#   Qm=≥
-#  g#   `h≥#  s#   Äî≥!#  ~#   ∏î≥,#  à#   Pí≥5#  í#   Pg≥?#  õ#   Qg≥I#  •#   Xñ≥S#  Ø#   Yñ≥_#  ª#   Qí≥i#  ≈#   ‡h≥s#  œ#   Pí≥}#  Ÿ#   Pg≥á#  „#   Qg≥ë#  Ì#   Xñ≥ö#  ˜#   Yñ≥¶#  $   Qí≥∞#  $   ·h≥∫#  $   πî≥ƒ#   $   Åî≥Œ#  *$   ah≥ÿ#  4$   –Ÿ9≥„#  @$   ∏u≥Ó#  K$   πu≥¯#  U$   @ÿ9≥$  `$   Aÿ9≥$  j$   P‘9≥$  t$   ∏u≥"$  ~$   πu≥,$  â$   ÿ9≥6$  ì$   	ÿ9≥@$  ù$   @ÿ9≥J$  ß$   Aÿ9≥T$  ±$   h’9≥_$  ª$   ÿt≥i$  ≈$   –z≥s$  œ$   —z≥}$  Ÿ$   Ÿt≥á$  „$   i’9≥ê$  Ì$   ®„9≥ù$  ˙$   ´9≥ß$  %   –∏9≥±$  %   —∏9≥ª$  %   Ò´9≥≈$  !%   p‹9≥œ$  +%   q‹9≥Ÿ$  5%   (√9≥„$  @%   pp≥(  `(   ®}≥(  m(   ©}≥(  y(   qp≥&(  É(   0t≥5(  í(   ®≥B(  ü(   `™≥M(  ©(   a™≥W(  ¥(   ò£≥b(  æ(   0Ö≥l(  …(   1Ö≥w(  ‘(   ô£≥Ç(  ﬁ(   ©≥å(  È(   1t≥ñ(  Û(   `v≥°(  ˝(   ∏u≥´(  )   πu≥µ(  )   ÿt≥¿(  )   –z≥ (  ')   —z≥ﬂ(  ;)   Ÿt≥È(  E)   av≥Û(  O)   s≥ )  })   ¿k&≥+)  à)   †l&≥6)  í)   ®≥@)  ù)   `™≥J)  ß)   a™≥U)  ±)   ò£≥b)  ø)   0Ö≥l)  …)   1Ö≥v)  ”)   ô£≥Ä)  ‹)   ©≥ä)  Ê)   °l&≥ì)  )   ¡k&≥ù)  ˘)   s≥ß)  *   |≥”)  0*   á≥›)  :*   –ö≥Ë)  E*   —ö≥Û)  P*   á≥˝)  Z*   Ò|≥*  d*   ∞¥≥*  p*   ∞î≥ *  }*   ho≥+*  á*   8s≥5*  ë*   9s≥>*  õ*   io≥H*  •*   ±î≥r*  œ*   êµ≥|*  Ÿ*   »µ≥Ü*  „*   ÿÀ≥ë*  Ì*   ŸÀ≥õ*  ¯*   …µ≥¶*  +   †«≥∞*  +   °«≥∫*  +   àπ≥∆*  #+   âπ≥–*  -+   »ƒ≥⁄*  7+   à¬≥Â*  E+   `a≥Ú*  O+   aa≥¸*  Y+   â¬≥+  c+   xñ≥+  m+   yñ≥+  w+   …ƒ≥$+  Å+   ëµ≥.+  ã+   ±¥≥8+  î+   ª≥A+  û+   ª≥K+  ®+   àπ≥U+  ±+   âπ≥_+  º+   )√9≥h+  ∆+   ©„9≥r+  œ+   H§9≥|+  Ÿ+   –:≥Ü+  „+   ≤9≥ê+  Ì+   –z≥õ+  ˘+   —z≥•+  ,   ≤9≥Ø+  ,   »µ≥π+  ,   ÿÀ≥√+   ,   ŸÀ≥Õ+  ),   …µ≥◊+  3,   Hπ9≥‡+  =,   Iπ9≥Í+  G,   —:≥Ù+  Q,   I§9≥˛+  [,   ∏u≥,  d,   πu≥,  n,   ÿ9≥,  x,   	ÿ9≥%,  Ç,   Hé≥/,  ã,   ê∂≥9,  ï,   `q≥C,  ü,   aq≥L,  ™,   (≤≥V,  ¥,   )≤≥`,  Ω,   h∞≥j,  «,   ÿ∞≥t,  —,   Ÿ∞≥~,  ‹,   i∞≥â,  Ê,   †≤≥ì,  ,   –π≥ù,  ˙,   —π≥ß,  -   °≤≥±,  -   ë∂≥ª,  -   Ié≥Õ,  *-   ê≥◊,  4-   8∑≥·,  >-   9∑≥,  M-   	ê≥˙,  W-   ò•9≥-  `-   ∂9≥-  j-   P:≥-  t-   †≥9≥!-  ~-   °≥9≥+-  à-   »µ≥4-  í-   ÿÀ≥>-  ú-   ŸÀ≥H-  •-   …µ≥R-  Ø-   π9≥\-  π-   π9≥e-  ¬-   Hπ9≥o-  Ã-   Iπ9≥y-  ÷-   x∂9≥É-  ‡-   y∂9≥å-  Í-   Q:≥ñ-  Û-   	∂9≥†-  ˝-   ô•9≥™-  .   êæ≥≥-  .   †À≥æ-  .   °À≥˘-  p.   ëæ≥.  |.   ∏u≥.  á.   πu≥.  í.   ÿ9≥(.  ú.   	ÿ9≥2.  ¶.   Q‘9≥<.  ±.   —Ÿ9≥J.  æ.   ©l=≥T.  ».   ql=≥].  “.   ‡I≥j.  ﬁ.    k≥v.  Í.  

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="net/iubris/dianevanillasample/DianeSampleSearcherBuilder_bak.java|net/iubris/dianevanillasample/DianeSampleSearcherBuilder.java|net/iubris/diane_demo__vanilla/DianeDemoSearcherBuilder_bak.java|useless/|main/" kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry excluding="net/iubris/diane_demo__vanilla/" kind="src" path="src/useless"/>
+	<classpathentry kind="src" path="src/main"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry kind="output" path="bin/classes"/>
+</classpath>
