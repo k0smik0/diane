@@ -10,9 +10,14 @@
 	<property name="docurl" value="https://github.com/k0smik0/diane"/>
 	
 	
-	<!-- change here with your own -->
-	<property name="android-path" value="/data/fucina/develop/usr/apps/android-sdk/" />
-	<property name="android-sdk-target-version" value="17"/>
+	<property environment="env" />
+	<condition property="sdk.dir" value="${env.ANDROID_HOME}">
+	  <isset property="env.ANDROID_HOME" />
+	</condition>
+	<property name="android-path" value="${sdk.dir}" />
+	
+	<!-- change here with actual -->
+	<property name="android-sdk-target-version" value="22"/>
 		
 	<property name="libs-dir" value="libs"/>
 	<!-- don't include extra libs jars in your project if you don't want use dependency injection-->
@@ -52,6 +57,15 @@
 	
 	<target name="clean" depends="clean-common"/>
 	
+	<url url="https://github.com/k0smik0/polaris/blob/master/library/common/build/jars/polaris-core.jar?raw=true"/>
+	
+	<target name="get-real-dependencies">
+    <get dest="${libs-dir}">
+      <url url="https://github.com/k0smik0/polaris/blob/master/library/common/build/jars/polaris-core.jar?raw=true"/>
+      <url url="https://github.com/k0smik0/polaris/blob/master/library/common/build/jars/polaris-utils.jar?raw=true"/>
+    </get>
+  </target>
+	
 	<target name="compile-common">
 		<mkdir dir="${build.dir}/classes/common"/>
 		<javac destdir="${build.dir}/classes/common" includeantruntime="false">
@@ -65,17 +79,18 @@
 		<mkdir dir="${build.dir}/jars/"/>
 		<jar destfile="${jar-common.file}" basedir="${build.dir}/classes/common">
 			<manifest>
-				<attribute name="Built-By" value="${user}" />    
-        <attribute name="Bundle-Name" value="${name}" />
-      	<attribute name="Bundle-Copyright" value="${copyright}" />
-      	<attribute name="Bundle-Vendor" value="${vendor}" />
-        <attribute name="Bundle-Version" value="${version}" />
-        <attribute name="Bundle-License" value="${license.url} " />
-        <attribute name="Build-DocURL" value="${docurl}" />	      
+				<attribute name="Built-By" value="${user}" />
+				<attribute name="Bundle-Name" value="${name}" />
+				<attribute name="Bundle-Copyright" value="${copyright}" />
+				<attribute name="Bundle-Vendor" value="${vendor}" />
+				<attribute name="Bundle-Version" value="${version}" />
+				<attribute name="Bundle-License" value="${license.url} " />
+				<attribute name="Build-DocURL" value="${docurl}" />	      
 			</manifest>			
 			<metainf dir="." includes="${license.file}"/>
 		</jar>
 		<antcall target="clean-common"/>
+		<delete dir="${build.dir}/classes"/>
 	</target>
 	
 	<target name="jars" depends="jar-common"/>

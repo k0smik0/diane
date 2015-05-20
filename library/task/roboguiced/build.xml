@@ -48,6 +48,18 @@
 	
 	<target name="clean" depends="clean-task"/>
 	
+	<target name="get-real-dependencies">
+    <get dest="${libs-dir}">
+      <url url="https://github.com/k0smik0/diane/blob/master/library/common/build/jars/diane-common.jar?raw=true"/>
+      <url url="https://github.com/k0smik0/enhancedsafeasynctask/blob/master/roboguiced/library/build/jars/roboenhancedasynctask.jar?raw=true"/>
+    </get>
+    <get dest="${libs-dir}">
+      <url url="http://dependency-shot.googlecode.com/files/javax.inject.jar"/>
+      <url url="http://central.maven.org/maven2/org/sonatype/sisu/sisu-guice/3.2.0/sisu-guice-3.2.0.jar"/>
+      <url url="http://repo1.maven.org/maven2/org/roboguice/roboguice/2.0/roboguice-2.0.jar"/>
+    </get>
+  </target>
+	
 	<target name="compile-task">
 		<mkdir dir="${build.dir}/classes/task"/>
 		<javac destdir="${build.dir}/classes/task" includeantruntime="false">
@@ -56,7 +68,7 @@
 			<classpath refid="classpath-task"/>
 		</javac>
 	</target>
-		
+	
 	<target name="jar-task" depends="clean-jar, clean-task, compile-task">
 		<mkdir dir="${build.dir}/jars/"/>
 		<jar destfile="${jar-task.file}" basedir="${build.dir}/classes/task">

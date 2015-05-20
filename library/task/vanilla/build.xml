@@ -10,9 +10,14 @@
 	<property name="docurl" value="https://github.com/k0smik0/diane"/>
 	
 	
-	<!-- change here with your own -->
-	<property name="android-path" value="/data/fucina/develop/usr/apps/android-sdk/" />
-	<property name="android-sdk-target-version" value="17"/>
+	
+	<property environment="env" />
+  <condition property="sdk.dir" value="${env.ANDROID_HOME}">
+	  <isset property="env.ANDROID_HOME" />
+  </condition>
+	<property name="android-path" value="${sdk.dir}" />
+	<!-- change here with current -->
+	<property name="android-sdk-target-version" value="22"/>
 		
 	<property name="libs-dir" value="libs"/>
 		
@@ -53,6 +58,13 @@
 			<classpath refid="classpath-task"/>
 		</javac>
 	</target>
+	
+	<target name="get-real-dependencies">
+    <get dest="${libs-dir}">
+      <url url="https://github.com/k0smik0/diane/blob/master/library/common/build/jars/diane-common.jar?raw=true"/>
+      <url url="https://github.com/k0smik0/enhancedsafeasynctask/blob/master/vanilla/library/build/jars/enhancedsafeasynctask.jar?raw=true"/>
+    </get>
+  </target>
 		
 	<target name="jar-task" depends="clean-jar, clean-task, compile-task">
 		<mkdir dir="${build.dir}/jars/"/>

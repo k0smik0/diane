@@ -10,9 +10,14 @@
 	<property name="docurl" value="https://github.com/k0smik0/diane"/>
 	
 	
-	<!-- change here with your own -->
-	<property name="android-path" value="/data/fucina/develop/usr/apps/android-sdk/" />
-	<property name="android-sdk-target-version" value="17"/>
+	<property environment="env" />
+	<condition property="sdk.dir" value="${env.ANDROID_HOME}">
+	  <isset property="env.ANDROID_HOME" />
+	</condition>
+	<property name="android-path" value="${sdk.dir}" />
+	
+	<!-- change here with actual -->
+	<property name="android-sdk-target-version" value="22"/>
 		
 	<property name="libs-dir" value="libs"/>
 
@@ -21,7 +26,7 @@
 	<property name="src.dir" value="src" />
 	<property name="build.dir" value="build" />	
 	
-	<property name="jar-roboguice.file" value="${build.dir}/jars/diane-roboutil.jar"/>
+	<property name="jar-roboguice.file" value="${build.dir}/jars/diane-roboutils.jar"/>
 
 	<path id="classpath-android">
 		<fileset dir="${android-path}/platforms/android-${android-sdk-target-version}/">
@@ -35,6 +40,20 @@
 			<include name="*.jar"/>
 		</fileset>
 	</path>
+	
+	<target name="get-real-dependencies">
+    <get dest="${libs-dir}">
+      <url url="https://github.com/k0smik0/diane/blob/master/library/common/build/jars/diane-common.jar?raw=true"/>
+      <url url="https://github.com/k0smik0/enhancedsafeasynctask/blob/master/roboguiced/library/build/jars/roboenhancedasynctask.jar?raw=true"/>
+      <url url="https://github.com/k0smik0/polaris/blob/master/build/jars/polaris-core.jar?raw=true"/>
+      <url url="https://github.com/k0smik0/polaris/blob/master/build/jars/polaris-utils.jar?raw=true"/>
+    </get>
+    <get dest="${libs-dir}">
+      <url url="http://dependency-shot.googlecode.com/files/javax.inject.jar"/>
+      <url url="http://central.maven.org/maven2/org/sonatype/sisu/sisu-guice/3.2.0/sisu-guice-3.2.0.jar"/>
+      <url url="http://repo1.maven.org/maven2/org/roboguice/roboguice/2.0/roboguice-2.0.jar"/>
+    </get>
+  </target>
 	
 
 	<target name="clean-roboguice">

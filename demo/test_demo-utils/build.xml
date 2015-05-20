@@ -74,6 +74,18 @@
 	
 	<target name="clean" depends="clean-common, clean-vanilla, clean-roboguiced"/>
 	
+	<target name="get-real-dependencies">
+    <get dest="${libs-dir}">
+      <url url="https://github.com/k0smik0/polaris/blob/master/build/jars/polaris-core.jar?raw=true"/>
+      <url url="https://github.com/k0smik0/polaris/blob/master/build/jars/polaris-core-roboguiced.jar?raw=true"/>
+    </get>
+    <get dest="${libs-dir}">
+      <url url="http://dependency-shot.googlecode.com/files/javax.inject.jar"/>
+      <url url="http://central.maven.org/maven2/org/sonatype/sisu/sisu-guice/3.2.0/sisu-guice-3.2.0.jar"/>
+      <url url="http://repo1.maven.org/maven2/org/roboguice/roboguice/2.0/roboguice-2.0.jar"/>
+    </get>
+  </target>
+	
 	<target name="compile-common">
 		<mkdir dir="${build.dir}/classes/common"/>
 		<javac destdir="${build.dir}/classes/common" includeantruntime="false">

@@ -46,7 +46,8 @@ public class DefaultFullAwareSearcher<SearchResult> implements FullAwareSearcher
 	private boolean searching = false;
 	private boolean isFirstSearch = true;
 	
-	// improve: to handle externally (in LocalizedSearcherCacheNetworkAware) when some exception occurred and an empty result is returned
+	// improve: to handle externally (in LocalizedSearcherCacheNetworkAware) 
+	//	when some exception occurred and an empty result is returned
 	private boolean emptyResultForException = false;
 	
 	@Inject
@@ -62,7 +63,9 @@ public class DefaultFullAwareSearcher<SearchResult> implements FullAwareSearcher
 		CacheTooOldException, NoNetworkException,
 		CacheAwareSearchException, NetworkAwareSearchException, StillSearchException {
 		
-		if (searching==true) throw new StillSearchException("a search is still active");
+		if (searching==true) 
+			throw new StillSearchException("a search is still active");
+		
 		searching=true;
 		
 		if (isFirstSearch) { // first search

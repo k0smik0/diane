@@ -19,8 +19,8 @@
  ******************************************************************************/
 package net.iubris.diane.aware.location.state.three.base;
 
-import javax.inject.Inject;
 import javax.inject.Singleton;
+import javax.inject.Inject;
 
 import net.iubris.diane.aware.location.state.three.ThreeStateLocationAwareLocationSupplier;
 import net.iubris.diane.aware.location.state.three.base.annotation.DistanceMaximumThreshold;

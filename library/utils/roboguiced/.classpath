@@ -4,6 +4,7 @@
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry excluding="net/iubris/diane/_roboguice/aware/location/state/three/base/|net/iubris/diane/_roboguice/providers/aware/location/state/three/base/|net/iubris/diane/_roboguice/providers/aware/network/state/checker/base/|net/iubris/diane/_roboguice/searcher/aware/full/base/|net/iubris/diane/_roboguice/searcher/location/aware/full/base/|net/iubris/diane/_roboguice/module/AbstractDianeModule_bak.java" kind="src" path="src/useless"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
-	<classpathentry kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
