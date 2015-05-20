@@ -1,32 +1,32 @@
 OLD
 library/NO
 library/common/NO
-library/common/bin/*
+library/common/bin/**/*
 library/common/gen/*
 
-library/task/vanilla/bin/*
+library/task/vanilla/bin/**/*
 library/task/vanilla/gen/*
 library/task/roboguiced/bin/*
 library/task/roboguiced/gen/*
 
 library/utils/vanilla/NO
-library/utils/vanilla/bin/*
+library/utils/vanilla/bin/**/*
 library/utils/vanilla/gen/*
 library/utils/roboguiced/NO
-library/utils/roboguiced/bin/*
+library/utils/roboguiced/bin/**/*
 library/utils/roboguiced/gen/*
 
 library/utils/vanilla/NO
 library/utils/vanilla/NO_2
-library/utils/roboguiced/bin/*
+library/utils/roboguiced/bin/**/*
 library/utils/roboguiced/gen/*
 
-demo/vanilla/bin/*
+demo/vanilla/bin/**/*
 demo/vanilla/gen/*
-demo/roboguiced/bin/*
+demo/roboguiced/bin/**/*
 demo/roboguiced/gen/*
 demo/roboguiced/values_no
-demo/test_demo-utils/bin/*
+demo/test_demo-utils/bin/**/*
 demo/test_demo-utils/gen/*
 
 .gitignore
