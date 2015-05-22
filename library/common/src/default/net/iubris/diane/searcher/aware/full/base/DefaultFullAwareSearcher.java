@@ -42,7 +42,7 @@ public class DefaultFullAwareSearcher<SearchResult> implements FullAwareSearcher
 	protected final ThreeStateLocationAwareLocationSupplier locationAwareSupplier;
 	protected final LocalizedSearcherCacheNetworkAwareStrictChecking<SearchResult> localizedSearcherCacheNetworkAware;
 	
-	protected SearchResult result;
+	private SearchResult result;
 	private boolean searching = false;
 	private boolean isFirstSearch = true;
 	
@@ -112,6 +112,10 @@ public class DefaultFullAwareSearcher<SearchResult> implements FullAwareSearcher
 	@Override
 	public SearchResult getResult() {
 		return result;
+	}
+	
+	public void setResult(SearchResult result) {
+		this.result = result;
 	}
 	
 }

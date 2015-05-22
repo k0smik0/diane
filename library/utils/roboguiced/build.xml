@@ -9,20 +9,18 @@
 	<property name="license.url" value="http://www.gnu.org/licenses/lgpl.txt"/>
 	<property name="docurl" value="https://github.com/k0smik0/diane"/>
 	
+	<!-- change here with actual -->
+	<property name="android-sdk-target-version" value="22"/>
 	
+	<!--don't change below-->
 	<property environment="env" />
 	<condition property="sdk.dir" value="${env.ANDROID_HOME}">
 	  <isset property="env.ANDROID_HOME" />
 	</condition>
 	<property name="android-path" value="${sdk.dir}" />
 	
-	<!-- change here with actual -->
-	<property name="android-sdk-target-version" value="22"/>
-		
 	<property name="libs-dir" value="libs"/>
 
-	<!-- don't touch below -->
-	
 	<property name="src.dir" value="src" />
 	<property name="build.dir" value="build" />	
 	

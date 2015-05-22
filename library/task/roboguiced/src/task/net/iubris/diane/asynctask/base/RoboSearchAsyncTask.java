@@ -40,22 +40,22 @@ import net.iubris.etask.roboguiced.RoboEnhancedAsyncTask;
 import android.content.Context;
 import android.os.Handler;
 
-public abstract class SearchRoboAsyncTask 
+public abstract class RoboSearchAsyncTask 
 <S extends Searcher<SearchParam, SearchStatus, SearchResult>, SearchParam, SearchStatus, SearchResult>
 extends RoboEnhancedAsyncTask<SearchResult> 
 implements SearcherCallable<SearchResult> 
 {
 
-    protected SearchRoboAsyncTask(Context context) {
+    protected RoboSearchAsyncTask(Context context) {
         super(context);
     }
-    protected SearchRoboAsyncTask(Context context, Handler handler) {
+    protected RoboSearchAsyncTask(Context context, Handler handler) {
         super(context,handler);
     }
-    protected SearchRoboAsyncTask(Context context, Handler handler, Executor executor) {
+    protected RoboSearchAsyncTask(Context context, Handler handler, Executor executor) {
         super(context, handler, executor);
     }
-    protected SearchRoboAsyncTask(Context context, Executor executor) {
+    protected RoboSearchAsyncTask(Context context, Executor executor) {
         super(context,executor);
     }
     
