@@ -27,7 +27,7 @@
 	<property name="src.dir" value="src" />
 	<property name="build.dir" value="build" />	
 	
-	<property name="jar-task.file" value="${build.dir}/jars/diane-robotask.jar"/>
+	<property name="jar-task.file" value="${build.dir}/jars/diane-robotasks.jar"/>
 	
 	<path id="classpath-android">
 		<fileset dir="${android-path}/platforms/android-${android-sdk-target-version}/">
@@ -67,7 +67,7 @@
 	<target name="compile-task">
 		<mkdir dir="${build.dir}/classes/task"/>
 		<javac destdir="${build.dir}/classes/task" includeantruntime="false">
-			<src path="${src.dir}/task" />
+			<src path="${src.dir}/tasks" />
 			<include name="**/*.java"/>
 			<classpath refid="classpath-task"/>
 		</javac>

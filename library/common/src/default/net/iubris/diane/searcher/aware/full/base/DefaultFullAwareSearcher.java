@@ -34,7 +34,7 @@ import net.iubris.diane.searcher.location.aware.full.LocalizedSearcherCacheNetwo
 import android.location.Location;
 
 /**
- * @author    Massimiliano Leone - k0smik0
+ * @author Massimiliano Leone - k0smik0
  * @uml.dependency   supplier="net.iubris.dianedev.searcher.location.base.LocalizedSearcherCacheNetworkAware"
  */
 public class DefaultFullAwareSearcher<SearchResult> implements FullAwareSearcher<SearchResult> {
@@ -48,7 +48,7 @@ public class DefaultFullAwareSearcher<SearchResult> implements FullAwareSearcher
 	
 	// improve: to handle externally (in LocalizedSearcherCacheNetworkAware) 
 	//	when some exception occurred and an empty result is returned
-	private boolean emptyResultForException = false;
+//	private boolean emptyResultForException = false;
 	
 	@Inject
 	public DefaultFullAwareSearcher(ThreeStateLocationAwareLocationSupplier locationAwareSupplier,
@@ -106,7 +106,7 @@ public class DefaultFullAwareSearcher<SearchResult> implements FullAwareSearcher
 //	@Override
 	public void resetSearchStateExceptive() {
 		searching = false;
-		emptyResultForException  = true;
+//		emptyResultForException  = true;
 	}
 	
 	@Override
@@ -117,5 +117,4 @@ public class DefaultFullAwareSearcher<SearchResult> implements FullAwareSearcher
 	public void setResult(SearchResult result) {
 		this.result = result;
 	}
-	
 }

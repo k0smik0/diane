@@ -19,14 +19,14 @@
  ******************************************************************************/
 package net.iubris.diane.aware.location.state.three.base;
 
-import javax.inject.Singleton;
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import net.iubris.diane.aware.location.state.three.ThreeStateLocationAwareLocationSupplier;
 import net.iubris.diane.aware.location.state.three.base.annotation.DistanceMaximumThreshold;
 import net.iubris.diane.searcher.aware.location.exceptions.base.LocationNotSoUsefulException;
 import net.iubris.polaris.locator.provider.LocationProvider;
-import net.iubris.polaris.locator.utils.LocationUtils;
+import net.iubris.polaris.locator.utils.LocationStrategiesUtils;
 import net.iubris.polaris.locator.utils.exceptions.LocationNotSoFarException;
 import android.location.Location;
 
@@ -78,7 +78,7 @@ public class DefaultThreeStateLocationAwareLocationSupplier implements ThreeStat
 //Log.d("DefaultThreeStateLocationAwareLocationSupplier:96","location was null, returning newFreshLocation: "+newFreshLocation);			
 			return true;
 		}
-		boolean locationBetter = LocationUtils.isLocationBetter(newFreshLocation, location, locationProvider.getMinimumTimeThreshold(), locationProvider.getMinimumDistanceThreshold());
+		boolean locationBetter = LocationStrategiesUtils.isLocationBetter(newFreshLocation, location, locationProvider.getMinimumTimeThreshold(), locationProvider.getMinimumDistanceThreshold());
 		if (!locationBetter) {// it should never happen, but if so, return false
 //Log.d("DefaultThreeStateLocationAwareLocationSupplier:101","location is not better, returning false");		
 			return false;
@@ -88,7 +88,7 @@ public class DefaultThreeStateLocationAwareLocationSupplier implements ThreeStat
 		// check for nearness
 		boolean locationFar = false;
 		try {
-			locationFar = LocationUtils.isLocationFar(newFreshLocation, location, distanceMaximumThreshold);
+			locationFar = LocationStrategiesUtils.isLocationFar(newFreshLocation, location, distanceMaximumThreshold);
 		} catch (LocationNotSoFarException e) {
 			location = newFreshLocation; // always update location (1)
 			throw new LocationNotSoUsefulException(e,"location is not so far - new search is not useful");

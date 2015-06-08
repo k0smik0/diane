@@ -7,3 +7,5 @@ polaris-utils.jar
 roboenhancedasynctask.jar
 roboguice/2.0/roboguice-2.0.jar
 roboguice/2.0/sisu-guice-3.0.3-no_aop.jar
+diane-robotasks.jar
+diane-robotasks.jar

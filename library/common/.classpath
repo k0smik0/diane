@@ -5,7 +5,7 @@
 	<classpathentry kind="src" path="src/default"/>
 	<classpathentry kind="src" path="src/task"/>
 	<classpathentry kind="src" path="gen"/>
-	<classpathentry excluding="net/iubris/diane/aware/location/state/three/base/annotation/TimeMaximumThreshold.java|net/iubris/diane/aware/location/exceptions/base/LocationFreshNullException.java|net/iubris/diane/aware/location/exceptions/base/LocationNotNewerException.java" kind="src" path="src/useless"/>
+	<classpathentry excluding="net/iubris/diane/aware/location/state/three/base/annotation/TimeMaximumThreshold.java|net/iubris/diane/aware/location/exceptions/base/LocationFreshNullException.java|net/iubris/diane/aware/location/exceptions/base/LocationNotNewerException.java|net/iubris/diane/aware/location/exceptions/base/|net/iubris/diane/aware/location/state/three/base/annotation/|net/iubris/diane/aware/location/exceptions/" kind="src" path="src/useless"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry kind="lib" path="libs_extra/javax.inject.jar"/>

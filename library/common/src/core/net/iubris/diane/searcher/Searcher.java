@@ -21,6 +21,12 @@ package net.iubris.diane.searcher;
 
 import net.iubris.diane.searcher.exceptions.SearchException;
 
+/**
+ * Top interface for *Searcher(s) hierarchy<br/> 
+ * @param <SearchParams>
+ * @param <SearchState> 
+ * @param <SearchResult>
+ */
 public interface Searcher<SearchParams,SearchState,SearchResult> {
 	public SearchState search(SearchParams... params) throws SearchException;
 	public SearchResult getResult();

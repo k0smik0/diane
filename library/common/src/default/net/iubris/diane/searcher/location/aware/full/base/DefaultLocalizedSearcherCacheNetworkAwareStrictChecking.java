@@ -32,6 +32,7 @@ import android.location.Location;
 
 /**
  * @author  Massimiliano Leone - k0smik0
+ * use {@link #setResult to assign a new value to (internal) result}
  */
 public class DefaultLocalizedSearcherCacheNetworkAwareStrictChecking<SearchResult> implements LocalizedSearcherCacheNetworkAwareStrictChecking<SearchResult> {
 

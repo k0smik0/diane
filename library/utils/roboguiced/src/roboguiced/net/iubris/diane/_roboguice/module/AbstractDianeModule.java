@@ -28,13 +28,18 @@ import net.iubris.diane.searcher.aware.full.base.DefaultFullAwareSearcher;
 
 import com.google.inject.AbstractModule;
 
+/**
+ * default DistanceMaximumThreshold = 200; 
+ */
 public abstract class AbstractDianeModule extends AbstractModule {
 	
 	private final int distanceMaximumThreshold;
 //	private final int timeMaximumThreshold;
 	
+	private static final int DistanceMaximumThreshold = 200;
+	
 	public AbstractDianeModule() {
-		this.distanceMaximumThreshold = 200; // 200 meters is default
+		this.distanceMaximumThreshold = DistanceMaximumThreshold; // 200 meters is default
 //		this.timeMaximumThreshold = 2; // 2 minutes is default
 	}
 	
@@ -69,16 +74,19 @@ public abstract class AbstractDianeModule extends AbstractModule {
 		bindLocalizedSearcherNetworkAwareStrictChecking(); // abstract
 		bindLocalizedSearcherCacheNetworkAwareStrictChecking();
 		
-		bindFullAwareSearcher();
+		bindFullAwareSearcher(); // do nothing
+		
+//		bindLocationNullAllWrongString(); // provides an english message
+//		bindLocationNullEnableGPSString(); // provides an english message
 	}
 	
 	/**
-	 *  bind needed  for {@link DefaultThreeStateLocationAwareLocationSupplier } and descendents
+	 *  binding neededd  for {@link DefaultThreeStateLocationAwareLocationSupplier } and descendents
 	 */
 	protected abstract void bindLocationProvider();
 //	protected abstract LocationProvider providesLocationProvider(LocationProvider locationProviderConcrete);
 	/**
-	 *  bind needed  for {@link DefaultThreeStateLocationAwareLocationSupplier } and descendents<br/>
+	 *  binding neededd  for {@link DefaultThreeStateLocationAwareLocationSupplier } and descendents<br/>
 	 *  default is:<br/>
 	 *  bindConstant().annotatedWith(DistanceMaximumThreshold.class).to(distanceMaximumThreshold);
 	 *  with distanceMaximumThreshold=200<br/>
@@ -89,7 +97,7 @@ public abstract class AbstractDianeModule extends AbstractModule {
 		bind(Integer.class).annotatedWith(DistanceMaximumThreshold.class).toInstance(Integer.valueOf(distanceMaximumThreshold));
 	}
 	/**
-	 *  bind needed  for {@link DefaultThreeStateLocationAwareLocationSupplier } and descendents<br/>
+	 *  binding neededd  for {@link DefaultThreeStateLocationAwareLocationSupplier } and descendents<br/>
 	 *  default is:<br/>
 	 *  bindConstant().annotatedWith(TimeMaximumThreshold.class).to(timeMaximumThreshold);<br/>
 	 *  bind(Integer.class).annotatedWith(TimeMaximumThreshold.class).to(timeMaximumThreshold);
@@ -106,7 +114,7 @@ public abstract class AbstractDianeModule extends AbstractModule {
 	}*/
 	
 	/**
-	 *  bind needed  for {@link DefaultFullAwareSearcher } and descendents<br/>
+	 *  binding neededd  for {@link DefaultFullAwareSearcher } and descendents<br/>
 	 *  default: binds to DefaultThreeStateLocationAwareLocationSupplier 
 	 */
 	protected void bindThreeStateLocationAwareLocationSupplier() {
@@ -116,18 +124,18 @@ public abstract class AbstractDianeModule extends AbstractModule {
 	
 	
 	/**
-	 *  bind needed for {@link AbstractLocalizedSearcherCacheAware } and descendents<br/>
+	 *  binding neededd for {@link AbstractLocalizedSearcherCacheAware } and descendents<br/>
 	 *  use TypeLiteral for binding!
 	 */
 	protected abstract void bindThreeStateCacheAware();
 	/**
-	 *  bind needed  for {@link DefaultLocalizedSearcherCacheNetworkAware } and descendents<br/>
+	 *  binding neededd  for {@link DefaultLocalizedSearcherCacheNetworkAware } and descendents<br/>
 	 *  use TypeLiteral for binding!
 	 */
 	protected abstract void bindLocalizedSearcherCacheAwareStrictChecking();
 	
 	/**
-	 *  bind needed for {@link CheckerStateNetworkAware } and descendents<br/>
+	 *  binding needed for {@link CheckerStateNetworkAware } and descendents<br/>
 	 *  default: to DefaultCheckerStateNetworkAware
 	 */
 	protected void bindCheckerStateNetworkAware() {
@@ -136,11 +144,11 @@ public abstract class AbstractDianeModule extends AbstractModule {
 	
 	/**
 	 *
-	*  bind needed for {@link DefaultLocalizedSearcherCacheNetworkAware } and descendents
+	*  binding neededd for {@link DefaultLocalizedSearcherCacheNetworkAware } and descendents
 	*/
 	protected abstract void bindLocalizedSearcherNetworkAwareStrictChecking();
 	/**
-	 *  bind needed for {@link DefaultFullAwareSearcher } and descendents<br/>
+	 *  binding needed for {@link DefaultFullAwareSearcher } and descendents<br/>
 	 *  you can use DefaultLocalizedSearcherCacheNetworkAware with TypeLiterale, as above:<br/>
 	 *  bind( new TypeLiteral<LocalizedSearcherCacheNetworkAwareStrict<YourResultParam>>(){}).to(new TypeLiteral<DefaultLocalizedSearcherCacheNetworkAware<YourResultParam>>(){});
 	 */
@@ -149,11 +157,28 @@ public abstract class AbstractDianeModule extends AbstractModule {
 	
 	
 	/**
-	 *  bind useful for FullAwareSearcher direct uses<br/>
-	 *  you can use DefaultFullAwareSearcher with TypeLiterale, as above:<br/>
+	 *  binding useful for FullAwareSearcher direct uses<br/>
+	 *  you can use DefaultFullAwareSearcher with TypeLiteral, as below:<br/>
 	 *  bind( new TypeLiteral<FullAwareSearcher<YourResultParam>>(){}).toProvider(new TypeLiteral<DefaultFullAwareSearcherProvider<YourResultParam>>(){});
 	 */
 	protected void bindFullAwareSearcher() {
 //		bind( new TypeLiteral<FullAwareSearcher<Result>>(){}).toProvider(new TypeLiteral<DefaultFullAwareSearcher<Result>>(){});
 	}
+	
+//	/**
+//	 * binding needed for {@link GetFreshLocationTask}<br/>
+//	 * default: in english
+//	 */
+//	protected void bindLocationNullAllWrongString() {
+//		bind(String.class).annotatedWith(LocationNullAllWrongString.class).toInstance("location is null, something was wrong.");
+//	}
+//	protected void bindLocationNullEnableGPS() {
+//		bind(String.class).annotatedWith(LocationNullEnableGPSString.class).toInstance("location is null, you could enable your GPS.");
+//	}
+//	
+//	/**
+//	 * binding needed for {@link GetFreshLocationTask}<br/>
+//	 * default: do nothing 
+//	 */
+//	protected void bindLocationNullEnableGPSString() {}
 }

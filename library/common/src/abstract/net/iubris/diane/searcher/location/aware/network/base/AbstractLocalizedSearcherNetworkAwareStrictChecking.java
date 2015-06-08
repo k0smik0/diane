@@ -49,5 +49,4 @@ public abstract class AbstractLocalizedSearcherNetworkAwareStrictChecking<Search
 	}
 
 	protected abstract void doSearch(Location location) throws NetworkAwareSearchException;
-
 }

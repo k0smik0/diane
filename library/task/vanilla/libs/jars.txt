@@ -1,2 +1,4 @@
 diane-common.jar
 enhancedsafeasynctask.jar
+polaris-core.jar
+polaris-utils.jar

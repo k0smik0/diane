@@ -19,8 +19,8 @@
  ******************************************************************************/
 package net.iubris.diane.aware.network.state.checker.base;
 
-import javax.inject.Inject;
 
+import javax.inject.Inject;
 import net.iubris.diane.aware.network.exceptions.base.NoNetworkException;
 import net.iubris.diane.aware.network.state.checker.CheckerStateNetworkAware;
 import net.iubris.diane.aware.network.utils.NetworkUtils;
