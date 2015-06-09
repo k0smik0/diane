@@ -19,7 +19,7 @@
  ******************************************************************************/
 package net.iubris.diane_demo__vanilla.task;
 
-import net.iubris.diane.asynctask.base.SearchAsyncTask;
+import net.iubris.diane.asynctask.base.SearchAwareAsyncTask;
 import net.iubris.diane.aware.cache.exceptions.CacheStateException;
 import net.iubris.diane.aware.cache.exceptions.base.CacheTooOldException;
 import net.iubris.diane.aware.location.exceptions.LocationStateException;
@@ -38,7 +38,7 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
-public class DianeDemoVanillaSearchAsyncTask extends SearchAsyncTask<DianeDemoVanillaSearcher, Void, Void, String> {
+public class DianeDemoVanillaSearchAsyncTask extends SearchAwareAsyncTask<DianeDemoVanillaSearcher, Void, Void, String> {
 	
 	final private DianeDemoVanillaSearcher dianeSampleSearcher;
 	
@@ -65,7 +65,7 @@ public class DianeDemoVanillaSearchAsyncTask extends SearchAsyncTask<DianeDemoVa
 	protected void onException(StillSearchException e) throws RuntimeException {
 		showException(e);
 	}
-	@Override
+//	@Override
 	protected void onException(NoNetworkException e) throws RuntimeException {
 		showException(e,"from cache: \n"+dianeSampleSearcher.getResult());
 	};

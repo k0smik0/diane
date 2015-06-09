@@ -19,8 +19,8 @@
  ******************************************************************************/
 package net.iubris.diane_demo__vanilla.activity;
 
-import net.iubris.diane_demo__vanilla.controller.DianeDemoVanillaSearcher;
 import net.iubris.diane_demo__vanilla.provider.DianeDemoVanillaSearcherProvider;
+import net.iubris.diane_demo__vanilla.controller.DianeDemoVanillaSearcher;
 import net.iubris.diane_demo__vanilla.task.DianeDemoVanillaSearchAsyncTask;
 import net.iubris.diane_demo__vanilla.task.DianeDemoVanillaSearchAsyncTaskOnlyCache;
 import net.iubris.diane_demo__vanilla.task.DianeDemoVanillaSearchAsyncTaskOnlyNetwork;

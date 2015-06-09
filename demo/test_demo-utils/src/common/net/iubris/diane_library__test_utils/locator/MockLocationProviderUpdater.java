@@ -22,6 +22,9 @@ package net.iubris.diane_library__test_utils.locator;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import net.iubris.diane_library__test_utils.injector.MockGpsLocationsInjector;
+import net.iubris.polaris.locator.provider.LocationProvider;
+import net.iubris.polaris.locator.updater.LocationUpdater;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -30,9 +33,6 @@ import android.content.IntentFilter;
 import android.location.Location;
 import android.location.LocationManager;
 import android.util.Log;
-import net.iubris.diane_library__test_utils.injector.MockGpsLocationsInjector;
-import net.iubris.polaris.locator.provider.LocationProvider;
-import net.iubris.polaris.locator.updater.LocationUpdater;
 
 @Singleton
 public class MockLocationProviderUpdater implements LocationProvider, LocationUpdater {

@@ -19,8 +19,8 @@
  ******************************************************************************/
 package net.iubris.diane._roboguice.module;
 
-import net.iubris.diane.aware.location.state.three.ThreeStateLocationAwareLocationSupplier;
 import net.iubris.diane.aware.location.state.three.base.DefaultThreeStateLocationAwareLocationSupplier;
+import net.iubris.diane.aware.location.state.three.ThreeStateLocationAwareLocationSupplier;
 import net.iubris.diane.aware.location.state.three.base.annotation.DistanceMaximumThreshold;
 import net.iubris.diane.aware.network.state.checker.CheckerStateNetworkAware;
 import net.iubris.diane.aware.network.state.checker.base.DefaultCheckerStateNetworkAware;

@@ -20,14 +20,15 @@
 package net.iubris.diane_demo__roboguiced.activity;
 
 
+
 import javax.inject.Inject;
 
+import net.iubris.diane_demo__roboguiced.R;
 import net.iubris.diane_demo__roboguiced.task.AwareSearchTask;
 import net.iubris.diane_demo__roboguiced.task.CacheSearchTask;
 import net.iubris.diane_demo__roboguiced.task.NetworkSearchTask;
 import net.iubris.diane_library__test_utils.LocationUtils;
 import net.iubris.diane_library__test_utils.injector.MockGpsLocationsInjector;
-import net.iubris.diane_demo__roboguiced.R;
 import net.iubris.polaris.locator.provider.LocationProvider;
 import net.iubris.polaris.locator.updater.LocationUpdater;
 import roboguice.activity.RoboActivity;

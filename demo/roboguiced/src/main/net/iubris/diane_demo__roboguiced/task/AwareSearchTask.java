@@ -21,7 +21,6 @@ package net.iubris.diane_demo__roboguiced.task;
 
 import javax.inject.Inject;
 
-import net.iubris.diane.asynctask.base.RoboSearchAsyncTask;
 import net.iubris.diane.aware.cache.exceptions.base.CacheTooOldException;
 import net.iubris.diane.aware.network.exceptions.base.NoNetworkException;
 import net.iubris.diane.searcher.aware.cache.exceptions.CacheAwareSearchException;
@@ -30,12 +29,13 @@ import net.iubris.diane.searcher.aware.location.exceptions.LocationAwareSearchEx
 import net.iubris.diane.searcher.aware.location.exceptions.base.LocationNotSoUsefulException;
 import net.iubris.diane.searcher.aware.location.exceptions.base.LocationTooNearException;
 import net.iubris.diane.searcher.aware.network.exceptions.NetworkAwareSearchException;
+import net.iubris.diane.tasks.search.RoboSearchAwareAsyncTask;
 import net.iubris.diane_demo__roboguiced.controller.DianeDemoRoboAwareSearcher;
 import android.content.Context;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class AwareSearchTask extends RoboSearchAsyncTask<DianeDemoRoboAwareSearcher, Void, Void, String> {
+public class AwareSearchTask extends RoboSearchAwareAsyncTask<DianeDemoRoboAwareSearcher, Void, Void, String> {
 	
 	final private DianeDemoRoboAwareSearcher dianeSampleAwareSearcher;
 	private TextView textView;

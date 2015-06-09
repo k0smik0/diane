@@ -21,16 +21,16 @@ package net.iubris.diane_demo__roboguiced.task;
 
 import javax.inject.Inject;
 
-import net.iubris.diane.asynctask.base.RoboSearchAsyncTask;
 import net.iubris.diane.aware.cache.exceptions.base.CacheTooOldException;
 import net.iubris.diane.searcher.aware.cache.exceptions.CacheAwareSearchException;
+import net.iubris.diane.tasks.search.RoboSearchAwareAsyncTask;
 import net.iubris.diane_demo__roboguiced.controller.DianeDemoRoboAwareSearcher;
 import net.iubris.diane_demo__roboguiced.controller.DianeDemoRoboCacheSearcher;
 import android.content.Context;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class CacheSearchTask extends RoboSearchAsyncTask<DianeDemoRoboAwareSearcher, Void, Void, String> {
+public class CacheSearchTask extends RoboSearchAwareAsyncTask<DianeDemoRoboAwareSearcher, Void, Void, String> {
 	
 //	final private DianeRoboSampleAwareSearcher dianeSampleSearcher;
 	final private DianeDemoRoboCacheSearcher dianeRoboSampleCacheSearcher;

@@ -12,7 +12,6 @@ import net.iubris.diane.searcher.Searcher;
 import net.iubris.diane.searcher.aware.location.exceptions.LocationAwareSearchException;
 import net.iubris.diane.searcher.aware.location.exceptions.base.LocationNotSoUsefulException;
 import net.iubris.diane.searcher.aware.location.exceptions.base.LocationTooNearException;
-import net.iubris.etask.EnhancedSafeAsyncTaskContexted;
 import android.content.Context;
 import android.os.Handler;
 
@@ -25,7 +24,8 @@ import android.os.Handler;
  */
 public abstract class SearchAwareAsyncTask 
 <S extends Searcher<SearchParam, SearchStatus, SearchResult>, SearchParam, SearchStatus, SearchResult> 
-extends EnhancedSafeAsyncTaskContexted<SearchResult> 
+//extends EnhancedSafeAsyncTaskContexted<SearchResult>
+extends SearchLocalizedAsyncTask<Searcher<SearchParam,SearchStatus,SearchResult>, SearchParam, SearchStatus, SearchResult>
 implements SearcherCallable<SearchResult> 
 {
 
