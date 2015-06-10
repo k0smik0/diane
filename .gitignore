@@ -31,3 +31,11 @@ demo/test_demo-utils/gen/*
 
 .gitignore
 .umlproject
+./demo/test_demo-utils/libs/*.jar
+./demo/roboguiced/libs/*.jar
+./demo/vanilla/libs/*.jar
+./library/task/roboguiced/libs/*.jar
+./library/task/vanilla/libs/*.jar
+./library/utils/roboguiced/libs/*.jar
+./library/utils/vanilla/libs/*.jar
+./library/common/libs/*.jar
