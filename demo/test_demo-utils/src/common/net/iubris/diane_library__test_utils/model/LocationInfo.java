@@ -19,11 +19,11 @@
  ******************************************************************************/
 package net.iubris.diane_library__test_utils.model;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.util.Locale;
 
-import net.iubris.diane_library__test_utils.LocationUtils;
+import net.iubris.diane_library__test_utils.location.LocationUtils;
 import android.location.Location;
 import android.util.Log;
 

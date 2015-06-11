@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src/main"/>
+	<classpathentry excluding="net/iubris/diane_demo__roboguiced/task/RoboAwareSearchTask.java|net/iubris/diane_demo__roboguiced/task/RoboCacheSearchTask.java|net/iubris/diane_demo__roboguiced/task/RoboNetworkSearchTask.java" kind="src" path="src/main"/>
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry excluding="net/iubris/dianeroboguicesample/DianeSampleSearcherBuilder.java|net/iubris/dianeroboguicesample/Utils.java|net/iubris/dianeroboguicesample/" kind="src" path="src/useless"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>

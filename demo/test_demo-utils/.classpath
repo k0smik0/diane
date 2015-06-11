@@ -4,7 +4,7 @@
 	<classpathentry kind="src" path="src/vanilla"/>
 	<classpathentry kind="src" path="src/roboguiced"/>
 	<classpathentry kind="src" path="gen"/>
-	<classpathentry excluding="net/iubris/diane_library__test_utils/receiver/|net/iubris/diane_library__test_utils/locator/MockLocationUpdater.java" kind="src" path="src/useless"/>
+	<classpathentry excluding="net/iubris/diane_library__test_utils/receiver/|net/iubris/diane_library__test_utils/locator/MockLocationUpdater.java|net/iubris/diane_library__test_utils/exception/ExceptionUtils.java|net/iubris/diane_library__test_utils/LocationUtils.java" kind="src" path="src/useless"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
