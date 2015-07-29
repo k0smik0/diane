@@ -25,7 +25,7 @@ import javax.inject.Singleton;
 import net.iubris.diane.aware.location.state.three.ThreeStateLocationAwareLocationSupplier;
 import net.iubris.diane.aware.location.state.three.base.annotation.DistanceMaximumThreshold;
 import net.iubris.diane.searcher.aware.location.exceptions.base.LocationNotSoUsefulException;
-import net.iubris.polaris.locator.provider.LocationProvider;
+import net.iubris.polaris.locator.core.provider.LocationProvider;
 import net.iubris.polaris.locator.utils.LocationStrategiesUtils;
 import net.iubris.polaris.locator.utils.exceptions.LocationNotSoFarException;
 import android.location.Location;

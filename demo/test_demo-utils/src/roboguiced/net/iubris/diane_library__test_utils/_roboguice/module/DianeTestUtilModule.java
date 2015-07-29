@@ -20,9 +20,9 @@
 package net.iubris.diane_library__test_utils._roboguice.module;
 
 import net.iubris.diane_library__test_utils.locator.MockLocationProviderUpdater;
-import net.iubris.polaris._di._roboguice.module.PolarisModule;
-import net.iubris.polaris.locator.provider.LocationProvider;
-import net.iubris.polaris.locator.updater.LocationUpdater;
+import net.iubris.polaris._di._roboguice.module.core.PolarisModule;
+import net.iubris.polaris.locator.core.provider.LocationProvider;
+import net.iubris.polaris.locator.core.updater.LocationUpdater;
 
 
 public class DianeTestUtilModule extends PolarisModule {

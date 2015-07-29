@@ -19,16 +19,16 @@
  ******************************************************************************/
 package net.iubris.diane_demo__vanilla.activity;
 
-import net.iubris.diane_demo__vanilla.provider.DianeDemoVanillaSearcherProvider;
+import net.iubris.diane_demo__vanilla.R;
 import net.iubris.diane_demo__vanilla.controller.DianeDemoVanillaSearcher;
+import net.iubris.diane_demo__vanilla.provider.DianeDemoVanillaSearcherProvider;
 import net.iubris.diane_demo__vanilla.task.DianeDemoVanillaSearchAsyncTask;
 import net.iubris.diane_demo__vanilla.task.DianeDemoVanillaSearchAsyncTaskOnlyCache;
 import net.iubris.diane_demo__vanilla.task.DianeDemoVanillaSearchAsyncTaskOnlyNetwork;
 import net.iubris.diane_library__test_utils.injector.MockGpsLocationsInjector;
 import net.iubris.diane_library__test_utils.receiver.MockUtilsProvider;
-import net.iubris.diane_demo__vanilla.R;
-import net.iubris.polaris.locator.provider.LocationProvider;
-import net.iubris.polaris.locator.updater.LocationUpdater;
+import net.iubris.polaris.locator.core.provider.LocationProvider;
+import net.iubris.polaris.locator.core.updater.LocationUpdater;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;

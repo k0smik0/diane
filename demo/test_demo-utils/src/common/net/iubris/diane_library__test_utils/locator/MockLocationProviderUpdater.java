@@ -23,8 +23,8 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import net.iubris.diane_library__test_utils.injector.MockGpsLocationsInjector;
-import net.iubris.polaris.locator.provider.LocationProvider;
-import net.iubris.polaris.locator.updater.LocationUpdater;
+import net.iubris.polaris.locator.core.provider.LocationProvider;
+import net.iubris.polaris.locator.core.updater.LocationUpdater;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;

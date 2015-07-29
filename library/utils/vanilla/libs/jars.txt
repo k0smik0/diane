@@ -1,3 +1,2 @@
 diane-common.jar
 polaris-core.jar
-polaris-utils.jar

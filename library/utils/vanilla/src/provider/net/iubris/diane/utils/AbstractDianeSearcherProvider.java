@@ -31,7 +31,7 @@ import net.iubris.diane.searcher.location.aware.full.LocalizedSearcherCacheNetwo
 import net.iubris.diane.searcher.location.aware.full.LocalizedSearcherCacheNetworkAwareStrictChecking;
 import net.iubris.diane.searcher.location.aware.full.base.DefaultLocalizedSearcherCacheNetworkAwareStrictChecking;
 import net.iubris.diane.searcher.location.aware.network.LocalizedSearcherNetworkAwareStrictChecking;
-import net.iubris.polaris.locator.provider.LocationProvider;
+import net.iubris.polaris.locator.core.provider.LocationProvider;
 import android.content.Context;
 import android.net.ConnectivityManager;
 

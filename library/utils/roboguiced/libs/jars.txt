@@ -3,5 +3,4 @@ roboguice/2.0/sisu-guice-3.0.3-no_aop.jar
 roboguice/2.0/javax.inject.jar
 diane-common.jar
 polaris-core.jar
-polaris-utils.jar
 diane-robotasks.jar

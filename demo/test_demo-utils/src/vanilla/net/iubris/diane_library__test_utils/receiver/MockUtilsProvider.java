@@ -21,8 +21,8 @@ package net.iubris.diane_library__test_utils.receiver;
 
 import net.iubris.diane_library__test_utils.injector.MockGpsLocationsInjector;
 import net.iubris.diane_library__test_utils.locator.MockLocationProviderUpdater;
-import net.iubris.polaris.locator.provider.LocationProvider;
-import net.iubris.polaris.locator.updater.LocationUpdater;
+import net.iubris.polaris.locator.core.provider.LocationProvider;
+import net.iubris.polaris.locator.core.updater.LocationUpdater;
 import android.content.Context;
 import android.location.LocationManager;
 

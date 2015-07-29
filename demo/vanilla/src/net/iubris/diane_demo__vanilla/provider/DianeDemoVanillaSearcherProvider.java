@@ -30,7 +30,7 @@ import net.iubris.diane_demo__vanilla.controller.DianeDemoVanillaLocalizedSearch
 import net.iubris.diane_demo__vanilla.controller.DianeDemoVanillaLocalizedSearcherNetworkAwareStrictChecking;
 import net.iubris.diane_demo__vanilla.controller.DianeDemoVanillaSearcher;
 import net.iubris.diane_library__test_utils.receiver.MockUtilsProvider;
-import net.iubris.polaris.locator.provider.LocationProvider;
+import net.iubris.polaris.locator.core.provider.LocationProvider;
 import android.content.Context;
 
 public class DianeDemoVanillaSearcherProvider extends AbstractDianeSearcherProvider<DianeDemoVanillaSearcher,String> {
