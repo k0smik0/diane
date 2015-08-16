@@ -64,9 +64,10 @@ implements LocalizedSearcherCacheNetworkAwareStrictChecking<SearchResult> {
 			NoNetworkException, NetworkAwareSearchException,
 			CacheTooOldException, CacheEmptyException, CacheAwareSearchException {
 		
-		boolean cacheTooOld = false;
+		
 		if (cacheAware.useFirstlyCache()) {
 //			boolean foundByCache;
+			boolean cacheError = false;
 			try {
 				foundByCache = searchByCache(locations);
 				if (foundByCache) {
@@ -79,10 +80,12 @@ implements LocalizedSearcherCacheNetworkAwareStrictChecking<SearchResult> {
 			} catch (CacheEmptyException e) {
 				// if here, cache is empty, so dummy catch and try network
 				Log.d("DefaultLocalizedSearcherCacheNetworkAwareStrictChecking", "empty cache searching firstlyByCache");
+				cacheError = true;
 			} catch (CacheTooOldException e) {
 				Log.d("DefaultLocalizedSearcherCacheNetworkAwareStrictChecking", "cache too old searching firstlyByCache");
-				cacheTooOld = true;
+				cacheError = true;
 			} catch (CacheAwareSearchException e) {
+				cacheError = true;
 				onCacheAwareSearchException();
 			}
 			
