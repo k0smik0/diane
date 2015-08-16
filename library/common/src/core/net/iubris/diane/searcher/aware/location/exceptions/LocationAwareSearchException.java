@@ -22,14 +22,22 @@ package net.iubris.diane.searcher.aware.location.exceptions;
 import net.iubris.diane.searcher.aware.exceptions.AwareSearchException;
 
 public class LocationAwareSearchException extends AwareSearchException {	
-	public LocationAwareSearchException(String string) {
-		super(string);
-	}	
-	public LocationAwareSearchException(Throwable cause) {
-		super(cause);
+	public LocationAwareSearchException() {
+		super();
 	}
-	public LocationAwareSearchException(Throwable cause,String string) {
-		super(cause,string);
+
+	public LocationAwareSearchException(String detailMessage,
+			Throwable throwable) {
+		super(detailMessage, throwable);
 	}
+
+	public LocationAwareSearchException(String detailMessage) {
+		super(detailMessage);
+	}
+
+	public LocationAwareSearchException(Throwable throwable) {
+		super(throwable);
+	}
+
 	private static final long serialVersionUID = 6760660811667133862L;
 }

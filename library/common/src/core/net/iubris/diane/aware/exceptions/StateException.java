@@ -24,15 +24,23 @@ import net.iubris.diane.searcher.exceptions.SearchException;
 
 public class StateException extends SearchException {
 
-	public StateException(String message) {
-		super(message);
+	
+	public StateException() {
+		super();
 	}
-	public StateException(Throwable cause) {
-		super(cause);
-	}	 
-	public StateException(Throwable cause, String string) {
-		super(cause,string);
+
+	public StateException(String detailMessage, Throwable throwable) {
+		super(detailMessage, throwable);
 	}
+
+	public StateException(String detailMessage) {
+		super(detailMessage);
+	}
+
+	public StateException(Throwable throwable) {
+		super(throwable);
+	}
+
 	private static final long serialVersionUID = -4577173682208457585L;
 
 }

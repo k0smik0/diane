@@ -25,13 +25,21 @@ public class LocationStateException extends StateException {
 
 	private static final long serialVersionUID = -2633470036116304334L;
 
-	public LocationStateException(String string) {
-		super(string);
+	public LocationStateException() {
+		super();
 	}
-	public LocationStateException(Throwable cause) {
-		super(cause);
+
+	public LocationStateException(String detailMessage, Throwable throwable) {
+		super(detailMessage, throwable);
 	}
-	public LocationStateException(Throwable cause, String string) {
-		super(cause,string);
+
+	public LocationStateException(String detailMessage) {
+		super(detailMessage);
 	}
+
+	public LocationStateException(Throwable throwable) {
+		super(throwable);
+	}
+
+	
 }

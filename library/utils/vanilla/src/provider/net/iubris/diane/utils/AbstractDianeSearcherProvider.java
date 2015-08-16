@@ -21,6 +21,7 @@ package net.iubris.diane.utils;
 
 import java.lang.reflect.InvocationTargetException;
 
+import net.iubris.diane.aware.cache.states.three.ThreeStateCacheAware;
 import net.iubris.diane.aware.location.state.three.ThreeStateLocationAwareLocationSupplier;
 import net.iubris.diane.aware.location.state.three.base.DefaultThreeStateLocationAwareLocationSupplier;
 import net.iubris.diane.aware.network.state.checker.CheckerStateNetworkAware;
@@ -68,8 +69,10 @@ public abstract class AbstractDianeSearcherProvider<DFAS extends DefaultFullAwar
 	
 	protected abstract LocalizedSearcherCacheAwareStrictChecking<Result> getLocalizedSearcherCacheAwareStrictChecking();
 	protected abstract LocalizedSearcherNetworkAwareStrictChecking<Result> getLocalizedSearcherNetworkAwareStrictChecking();
+	protected abstract ThreeStateCacheAware getThreeStateCacheAware();
 	protected LocalizedSearcherCacheNetworkAwareStrictChecking<Result> getLocalizedSearcherCacheNetworkAwareStrictChecking() {
-		return new DefaultLocalizedSearcherCacheNetworkAwareStrictChecking<Result>(getLocalizedSearcherCacheAwareStrictChecking(), getLocalizedSearcherNetworkAwareStrictChecking());
+		return new DefaultLocalizedSearcherCacheNetworkAwareStrictChecking<Result>(getLocalizedSearcherCacheAwareStrictChecking(), 
+				getLocalizedSearcherNetworkAwareStrictChecking(), getThreeStateCacheAware());
 	}
 
 	protected CheckerStateNetworkAware getCheckerStateNetworkAware() {

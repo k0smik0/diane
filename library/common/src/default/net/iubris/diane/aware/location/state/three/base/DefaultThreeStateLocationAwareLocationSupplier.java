@@ -91,7 +91,7 @@ public class DefaultThreeStateLocationAwareLocationSupplier implements ThreeStat
 			locationFar = LocationStrategiesUtils.isLocationFar(newFreshLocation, location, distanceMaximumThreshold);
 		} catch (LocationNotSoFarException e) {
 			location = newFreshLocation; // always update location (1)
-			throw new LocationNotSoUsefulException(e,"location is not so far - new search is not useful");
+			throw new LocationNotSoUsefulException("location is not so far - new search is not useful",e);
 		}
 		if (!locationFar) { // near, returning false
 			location = newFreshLocation; // always update location (2)
@@ -101,7 +101,7 @@ public class DefaultThreeStateLocationAwareLocationSupplier implements ThreeStat
 //Log.d("DefaultThreeStateLocationAwareLocationSupplier:119","location is far, returning true");
 		// it is far, so return true
 		location = newFreshLocation; // always update location (3)
-		return true;		
+		return true;
 	}
 	
 	protected Location getFreshLocation() {

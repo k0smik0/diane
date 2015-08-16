@@ -19,9 +19,13 @@
  ******************************************************************************/
 package net.iubris.diane.searcher.location.aware.full.base;
 
+import java.util.Collection;
+
 import javax.inject.Inject;
 
+import net.iubris.diane.aware.cache.exceptions.base.CacheEmptyException;
 import net.iubris.diane.aware.cache.exceptions.base.CacheTooOldException;
+import net.iubris.diane.aware.cache.states.three.ThreeStateCacheAware;
 import net.iubris.diane.aware.network.exceptions.base.NoNetworkException;
 import net.iubris.diane.searcher.aware.cache.exceptions.CacheAwareSearchException;
 import net.iubris.diane.searcher.aware.network.exceptions.NetworkAwareSearchException;
@@ -29,39 +33,125 @@ import net.iubris.diane.searcher.location.aware.cache.LocalizedSearcherCacheAwar
 import net.iubris.diane.searcher.location.aware.full.LocalizedSearcherCacheNetworkAwareStrictChecking;
 import net.iubris.diane.searcher.location.aware.network.LocalizedSearcherNetworkAwareStrictChecking;
 import android.location.Location;
+import android.util.Log;
 
 /**
  * @author  Massimiliano Leone - k0smik0
  * use {@link #setResult to assign a new value to (internal) result}
  */
-public class DefaultLocalizedSearcherCacheNetworkAwareStrictChecking<SearchResult> implements LocalizedSearcherCacheNetworkAwareStrictChecking<SearchResult> {
+public class DefaultLocalizedSearcherCacheNetworkAwareStrictChecking<SearchResult> 
+implements LocalizedSearcherCacheNetworkAwareStrictChecking<SearchResult> {
 
 	private final LocalizedSearcherCacheAwareStrictChecking<SearchResult> cacheAwareSearcher;
 	private final LocalizedSearcherNetworkAwareStrictChecking<SearchResult> networkAwareSearcher;
+	private final ThreeStateCacheAware cacheAware;
+	
 	private SearchResult result;
+	private boolean foundByCache;
 	
 	@Inject
 	public DefaultLocalizedSearcherCacheNetworkAwareStrictChecking(
 			LocalizedSearcherCacheAwareStrictChecking<SearchResult> cacheAwareSearcher,
-			LocalizedSearcherNetworkAwareStrictChecking<SearchResult> networkAwareSearcher) {
+			LocalizedSearcherNetworkAwareStrictChecking<SearchResult> networkAwareSearcher,
+			ThreeStateCacheAware cacheAware) {
 		this.cacheAwareSearcher = cacheAwareSearcher;
 		this.networkAwareSearcher = networkAwareSearcher;
+		this.cacheAware = cacheAware;
 	}	
 
 	@Override
-	public Void search(Location... location) throws
+	public Void search(Location... locations) throws
 			NoNetworkException, NetworkAwareSearchException,
-			CacheTooOldException, CacheAwareSearchException {
-		try { // trying network
-			networkAwareSearcher.search(location); // network ok - it could throw NetworkSearchException
+			CacheTooOldException, CacheEmptyException, CacheAwareSearchException {
+		
+		boolean cacheTooOld = false;
+		if (cacheAware.useFirstlyCache()) {
+//			boolean foundByCache;
+			try {
+				foundByCache = searchByCache(locations);
+				if (foundByCache) {
+					if (result instanceof Collection) {
+						Log.d("DefaultLocalizedSearcherCacheNetworkAwareStrictChecking", "found by cache: "+((Collection)result).size());
+					} else
+						Log.d("DefaultLocalizedSearcherCacheNetworkAwareStrictChecking", "found by cache: "+result);
+					return null;
+				}
+			} catch (CacheEmptyException e) {
+				// if here, cache is empty, so dummy catch and try network
+				Log.d("DefaultLocalizedSearcherCacheNetworkAwareStrictChecking", "empty cache searching firstlyByCache");
+			} catch (CacheTooOldException e) {
+				Log.d("DefaultLocalizedSearcherCacheNetworkAwareStrictChecking", "cache too old searching firstlyByCache");
+				cacheTooOld = true;
+			} catch (CacheAwareSearchException e) {
+				onCacheAwareSearchException();
+			}
+			
+			// here we try network
+			networkAwareSearcher.search(locations); // network ok - it could throw NetworkSearchException
 			result = networkAwareSearcher.getResult();
 			return null;
-		} catch (NoNetworkException nne) { // no network
-//			try { // trying cache
-				cacheAwareSearcher.search(location); // trying cache or throw CacheTooOldException or CacheAwareSearchException
-				result = cacheAwareSearcher.getResult();
-				throw nne; // but advice for no network
+		} else {
+			
+			try { // trying firstly network
+				networkAwareSearcher.search(locations); // network ok - it could throw NetworkSearchException
+				result = networkAwareSearcher.getResult();
+//				return null;
+			} catch (NoNetworkException nne) { // no network
+				// trying cache
+				// trying cache or throw CacheTooOldException or CacheAwareSearchException
+				// we care of these exception and let they throw...
+				searchByCache(locations);
+				// however old result is always better than no result, so assign to this.result					
+				throw nne; // advice for no network if no cache* exceptions are throwed
+			}
 		}
+		
+		return null;
+	}
+	
+	/**
+	 * default: do nothing
+	 */
+	protected void onCacheAwareSearchException() {}
+
+	@Override
+	public boolean isFoundByCache() {
+		return foundByCache;
+	}
+	
+	/**
+	 * 
+	 * @param locations
+	 * @return true if any result (any type or any collection subtype with size > 0); false if result is null
+	 * @throws CacheEmptyException
+	 * @throws CacheAwareSearchException
+	 * @throws CacheTooOldException 
+	 */
+	@SuppressWarnings("rawtypes")
+	private boolean searchByCache(Location... locations) throws CacheEmptyException, CacheAwareSearchException, CacheTooOldException {
+		boolean cacheTooOld = false;
+		SearchResult result = null;
+		try {
+			cacheAwareSearcher.search(locations); // trying cache or throw CacheTooOldException or CacheAwareSearchException
+			result = cacheAwareSearcher.getResult();
+		} catch(CacheTooOldException e) {
+			cacheTooOld = true;
+		}
+		
+		if (result!=null) {
+			this.result = result;
+			if (result instanceof Collection) {
+				Collection c = (Collection)result;
+				if (c.size()!=0) {
+					return true;
+				} else
+					throw new CacheEmptyException();
+			}
+			if (cacheTooOld)
+				throw new CacheTooOldException();
+		}
+		return false;
+		
 	}
 	
 	@Override

@@ -32,7 +32,9 @@ import net.iubris.diane.searcher.aware.network.exceptions.NetworkAwareSearchExce
 
 public interface FullAwareSearcher<SearchResult> extends
 //AwareSearcher<Void, SearchResult>, //{
-LocationAwareSearcher<Void, SearchResult>, NetworkAwareSearcher<Void, SearchResult>, CacheAwareSearcher<Void, SearchResult> {
+LocationAwareSearcher<Void, SearchResult>, 
+NetworkAwareSearcher<Void, SearchResult>, 
+CacheAwareSearcher<Void, SearchResult> {
 
 
 	@Override

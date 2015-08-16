@@ -19,6 +19,7 @@
  ******************************************************************************/
 package net.iubris.diane.searcher.location.aware.full;
 
+import net.iubris.diane.aware.cache.exceptions.base.CacheEmptyException;
 import net.iubris.diane.aware.cache.exceptions.base.CacheTooOldException;
 import net.iubris.diane.aware.network.exceptions.base.NoNetworkException;
 import net.iubris.diane.searcher.aware.cache.exceptions.CacheAwareSearchException;
@@ -34,5 +35,6 @@ public interface LocalizedSearcherCacheNetworkAwareStrictChecking<SearchResult> 
 		NoNetworkException,
 		NetworkAwareSearchException, 
 		CacheTooOldException,
+		CacheEmptyException,
 		CacheAwareSearchException;
 }

@@ -33,4 +33,6 @@ public interface CacheAwareSearcher<SearchState, SearchResult>
 		CacheAwareSearchException
 		, SearchException
 		;
+	
+	boolean isFoundByCache();
 }

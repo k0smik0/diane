@@ -41,4 +41,6 @@ public interface LocalizedSearcherCacheNetworkAware<SearchResult>
 //		, Exception
 		;
 //		StateException; 
+	
+	boolean isFoundByCache();
 }

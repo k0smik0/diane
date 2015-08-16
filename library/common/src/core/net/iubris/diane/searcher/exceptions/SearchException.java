@@ -21,14 +21,21 @@ package net.iubris.diane.searcher.exceptions;
 
 public class SearchException extends Exception {
 	
-	public SearchException(String string) {
-		super(string);
+
+	public SearchException() {
+		super();
 	}
-	public SearchException(Throwable cause) {
-		super(cause);
+
+	public SearchException(String detailMessage, Throwable throwable) {
+		super(detailMessage, throwable);
 	}
-	public SearchException(Throwable cause, String string) {
-		super(string,cause);
+
+	public SearchException(String detailMessage) {
+		super(detailMessage);
+	}
+
+	public SearchException(Throwable throwable) {
+		super(throwable);
 	}
 
 	private static final long serialVersionUID = 8372456097543210340L;

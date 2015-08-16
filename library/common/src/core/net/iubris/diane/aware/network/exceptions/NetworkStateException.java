@@ -23,17 +23,20 @@ import net.iubris.diane.aware.exceptions.StateException;
 
 public class NetworkStateException extends StateException {
 
-	
-	public NetworkStateException(String message) {
-		super(message);
+	public NetworkStateException() {
+		super();
 	}
 
-	public NetworkStateException(Throwable cause, String string) {
-		super(cause, string);
+	public NetworkStateException(String detailMessage, Throwable throwable) {
+		super(detailMessage, throwable);
 	}
 
-	public NetworkStateException(Throwable cause) {
-		super(cause);
+	public NetworkStateException(String detailMessage) {
+		super(detailMessage);
+	}
+
+	public NetworkStateException(Throwable throwable) {
+		super(throwable);
 	}
 
 	private static final long serialVersionUID = -8133069373241529790L;

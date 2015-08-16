@@ -40,7 +40,7 @@ public abstract class AbstractLocalizedSearcherCacheAwareStrictChecking<SearchRe
 	public AbstractLocalizedSearcherCacheAwareStrictChecking(ThreeStateCacheAware cacheAware) {
 		this.cacheAware = cacheAware;
 	}
-
+	
 	@Override
 	public Void search(Location... location) throws CacheTooOldException, CacheAwareSearchException {
 		if (cacheAware.isCacheAvailable());

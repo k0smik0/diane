@@ -23,16 +23,23 @@ import net.iubris.diane.searcher.exceptions.SearchException;
 
 public class AwareSearchException extends SearchException {
 
+	public AwareSearchException() {
+		super();
+	}
+
+	public AwareSearchException(String detailMessage, Throwable throwable) {
+		super(detailMessage, throwable);
+	}
+
+	public AwareSearchException(String detailMessage) {
+		super(detailMessage);
+	}
+
+	public AwareSearchException(Throwable throwable) {
+		super(throwable);
+	}
+
 	private static final long serialVersionUID = 5021429999829203659L;
 
-	public AwareSearchException(Throwable cause) {
-		super(cause);
-	}
-	public AwareSearchException(String string) {
-		super(string);
-	}
-	public AwareSearchException(Throwable cause,String string) {
-		super(cause,string);
-	}
 
 }

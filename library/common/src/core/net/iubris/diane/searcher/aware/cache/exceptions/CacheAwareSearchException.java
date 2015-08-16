@@ -23,15 +23,20 @@ import net.iubris.diane.searcher.aware.exceptions.AwareSearchException;
 
 public class CacheAwareSearchException extends AwareSearchException {
 	
-	
-	public CacheAwareSearchException(String string) {
-		super(string);
-	}	
-	public CacheAwareSearchException(Throwable cause) {
-		super(cause);
+	public CacheAwareSearchException() {
+		super();
 	}
-	public CacheAwareSearchException(Throwable cause,String string) {
-		super(cause,string);
+
+	public CacheAwareSearchException(String detailMessage, Throwable throwable) {
+		super(detailMessage, throwable);
+	}
+
+	public CacheAwareSearchException(String detailMessage) {
+		super(detailMessage);
+	}
+
+	public CacheAwareSearchException(Throwable throwable) {
+		super(throwable);
 	}
 
 	private static final long serialVersionUID = 7945431253492855063L;

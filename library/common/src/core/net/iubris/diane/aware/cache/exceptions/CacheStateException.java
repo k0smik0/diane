@@ -23,16 +23,21 @@ import net.iubris.diane.aware.exceptions.StateException;
 
 public class CacheStateException extends StateException {
 
-	public CacheStateException(String message) {
-		super(message);
+
+	public CacheStateException() {
+		super();
 	}
 
-	public CacheStateException(Throwable cause, String string) {
-		super(cause, string);
+	public CacheStateException(String detailMessage, Throwable throwable) {
+		super(detailMessage, throwable);
 	}
 
-	public CacheStateException(Throwable cause) {
-		super(cause);
+	public CacheStateException(String detailMessage) {
+		super(detailMessage);
+	}
+
+	public CacheStateException(Throwable throwable) {
+		super(throwable);
 	}
 
 	private static final long serialVersionUID = 5735468856758684161L;

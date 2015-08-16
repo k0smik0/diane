@@ -21,24 +21,27 @@ package net.iubris.diane.aware.cache.exceptions.base;
 
 import net.iubris.diane.aware.cache.exceptions.CacheStateException;
 
-public class CacheTooOldException extends CacheStateException {
+public class CacheEmptyException extends CacheStateException {
 
-	public CacheTooOldException() {
+
+	public CacheEmptyException() {
 		super();
 	}
 
-	public CacheTooOldException(String detailMessage, Throwable throwable) {
+	public CacheEmptyException(String detailMessage, Throwable throwable) {
 		super(detailMessage, throwable);
 	}
 
-	public CacheTooOldException(String detailMessage) {
+	public CacheEmptyException(String detailMessage) {
 		super(detailMessage);
 	}
 
-	public CacheTooOldException(Throwable throwable) {
+	public CacheEmptyException(Throwable throwable) {
 		super(throwable);
 	}
 
-	private static final long serialVersionUID = -2658941881111601558L;
+	private static final long serialVersionUID = 668070615051073285L;
+
+
 
 }

@@ -21,6 +21,7 @@ package net.iubris.diane.searcher.aware.full.base;
 
 import javax.inject.Inject;
 
+import net.iubris.diane.aware.cache.exceptions.base.CacheEmptyException;
 import net.iubris.diane.aware.cache.exceptions.base.CacheTooOldException;
 import net.iubris.diane.aware.location.state.three.ThreeStateLocationAwareLocationSupplier;
 import net.iubris.diane.aware.network.exceptions.base.NoNetworkException;
@@ -32,6 +33,7 @@ import net.iubris.diane.searcher.aware.location.exceptions.base.LocationTooNearE
 import net.iubris.diane.searcher.aware.network.exceptions.NetworkAwareSearchException;
 import net.iubris.diane.searcher.location.aware.full.LocalizedSearcherCacheNetworkAwareStrictChecking;
 import android.location.Location;
+import android.util.Log;
 
 /**
  * @author Massimiliano Leone - k0smik0
@@ -58,13 +60,13 @@ public class DefaultFullAwareSearcher<SearchResult> implements FullAwareSearcher
 	}
 
 	@Override
-	public Void search(Void... params) throws 
+	public synchronized Void search(Void... params) throws 
 		LocationTooNearException, LocationNotSoUsefulException, 
-		CacheTooOldException, NoNetworkException,
+		CacheTooOldException, CacheEmptyException, NoNetworkException,
 		CacheAwareSearchException, NetworkAwareSearchException, StillSearchException {
 		
 		if (searching==true) 
-			throw new StillSearchException("a search is still active");
+			throw new StillSearchException("a searching is still active");
 		
 		searching=true;
 		
@@ -79,16 +81,17 @@ public class DefaultFullAwareSearcher<SearchResult> implements FullAwareSearcher
 		boolean locationUseful = locationAwareSupplier.isNewLocationUseful(); // if location is null, wait - if it is not useful (not so newer OR not so far OR etc), throws LocationNotSoUsefulException
 		if (locationUseful) { // if location is not useful (not so newer OR not so far OR etc), throws LocationNotSoUsefulException
 			//ok, we have "true", so start our search
-			return doSearch();			
+			return doSearch();
 		}			
 		// we are here because not throwed LocationNotSoUsefulException nor above "if" returned true: 
 		// so location is definitely near and we throw below LocationTooNearException
 //Log.d("DefaultFullAwareSearcher:69","locationUseful is false, throwing LocationTooNearException");
 		searching=false;
+		Log.d("DefaultFullAwareSearcher","location is too near");
 		throw new LocationTooNearException("location is too near, a new search is absolutely useless");
 	}
 	
-	private Void doSearch() throws CacheTooOldException, NoNetworkException, CacheAwareSearchException, NetworkAwareSearchException {
+	private Void doSearch() throws CacheTooOldException, CacheEmptyException, NoNetworkException, CacheAwareSearchException, NetworkAwareSearchException {
 		Location location = locationAwareSupplier.getLocation();
 //Log.d("DefaultFullAwareSearcher:72","using location: "+location);
 		// use non-aware localizedsearcher as delegate
@@ -110,11 +113,16 @@ public class DefaultFullAwareSearcher<SearchResult> implements FullAwareSearcher
 	}
 	
 	@Override
-	public SearchResult getResult() {
+	public boolean isFoundByCache() {
+		return localizedSearcherCacheNetworkAware.isFoundByCache();
+	}
+	
+	@Override
+	public synchronized SearchResult getResult() {
 		return result;
 	}
 	
-	public void setResult(SearchResult result) {
+	public synchronized void setResult(SearchResult result) {
 		this.result = result;
 	}
 }
