@@ -22,9 +22,11 @@ package net.iubris.diane.aware.location.state.three.base;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import net.iubris.diane.aware.location.exceptions.base.LocationFreshNullException;
 import net.iubris.diane.aware.location.state.three.ThreeStateLocationAwareLocationSupplier;
 import net.iubris.diane.aware.location.state.three.base.annotation.DistanceMaximumThreshold;
 import net.iubris.diane.searcher.aware.location.exceptions.base.LocationNotSoUsefulException;
+import net.iubris.polaris.locator.core.exceptions.LocationNullException;
 import net.iubris.polaris.locator.core.provider.LocationProvider;
 import net.iubris.polaris.locator.utils.LocationStrategiesUtils;
 import net.iubris.polaris.locator.utils.exceptions.LocationNotSoFarException;
@@ -65,11 +67,18 @@ public class DefaultThreeStateLocationAwareLocationSupplier implements ThreeStat
 	 * <i>useful</i> if it is newer && it has higher accuracy<br/>
 	 * <i>not so useful</i> if it is retrieved in same admitted area, according to constructor parameter "distanceMaximumThreshold"<br/>
 	 * is (absolutely!) <i>not useful</i> if it doen't respect any of above rules<br/>
+	 * @throws LocationNullException 
 	 */
 	@Override
-	public boolean isNewLocationUseful() throws LocationNotSoUsefulException {
+	public boolean isNewLocationUseful() throws LocationFreshNullException, LocationNotSoUsefulException {
 		// retrieve a newFreshLocation
-		Location newFreshLocation = getFreshLocation();
+		Location newFreshLocation;
+		try {
+			newFreshLocation = getFreshLocation();
+		} catch (LocationNullException e1) {
+			throw new LocationFreshNullException(e1);
+		}
+		
 //Log.d("DefaultThreeStateLocationAwareLocationSupplier:91","location is: "+location);
 //Log.d("DefaultThreeStateLocationAwareLocationSupplier:92","newFreshLocation is: "+newFreshLocation);
 //		LocationCheckers.checkIsNull
@@ -104,7 +113,7 @@ public class DefaultThreeStateLocationAwareLocationSupplier implements ThreeStat
 		return true;
 	}
 	
-	protected Location getFreshLocation() {
+	protected Location getFreshLocation() throws LocationNullException {
 //Log.d(this.getClass().getSimpleName()+":89","getting location by "+locationProvider);
 //Log.d(this.getClass().getSimpleName()+":89","format location to 6 decimal places ");
 //		DecimalFormat dec = new DecimalFormat("#.######");

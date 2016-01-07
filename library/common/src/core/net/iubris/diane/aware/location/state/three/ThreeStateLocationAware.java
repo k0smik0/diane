@@ -20,7 +20,9 @@
 package net.iubris.diane.aware.location.state.three;
 
 import net.iubris.diane.aware.location.LocationAware;
+import net.iubris.diane.aware.location.exceptions.base.LocationFreshNullException;
 import net.iubris.diane.searcher.aware.location.exceptions.base.LocationNotSoUsefulException;
+import net.iubris.polaris.locator.core.exceptions.LocationNullException;
 
 /**
  * ThreeState* because we want emulate a three-state behaviour in "isNewLocationUseful", returning true,false or throw LocationNotSoUsefulException
@@ -30,7 +32,9 @@ public interface ThreeStateLocationAware extends LocationAware<Boolean> {
 	/**
 	 * @return true is useful, false elsewhere
 	 * @throws LocationNotSoUsefulException if new location is (obviously) not so useful, according implementation logic
+	 * @throws LocationFreshNullException 
+	 * @throws LocationNullException 
 	 */
 	@Override
-	public boolean isNewLocationUseful() throws /*LocationFreshNullException,*/ LocationNotSoUsefulException;
+	public boolean isNewLocationUseful() throws LocationFreshNullException, LocationNotSoUsefulException;
 }

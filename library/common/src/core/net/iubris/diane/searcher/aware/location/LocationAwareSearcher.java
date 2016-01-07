@@ -19,6 +19,7 @@
  ******************************************************************************/
 package net.iubris.diane.searcher.aware.location;
 
+import android.location.Location;
 import net.iubris.diane.aware.location.exceptions.LocationStateException;
 import net.iubris.diane.searcher.aware.AwareSearcher;
 import net.iubris.diane.searcher.aware.location.exceptions.LocationAwareSearchException;
@@ -43,4 +44,6 @@ public interface LocationAwareSearcher<SearchState, SearchResult>
 		LocationStateException,
 		LocationAwareSearchException/*, AwareSearchException*/
 		, SearchException;
+	
+	public Location getLocation();
 }

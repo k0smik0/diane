@@ -59,6 +59,7 @@ implements LocalizedSearcherCacheNetworkAwareStrictChecking<SearchResult> {
 		this.cacheAware = cacheAware;
 	}	
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Void search(Location... locations) throws
 			NoNetworkException, NetworkAwareSearchException,
@@ -143,7 +144,7 @@ implements LocalizedSearcherCacheNetworkAwareStrictChecking<SearchResult> {
 	 * @throws CacheTooOldException 
 	 */
 	@SuppressWarnings("rawtypes")
-	private boolean searchByCache(Location... locations) throws CacheEmptyException, CacheAwareSearchException, CacheTooOldException {
+	private boolean searchByCache(Location... locations) throws CacheEmptyException, CacheTooOldException, CacheAwareSearchException {
 		boolean cacheTooOld = false;
 		SearchResult result = null;
 		try {
@@ -166,7 +167,6 @@ implements LocalizedSearcherCacheNetworkAwareStrictChecking<SearchResult> {
 				throw new CacheTooOldException();
 		}
 		return false;
-		
 	}
 	
 	@Override

@@ -97,4 +97,9 @@ Log.d("DianeRoboSampleSearcher:21","constructor");
 		result = localizedSearcherCacheAware.getResult();
 		return null;
 	}
+
+	@Override
+	public boolean isFoundByCache() {
+		return false;
+	}
 }

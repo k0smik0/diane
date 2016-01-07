@@ -29,7 +29,7 @@ public class LocationFreshNullException extends LocationStateException {
 		super(string);
 	}
 	public LocationFreshNullException(Throwable cause, String string) {
-		super(cause, string);
+		super(string, cause);
 	}
 	public LocationFreshNullException(Throwable cause) {
 		super(cause);

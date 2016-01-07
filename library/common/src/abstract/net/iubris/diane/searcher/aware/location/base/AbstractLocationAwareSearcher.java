@@ -20,6 +20,7 @@
 package net.iubris.diane.searcher.aware.location.base;
 
 import net.iubris.diane.aware.location.exceptions.LocationStateException;
+import net.iubris.diane.aware.location.exceptions.base.LocationFreshNullException;
 import net.iubris.diane.aware.location.state.three.ThreeStateLocationAwareLocationSupplier;
 import net.iubris.diane.searcher.aware.location.LocationAwareSearcher;
 import net.iubris.diane.searcher.aware.location.exceptions.LocationAwareSearchException;
@@ -37,19 +38,24 @@ public abstract class AbstractLocationAwareSearcher<SearchState, SearchResult> i
 	 * @uml.associationEnd  
 	 */
 	protected final ThreeStateLocationAwareLocationSupplier locationAware;
+	private Location location;
 	
 	public AbstractLocationAwareSearcher(ThreeStateLocationAwareLocationSupplier locationAware) {
 		this.locationAware = locationAware;
 	}
 
 	@Override
-	public SearchState search(Void... params) throws /*LocationFreshNullException,*/ LocationNotSoUsefulException, LocationStateException, LocationAwareSearchException, SearchException {
+	public SearchState search(Void... params) throws LocationFreshNullException, LocationNotSoUsefulException, LocationStateException, LocationAwareSearchException, SearchException {
 		boolean locationUseful = locationAware.isNewLocationUseful();
 		if (locationUseful) {
-			Location location = locationAware.getLocation();
+			location = locationAware.getLocation();
 			return doSearch(location);
 		}
 		return canNotSearch();
+	}
+	@Override
+	public Location getLocation() {
+		return location;
 	}
 
 	protected abstract SearchState doSearch(Location location) throws LocationStateException, LocationAwareSearchException;

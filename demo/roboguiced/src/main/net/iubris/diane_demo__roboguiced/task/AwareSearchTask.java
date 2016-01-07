@@ -21,6 +21,7 @@ package net.iubris.diane_demo__roboguiced.task;
 
 import javax.inject.Inject;
 
+import net.iubris.diane.aware.cache.exceptions.base.CacheEmptyException;
 import net.iubris.diane.aware.cache.exceptions.base.CacheTooOldException;
 import net.iubris.diane.aware.network.exceptions.base.NoNetworkException;
 import net.iubris.diane.searcher.aware.cache.exceptions.CacheAwareSearchException;
@@ -56,7 +57,7 @@ public class AwareSearchTask extends RoboSearchAwareAsyncTask<DianeDemoRoboAware
 	@Override
 	public String call() throws StillSearchException, LocationTooNearException, LocationNotSoUsefulException, 
 		CacheTooOldException, NoNetworkException, 
-		CacheAwareSearchException, NetworkAwareSearchException { 
+		CacheAwareSearchException, NetworkAwareSearchException, CacheEmptyException { 
 			dianeSampleAwareSearcher.search();
 		return dianeSampleAwareSearcher.getResult();
 	}

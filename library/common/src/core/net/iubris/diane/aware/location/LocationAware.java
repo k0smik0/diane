@@ -19,10 +19,11 @@
  ******************************************************************************/
 package net.iubris.diane.aware.location;
 
+import net.iubris.diane.aware.location.exceptions.base.LocationFreshNullException;
 import net.iubris.diane.searcher.aware.location.exceptions.base.LocationNotSoUsefulException;
 
 public interface LocationAware<LocationState> {
 //	public LocationState isInNewerLocation() throws LocationNotNewerException;
-	public boolean isNewLocationUseful() throws /*LocationFreshNullException,*/ LocationNotSoUsefulException;
+	public boolean isNewLocationUseful() throws LocationFreshNullException, LocationNotSoUsefulException;
 //	public Location getLocation();
 }

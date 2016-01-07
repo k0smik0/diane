@@ -49,6 +49,11 @@ public class DianeDemoRoboModule extends AbstractDianeModule {
 				if (random > 0.66) return false;
 				throw new CacheTooOldException("cache too old: "+random);
 			}
+
+			@Override
+			public boolean useFirstlyCache() {
+				return false;
+			}
 		};
 	}
 	@Override

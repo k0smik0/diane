@@ -23,6 +23,7 @@ import javax.inject.Inject;
 
 import net.iubris.diane.aware.cache.exceptions.base.CacheEmptyException;
 import net.iubris.diane.aware.cache.exceptions.base.CacheTooOldException;
+import net.iubris.diane.aware.location.exceptions.base.LocationFreshNullException;
 import net.iubris.diane.aware.location.state.three.ThreeStateLocationAwareLocationSupplier;
 import net.iubris.diane.aware.network.exceptions.base.NoNetworkException;
 import net.iubris.diane.searcher.aware.cache.exceptions.CacheAwareSearchException;
@@ -47,6 +48,7 @@ public class DefaultFullAwareSearcher<SearchResult> implements FullAwareSearcher
 	private SearchResult result;
 	private boolean searching = false;
 	private boolean isFirstSearch = true;
+	private Location location;
 	
 	// improve: to handle externally (in LocalizedSearcherCacheNetworkAware) 
 	//	when some exception occurred and an empty result is returned
@@ -61,6 +63,7 @@ public class DefaultFullAwareSearcher<SearchResult> implements FullAwareSearcher
 
 	@Override
 	public synchronized Void search(Void... params) throws 
+		LocationFreshNullException,
 		LocationTooNearException, LocationNotSoUsefulException, 
 		CacheTooOldException, CacheEmptyException, NoNetworkException,
 		CacheAwareSearchException, NetworkAwareSearchException, StillSearchException {
@@ -92,13 +95,28 @@ public class DefaultFullAwareSearcher<SearchResult> implements FullAwareSearcher
 	}
 	
 	private Void doSearch() throws CacheTooOldException, CacheEmptyException, NoNetworkException, CacheAwareSearchException, NetworkAwareSearchException {
-		Location location = locationAwareSupplier.getLocation();
+		location = locationAwareSupplier.getLocation();
 //Log.d("DefaultFullAwareSearcher:72","using location: "+location);
 		// use non-aware localizedsearcher as delegate
-		localizedSearcherCacheNetworkAware.search(location);
+		try {
+			localizedSearcherCacheNetworkAware.search(location);
+		} catch (CacheEmptyException | CacheTooOldException
+				| NoNetworkException | CacheAwareSearchException
+				| NetworkAwareSearchException e) {
+			SearchResult result = localizedSearcherCacheNetworkAware.getResult();
+			if (result!=null) {
+				this.result = result;
+			}
+			searching = false;
+			throw e;
+		}
 		result = localizedSearcherCacheNetworkAware.getResult();
 		searching = false;
 		return null;
+	}
+	@Override
+	public Location getLocation() {
+		return location;
 	}
 	
 	@Override

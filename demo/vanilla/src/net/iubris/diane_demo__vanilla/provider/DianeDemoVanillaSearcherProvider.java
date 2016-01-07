@@ -42,6 +42,18 @@ public class DianeDemoVanillaSearcherProvider extends AbstractDianeSearcherProvi
 		locationProvider = MockUtilsProvider.getInstance(context).getLocationProvider();
 	}
 	
+	private final ThreeStateCacheAware tsca = new ThreeStateCacheAware() {
+		@Override
+		public Boolean isCacheAvailable() throws CacheTooOldException {
+			return true;
+		}
+
+		@Override
+		public boolean useFirstlyCache() {
+			return false;
+		}
+	};
+	
 	@Override
 	public DianeDemoVanillaSearcher get() {
 		final ThreeStateLocationAwareLocationSupplier threeStateLocationAwareLocationSupplier = getThreeStateLocationAwareLocationSupplier();
@@ -78,12 +90,6 @@ public class DianeDemoVanillaSearcherProvider extends AbstractDianeSearcherProvi
 
 	@Override
 	protected LocalizedSearcherCacheAwareStrictChecking<String> getLocalizedSearcherCacheAwareStrictChecking() {
-		ThreeStateCacheAware tsca = new ThreeStateCacheAware() {
-			@Override
-			public Boolean isCacheAvailable() throws CacheTooOldException {
-				return true;
-			}
-		};
 		return new DianeDemoVanillaLocalizedSearcherCacheAwareStrictChecking(tsca);
 		/*
 		return new AbstractLocalizedSearcherCacheAwareStrictChecking<String>(tsca) {
@@ -159,4 +165,8 @@ public class DianeDemoVanillaSearcherProvider extends AbstractDianeSearcherProvi
 		};*/
 	}
 
+	@Override
+	protected ThreeStateCacheAware getThreeStateCacheAware() {
+		return tsca;
+	}
 }
