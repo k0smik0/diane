@@ -19,9 +19,8 @@
  ******************************************************************************/
 package net.iubris.diane.aware.cache;
 
-import net.iubris.diane.aware.cache.exceptions.base.CacheTooOldException;
 
 public interface CacheAware<CacheState> {
-	CacheState isCacheAvailable() throws CacheTooOldException;
+//	CacheState isCacheAvailable() throws CacheTooOldException;
 	boolean useFirstlyCache();
 }

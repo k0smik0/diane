@@ -29,6 +29,7 @@ import net.iubris.diane_demo__roboguiced.task.CacheSearchTask;
 import net.iubris.diane_demo__roboguiced.task.NetworkSearchTask;
 import net.iubris.diane_library__test_utils.injector.MockGpsLocationsInjector;
 import net.iubris.diane_library__test_utils.location.LocationUtils;
+import net.iubris.polaris.locator.core.exceptions.LocationNullException;
 import net.iubris.polaris.locator.core.provider.LocationProvider;
 import net.iubris.polaris.locator.core.updater.LocationUpdater;
 import roboguice.activity.RoboActivity;
@@ -129,9 +130,14 @@ public class DianeDemoRoboMainActivity extends RoboActivity {
 		awareSearchTask.execute();
 	}
 	public void onHereClick(View v) {
-		textView.setText( textView.getText()
-				+LocationUtils.parseLocation(locationProvider.getLocation())
-				+"\n\n");
+		try {
+			textView.setText( textView.getText()
+					+LocationUtils.parseLocation(locationProvider.getLocation())
+					+"\n\n");
+		} catch (LocationNullException e) {
+			Toast.makeText(DianeDemoRoboMainActivity.this, "sorry,  but location is senselessly unvailable",Toast.LENGTH_LONG).show();
+			e.printStackTrace();
+		}
 	}
 	public void onNetworkClick(View v) {
 		networkSearchTask.execute();

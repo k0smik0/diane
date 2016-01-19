@@ -27,6 +27,7 @@ import net.iubris.diane_demo__vanilla.task.DianeDemoVanillaSearchAsyncTaskOnlyCa
 import net.iubris.diane_demo__vanilla.task.DianeDemoVanillaSearchAsyncTaskOnlyNetwork;
 import net.iubris.diane_library__test_utils.injector.MockGpsLocationsInjector;
 import net.iubris.diane_library__test_utils.receiver.MockUtilsProvider;
+import net.iubris.polaris.locator.core.exceptions.LocationNullException;
 import net.iubris.polaris.locator.core.provider.LocationProvider;
 import net.iubris.polaris.locator.core.updater.LocationUpdater;
 import android.app.Activity;
@@ -78,9 +79,14 @@ public class DianeDemoVanillaMainActivity extends Activity {
 		buttonHere.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(DianeDemoVanillaMainActivity.this, 
-						locationProvider.getLocation().toString(),
-						Toast.LENGTH_LONG).show();
+				try {
+					Toast.makeText(DianeDemoVanillaMainActivity.this, 
+							locationProvider.getLocation().toString(),
+							Toast.LENGTH_LONG).show();
+				} catch (LocationNullException e) {
+					Toast.makeText(DianeDemoVanillaMainActivity.this, "sorry,  but location is senselessly unvailable",Toast.LENGTH_LONG).show();
+					e.printStackTrace();
+				}
 			}
 		});
 		

@@ -63,7 +63,7 @@ implements LocalizedSearcherCacheNetworkAwareStrictChecking<SearchResult> {
 	@Override
 	public Void search(Location... locations) throws
 			NoNetworkException, NetworkAwareSearchException,
-			CacheTooOldException, CacheEmptyException, CacheAwareSearchException {
+			CacheTooOldException, CacheEmptyException, CacheAwareSearchException/*, NoNetworkAndCacheEmptyException*/ {
 		
 		
 		if (cacheAware.useFirstlyCache()) {
@@ -103,7 +103,7 @@ implements LocalizedSearcherCacheNetworkAwareStrictChecking<SearchResult> {
 				onCacheAwareSearchException();
 				
 			return null;
-		} else {
+		} else { // use firstly network
 			
 			try { // trying firstly network
 				networkAwareSearcher.search(locations); // network ok - it could throw NetworkSearchException
@@ -113,7 +113,18 @@ implements LocalizedSearcherCacheNetworkAwareStrictChecking<SearchResult> {
 				// trying cache
 				// trying cache or throw CacheTooOldException or CacheAwareSearchException
 				// we care of these exception and let they throw...
-				searchByCache(locations);
+				try {
+					searchByCache(locations);
+				} catch(CacheEmptyException e) {
+					nne.initCause(e);
+//					throw new NoNetworkAndCacheEmptyException();
+					throw nne;
+				} catch(CacheTooOldException| CacheAwareSearchException e) {
+//					e.initCause(nne);
+//					throw e;
+					nne.initCause(e);
+					throw e;
+				}
 				// however old result is always better than no result, so assign to this.result					
 				throw nne; // advice for no network if no cache* exceptions are throwed
 			}
@@ -160,11 +171,13 @@ implements LocalizedSearcherCacheNetworkAwareStrictChecking<SearchResult> {
 				Collection c = (Collection)result;
 				if (c.size()!=0) {
 					return true;
-				} else
+				} else {
 					throw new CacheEmptyException();
+				}
 			}
-			if (cacheTooOld)
+			if (cacheTooOld) {
 				throw new CacheTooOldException();
+			}
 		}
 		return false;
 	}

@@ -19,6 +19,7 @@
  ******************************************************************************/
 package net.iubris.diane.searcher.location.aware.cache.base;
 
+import net.iubris.diane.aware.cache.exceptions.base.CacheEmptyException;
 import net.iubris.diane.aware.cache.exceptions.base.CacheTooOldException;
 import net.iubris.diane.aware.cache.states.three.ThreeStateCacheAware;
 import net.iubris.diane.searcher.aware.cache.exceptions.CacheAwareSearchException;
@@ -42,11 +43,11 @@ public abstract class AbstractLocalizedSearcherCacheAwareStrictChecking<SearchRe
 	}
 	
 	@Override
-	public Void search(Location... location) throws CacheTooOldException, CacheAwareSearchException {
+	public Void search(Location... location) throws CacheTooOldException, CacheAwareSearchException, CacheEmptyException {
 		if (cacheAware.isCacheAvailable());
 			doSearch(location[0]);
 		return null;
 	}
 
-	protected abstract void doSearch(Location location) throws CacheAwareSearchException;
+	protected abstract void doSearch(Location location) throws CacheTooOldException, CacheEmptyException, CacheAwareSearchException;
 }

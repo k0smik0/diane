@@ -36,7 +36,6 @@ LocationAwareSearcher<Void, SearchResult>,
 NetworkAwareSearcher<Void, SearchResult>, 
 CacheAwareSearcher<Void, SearchResult> {
 
-
 	@Override
 	public Void search(Void... params) throws 
 		LocationStateException,
@@ -45,7 +44,9 @@ CacheAwareSearcher<Void, SearchResult> {
 		CacheAwareSearchException,
 		NetworkStateException,
 		NetworkAwareSearchException,
+//		NoNetworkAndCacheEmptyException,
 		StillSearchException;
 	
 	void resetSearchState();
+	int getSearchTimeElapse();
 }

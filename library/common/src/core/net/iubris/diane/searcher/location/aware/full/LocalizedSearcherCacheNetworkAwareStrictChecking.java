@@ -36,5 +36,7 @@ public interface LocalizedSearcherCacheNetworkAwareStrictChecking<SearchResult> 
 		NetworkAwareSearchException, 
 		CacheTooOldException,
 		CacheEmptyException,
-		CacheAwareSearchException;
+		CacheAwareSearchException
+//		,NoNetworkAndCacheEmptyException
+		;
 }

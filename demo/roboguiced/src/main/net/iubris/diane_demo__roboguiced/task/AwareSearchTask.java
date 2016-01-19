@@ -23,6 +23,7 @@ import javax.inject.Inject;
 
 import net.iubris.diane.aware.cache.exceptions.base.CacheEmptyException;
 import net.iubris.diane.aware.cache.exceptions.base.CacheTooOldException;
+import net.iubris.diane.aware.location.exceptions.base.LocationFreshNullException;
 import net.iubris.diane.aware.network.exceptions.base.NoNetworkException;
 import net.iubris.diane.searcher.aware.cache.exceptions.CacheAwareSearchException;
 import net.iubris.diane.searcher.aware.exceptions.base.StillSearchException;
@@ -55,7 +56,8 @@ public class AwareSearchTask extends RoboSearchAwareAsyncTask<DianeDemoRoboAware
 //Debug.startMethodTracing(Environment.getExternalStorageDirectory().getPath()+"/traces/diane_sample_roboguiced__aware_search_task");		
 	}
 	@Override
-	public String call() throws StillSearchException, LocationTooNearException, LocationNotSoUsefulException, 
+	public String call() throws StillSearchException, 
+		LocationFreshNullException, LocationTooNearException, LocationNotSoUsefulException, 
 		CacheTooOldException, NoNetworkException, 
 		CacheAwareSearchException, NetworkAwareSearchException, CacheEmptyException { 
 			dianeSampleAwareSearcher.search();
@@ -67,6 +69,10 @@ public class AwareSearchTask extends RoboSearchAwareAsyncTask<DianeDemoRoboAware
 		textView.setText( textView.getText()
 				+result+"\n\n");
 //		Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+	}
+	
+	protected void onException(LocationFreshNullException arg0) throws RuntimeException {
+		super.onException(arg0);
 	}
 	
 	protected void onException(StillSearchException e) throws RuntimeException {

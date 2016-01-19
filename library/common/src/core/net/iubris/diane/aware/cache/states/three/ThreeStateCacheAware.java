@@ -27,6 +27,6 @@ import net.iubris.diane.aware.cache.exceptions.base.CacheTooOldException;
  * @author Massimiliano Leone - k0smik0
  */
 public interface ThreeStateCacheAware extends CacheAware<Boolean> {
-	@Override
+//	@Override
 	public Boolean isCacheAvailable() throws CacheTooOldException;
 }

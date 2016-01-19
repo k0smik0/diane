@@ -47,6 +47,13 @@ public class DianeDemoRoboAwareSearcher extends DefaultFullAwareSearcher<String>
 //		this.localizedSearcherNetworkAware = localizedSearcherNetworkAware;
 //Log.d("DianeRoboSampleSearcher:21","constructor");
 	}
+
+	@Override
+	protected void initResult() {
+		setResult("");
+		// TODO Auto-generated method stub
+		
+	}
 	
 //	public Location getLocationJustForExamplePurpose() {
 //		return locationAwareProvider.getLocation();

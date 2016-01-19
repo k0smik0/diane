@@ -26,6 +26,7 @@ import net.iubris.diane_library__test_utils.injector.MockGpsLocationsInjector;
 import net.iubris.polaris.locator.core.provider.LocationProvider;
 import net.iubris.polaris.locator.core.updater.LocationUpdater;
 import net.iubris.polaris.locator.core.updater.OnLocationUpdatedCallback;
+import net.iubris.polaris.locator.core.updater.OnNoNewLocationTimeoutCallback;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -139,9 +140,16 @@ Log.d("MockLocationProviderUpdater:127","@MockLocationReceiver - setting locatio
 		}
 	}
 
+	/** 
+	 * do nothing
+	 */
 	@Override
-	public void startLocationUpdates(OnLocationUpdatedCallback arg0) {
-		// TODO Auto-generated method stub
-	}
+	public void startLocationUpdates(OnLocationUpdatedCallback arg0) {}
+
+	/** 
+	 * do nothing
+	 */
+	@Override
+	public void startLocationUpdates(OnLocationUpdatedCallback arg0, OnNoNewLocationTimeoutCallback arg1) {}
 	
 }

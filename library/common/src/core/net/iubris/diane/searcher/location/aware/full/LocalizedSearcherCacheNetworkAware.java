@@ -38,9 +38,8 @@ public interface LocalizedSearcherCacheNetworkAware<SearchResult>
 //		CacheTooOldException,
 		CacheStateException,
 		CacheAwareSearchException
-//		, Exception
+//		,NoNetworkAndCacheEmptyException
 		;
-//		StateException; 
 	
 	boolean isFoundByCache();
 }

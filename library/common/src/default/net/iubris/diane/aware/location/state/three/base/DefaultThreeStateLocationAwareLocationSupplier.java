@@ -31,6 +31,7 @@ import net.iubris.polaris.locator.core.provider.LocationProvider;
 import net.iubris.polaris.locator.utils.LocationStrategiesUtils;
 import net.iubris.polaris.locator.utils.exceptions.LocationNotSoFarException;
 import android.location.Location;
+import android.util.Log;
 
 /**
  * @author  Massimiliano Leone - k0smik0
@@ -75,6 +76,7 @@ public class DefaultThreeStateLocationAwareLocationSupplier implements ThreeStat
 		Location newFreshLocation;
 		try {
 			newFreshLocation = getFreshLocation();
+			Log.d(getClass().getSimpleName()+":isNewLocationUseful","newFreshLocation: "+newFreshLocation);
 		} catch (LocationNullException e1) {
 			throw new LocationFreshNullException(e1);
 		}

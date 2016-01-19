@@ -30,6 +30,7 @@ import net.iubris.diane.searcher.Searcher;
 import net.iubris.diane.searcher.aware.cache.exceptions.CacheAwareSearchException;
 import net.iubris.diane.searcher.aware.exceptions.AwareSearchException;
 import net.iubris.diane.searcher.aware.exceptions.base.StillSearchException;
+import net.iubris.diane.searcher.aware.full.exception.NoNetworkAndCacheEmptyException;
 import net.iubris.diane.searcher.aware.location.exceptions.base.LocationNotSoUsefulException;
 import net.iubris.diane.searcher.aware.network.exceptions.NetworkAwareSearchException;
 import net.iubris.diane.searcher.exceptions.SearchException;
@@ -115,6 +116,11 @@ implements SearcherCallable<SearchResult> {
 	 * Default: do nothing
 	 */
 	protected void onException(NetworkAwareSearchException e) throws RuntimeException {}
+	
+	/**
+	 * default: do nothing
+	 */
+	protected void onException(NoNetworkAndCacheEmptyException arg0) throws RuntimeException {}
 	
 	/**
 	 * Default: do nothing

@@ -45,5 +45,5 @@ implements SearcherCallable<SearchResult>
 
     protected void onException(LocationTooNearException e) throws RuntimeException {}
     protected void onException(LocationNotSoUsefulException e) throws RuntimeException {}
-    protected void onException(LocationAwareSearchException e) throws RuntimeException {}	
+    protected void onException(LocationAwareSearchException e) throws RuntimeException {}
 }

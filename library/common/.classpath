@@ -2,7 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src/core"/>
 	<classpathentry kind="src" path="src/abstract"/>
-	<classpathentry kind="src" path="src/default"/>
+	<classpathentry excluding="net/iubris/diane/searcher/aware/full/exception/NoNetworkAndCacheEmptyException.java" kind="src" path="src/default"/>
 	<classpathentry kind="src" path="src/task"/>
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry excluding="net/iubris/diane/aware/location/state/three/base/annotation/TimeMaximumThreshold.java|net/iubris/diane/aware/location/exceptions/base/LocationNotNewerException.java|net/iubris/diane/aware/location/state/three/base/annotation/" kind="src" path="src/useless"/>

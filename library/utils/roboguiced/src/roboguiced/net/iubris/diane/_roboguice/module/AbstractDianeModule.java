@@ -19,6 +19,7 @@
  ******************************************************************************/
 package net.iubris.diane._roboguice.module;
 
+import net.iubris.diane.aware.cache.states.three.SearchingByCacheBehaviour;
 import net.iubris.diane.aware.location.state.three.base.DefaultThreeStateLocationAwareLocationSupplier;
 import net.iubris.diane.aware.location.state.three.ThreeStateLocationAwareLocationSupplier;
 import net.iubris.diane.aware.location.state.three.base.annotation.DistanceMaximumThreshold;
@@ -68,7 +69,8 @@ public abstract class AbstractDianeModule extends AbstractModule {
 		bindDistanceMaximumThreshold();		
 		bindThreeStateLocationAwareLocationSupplier();
 		
-		bindThreeStateCacheAware(); // abstract
+		bindSearchByCacheBehaviourForThreeStateCacheAware();
+		bindThreeStateCacheAware(); // abstract		
 		bindLocalizedSearcherCacheAwareStrictChecking(); // abstract
 		bindCheckerStateNetworkAware();
 		bindLocalizedSearcherNetworkAwareStrictChecking(); // abstract
@@ -112,6 +114,19 @@ public abstract class AbstractDianeModule extends AbstractModule {
 	/*protected void setDistanceMaximumThreshold(int distanceMaximumThreshold) {
 		this.distanceMaximumThreshold = distanceMaximumThreshold;
 	}*/
+	
+	/**
+	 * as default, bind to a anonymous instance returning "false" for "useFirstlyCache"
+	 */
+	protected void bindSearchByCacheBehaviourForThreeStateCacheAware() {
+		bind(SearchingByCacheBehaviour.class).toInstance(
+		new SearchingByCacheBehaviour() {
+			@Override
+			public boolean useFirstlyCache() {
+				return false;
+			}
+		});
+	}
 	
 	/**
 	 *  binding neededd  for {@link DefaultFullAwareSearcher } and descendents<br/>

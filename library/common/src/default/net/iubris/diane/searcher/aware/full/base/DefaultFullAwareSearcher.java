@@ -19,6 +19,10 @@
  ******************************************************************************/
 package net.iubris.diane.searcher.aware.full.base;
 
+
+import java.util.Timer;
+import java.util.TimerTask;
+
 import javax.inject.Inject;
 
 import net.iubris.diane.aware.cache.exceptions.base.CacheEmptyException;
@@ -33,6 +37,7 @@ import net.iubris.diane.searcher.aware.location.exceptions.base.LocationNotSoUse
 import net.iubris.diane.searcher.aware.location.exceptions.base.LocationTooNearException;
 import net.iubris.diane.searcher.aware.network.exceptions.NetworkAwareSearchException;
 import net.iubris.diane.searcher.location.aware.full.LocalizedSearcherCacheNetworkAwareStrictChecking;
+//import net.iubris.diane.searcher.location.aware.full.base.NoNetworkAndCacheEmptyException;
 import android.location.Location;
 import android.util.Log;
 
@@ -40,7 +45,7 @@ import android.util.Log;
  * @author Massimiliano Leone - k0smik0
  * @uml.dependency   supplier="net.iubris.dianedev.searcher.location.base.LocalizedSearcherCacheNetworkAware"
  */
-public class DefaultFullAwareSearcher<SearchResult> implements FullAwareSearcher<SearchResult> {
+public abstract class DefaultFullAwareSearcher<SearchResult> implements FullAwareSearcher<SearchResult> {
 
 	protected final ThreeStateLocationAwareLocationSupplier locationAwareSupplier;
 	protected final LocalizedSearcherCacheNetworkAwareStrictChecking<SearchResult> localizedSearcherCacheNetworkAware;
@@ -49,6 +54,10 @@ public class DefaultFullAwareSearcher<SearchResult> implements FullAwareSearcher
 	private boolean searching = false;
 	private boolean isFirstSearch = true;
 	private Location location;
+	
+	private Timer timer;
+	private final int MAX_COUNTDOWN = 30*1000;
+	private int searchCounter;
 	
 	// improve: to handle externally (in LocalizedSearcherCacheNetworkAware) 
 	//	when some exception occurred and an empty result is returned
@@ -59,19 +68,49 @@ public class DefaultFullAwareSearcher<SearchResult> implements FullAwareSearcher
 			LocalizedSearcherCacheNetworkAwareStrictChecking<SearchResult> awareSearcher) {
 		this.locationAwareSupplier = locationAwareSupplier;
 		this.localizedSearcherCacheNetworkAware = awareSearcher;
+		initResult();
 	}
+	private TimerTask buildTimerTask() {
+		return new TimerTask() {
+			@Override
+			public void run() {
+				searchCounter--;
+				if (searchCounter<0) {
+					Log.d("DefaultFullAwareSearcher","resetting state after countdown elapsed");
+					resetSearchState();
+				}				
+			}
+			@Override
+			public boolean cancel() {
+				resetSearchState();
+				return true;
+			}
+		};
+	}
+	
+	
+	private void startTimer() {
+		searchCounter = MAX_COUNTDOWN;
+		timer = new Timer(true);
+		Log.d("DefaultFullAwareSearcher.startTimer","timer: "+timer);
+		timer.scheduleAtFixedRate(buildTimerTask(), 0, 1000);
+	}
+	
+	
 
 	@Override
 	public synchronized Void search(Void... params) throws 
 		LocationFreshNullException,
 		LocationTooNearException, LocationNotSoUsefulException, 
 		CacheTooOldException, CacheEmptyException, NoNetworkException,
-		CacheAwareSearchException, NetworkAwareSearchException, StillSearchException {
+		CacheAwareSearchException, /*NoNetworkAndCacheEmptyException,*/ NetworkAwareSearchException, StillSearchException {
 		
-		if (searching==true) 
+		if (searching==true) {
 			throw new StillSearchException("a searching is still active");
+		}
 		
 		searching=true;
+		startTimer();
 		
 		if (isFirstSearch) { // first search
 			try {
@@ -91,27 +130,30 @@ public class DefaultFullAwareSearcher<SearchResult> implements FullAwareSearcher
 //Log.d("DefaultFullAwareSearcher:69","locationUseful is false, throwing LocationTooNearException");
 		searching=false;
 		Log.d("DefaultFullAwareSearcher","location is too near");
+		location = locationAwareSupplier.getLocation();
+		resetSearchState();
 		throw new LocationTooNearException("location is too near, a new search is absolutely useless");
 	}
 	
-	private Void doSearch() throws CacheTooOldException, CacheEmptyException, NoNetworkException, CacheAwareSearchException, NetworkAwareSearchException {
-		location = locationAwareSupplier.getLocation();
-//Log.d("DefaultFullAwareSearcher:72","using location: "+location);
+	private Void doSearch() throws CacheTooOldException, CacheEmptyException, NoNetworkException, /*NoNetworkAndCacheEmptyException,*/ CacheAwareSearchException, NetworkAwareSearchException {
+		this.location = locationAwareSupplier.getLocation();
+Log.d("DefaultFullAwareSearcher.doSearch","using location: "+location);
 		// use non-aware localizedsearcher as delegate
 		try {
 			localizedSearcherCacheNetworkAware.search(location);
-		} catch (CacheEmptyException | CacheTooOldException
-				| NoNetworkException | CacheAwareSearchException
-				| NetworkAwareSearchException e) {
+			result = localizedSearcherCacheNetworkAware.getResult();
+			resetSearchState();
+		} catch (NoNetworkException | NetworkAwareSearchException | 
+				 CacheEmptyException | CacheTooOldException | CacheAwareSearchException
+				e) {
 			SearchResult result = localizedSearcherCacheNetworkAware.getResult();
 			if (result!=null) {
 				this.result = result;
 			}
-			searching = false;
+			resetSearchState();
 			throw e;
 		}
-		result = localizedSearcherCacheNetworkAware.getResult();
-		searching = false;
+		resetSearchState();
 		return null;
 	}
 	@Override
@@ -122,6 +164,14 @@ public class DefaultFullAwareSearcher<SearchResult> implements FullAwareSearcher
 	@Override
 	public void resetSearchState() {
 		searching = false;
+		if (timer!=null) {
+			Log.d(this.getClass().getSimpleName()+".resetSearchState","timer not null, cancelling it");
+			timer.cancel();
+		}
+	}
+	@Override
+	public int getSearchTimeElapse() {
+		return searchCounter;
 	}
 	
 //	@Override
@@ -143,4 +193,5 @@ public class DefaultFullAwareSearcher<SearchResult> implements FullAwareSearcher
 	public synchronized void setResult(SearchResult result) {
 		this.result = result;
 	}
+	protected abstract void initResult();
 }

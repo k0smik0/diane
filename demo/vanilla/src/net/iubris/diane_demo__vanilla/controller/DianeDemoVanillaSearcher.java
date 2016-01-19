@@ -71,4 +71,9 @@ public class DianeDemoVanillaSearcher extends DefaultFullAwareSearcher<String> {
 	public String getResultByNetwork() {
 		return networkResult;
 	}
+
+	@Override
+	protected void initResult() {
+		setResult("");
+	}
 }
